@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>东鹏 UI 设计规范系统课件 · 可编辑版</title>
+  <style>
+    :root{
+      --dp-red:#e60012;
+      --dp-red-deep:#c9000f;
+      --dp-red-soft:#ff4b55;
+      --dp-ink:#202124;
+      --dp-text:#333;
+      --dp-muted:#737373;
+      --dp-line:#f0c9cc;
+      --dp-paper:#fff;
+      --dp-wash:#fff7f7;
+      --dp-font:"Microsoft YaHei UI","Microsoft YaHei","微软雅黑","PingFang SC","Noto Sans SC",Arial,sans-serif;
+      --dp-mono:"DIN Alternate","Arial Narrow",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#f3f3f3;color:var(--dp-ink);font-family:var(--dp-font);-webkit-font-smoothing:antialiased}
+    button,input{font:inherit}
+    .toolbar{position:fixed;left:0;right:0;top:0;height:52px;z-index:90;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 14px;background:#111;color:#fff;border:0;backdrop-filter:none}
+    .toolbar strong{font-size:14px;color:#fff;white-space:nowrap}
+    .toolbar .group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .tool-btn{height:34px;min-width:34px;border:1px solid rgba(255,255,255,.16);background:#191919;color:#fff;display:inline-grid;place-items:center;cursor:pointer;padding:0 10px}
+    .tool-btn.primary{background:linear-gradient(180deg,#ff3b44,var(--dp-red));color:#fff;border-color:var(--dp-red)}
+    .tool-btn svg{width:17px;height:17px;stroke:currentColor;stroke-width:2;fill:none}
+    .tool-btn span{margin-left:6px;font-size:12px}
+    .tool-btn:disabled{opacity:.38;cursor:not-allowed}
+    .tool-input{width:58px;height:34px;border:1px solid rgba(255,255,255,.2);color:#fff;padding:0 8px;background:#191919}
+    .tool-label{font-size:12px;color:#bbb;display:flex;align-items:center;gap:5px}
+    .editor-on .toolbar{box-shadow:0 8px 28px rgba(0,0,0,.24)}
+    .slide-sidebar{position:fixed;left:0;top:52px;bottom:0;width:260px;z-index:70;background:#f7f7f7;border-right:1px solid #d8d8d8;overflow:auto;padding:12px 10px}
+    .slide-sidebar h2{font-size:12px;line-height:1.2;color:#111;margin:0 0 10px;font-weight:800}
+    .thumb-list{display:grid;gap:10px}
+    .thumb{position:relative;width:100%;aspect-ratio:16/9;border:1px solid transparent;background:#fff;cursor:pointer;text-align:left;padding:12px 12px 10px 34px;overflow:hidden}
+    .thumb.active{border-color:var(--dp-red);box-shadow:0 0 0 1px var(--dp-red)}
+    .thumb-num{position:absolute;left:8px;top:8px;width:18px;height:18px;display:grid;place-items:center;background:#111;color:#fff;font-size:10px;font-weight:800}
+    .thumb-layout{font-size:9px;line-height:1.2;color:var(--dp-red);font-weight:800;text-transform:uppercase}
+    .thumb-title{margin-top:6px;font-size:13px;line-height:1.25;color:#111;font-weight:800}
+    .thumb-foot{position:absolute;left:34px;right:12px;bottom:8px;font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .workspace-bg{position:fixed;left:260px;right:0;top:52px;bottom:0;background:#e9e9e9;z-index:1}
+    #deck{position:fixed;left:300px;top:72px;width:1280px;height:720px;display:flex;transition:transform .34s cubic-bezier(.77,0,.175,1);z-index:10;box-shadow:0 16px 42px rgba(0,0,0,.18);overflow:visible}
+    .slide{width:1280px;height:720px;flex:0 0 1280px;position:relative;overflow:hidden;background:#fff;padding:7.2vh 5.5vw 6.4vh;display:flex;flex-direction:column}
+    .slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:13vh;background:linear-gradient(0deg,rgba(230,0,18,.18),rgba(230,0,18,0));pointer-events:none}
+    .slide.dp-red{color:#fff;background:var(--dp-red) url("images/dp-ppt-bg1.png") center/cover no-repeat}
+    .slide.dp-red::after{display:none}
+    .slide.dp-light{background:radial-gradient(circle at 82% 96%,rgba(230,0,18,.16),transparent 34%),radial-gradient(circle at 5% 12%,rgba(230,0,18,.10),transparent 22%),#fff}
+    .dp-chrome{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;min-height:34px;margin-bottom:4.2vh;font-size:11px;line-height:1.3;color:var(--dp-red);font-weight:700}
+    .dp-red .dp-chrome{color:#fff}
+    .dp-chrome .right{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.02em}
+    .dp-logo{width:112px;height:auto;display:block}
+    .dp-mark-text{font-size:15px;font-weight:800;color:var(--dp-red)}
+    .dp-foot{position:absolute;z-index:3;left:0;right:0;bottom:2.2vh;text-align:center;font-size:12px;letter-spacing:.08em;color:var(--dp-red)}
+    .dp-red .dp-foot{color:#fff}
+    .dp-copyright{position:absolute;left:5.5vw;bottom:2.2vh;font-size:10px;color:rgba(255,255,255,.82)}
+    .dp-cover-main{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4vw;flex:1}
+    .dp-cover-title{font-size:min(5.7vw,64px);line-height:1.18;font-weight:800;color:#fff;margin:0}
+    .dp-cover-en{margin-top:12px;font-size:16px;color:rgba(255,255,255,.9);text-transform:uppercase}
+    .dp-cover-meta{align-self:end;text-align:right;font-size:13px;line-height:1.9;color:rgba(255,255,255,.9)}
+    .dp-section-center{position:relative;z-index:2;flex:1;display:grid;place-items:center;text-align:center}
+    .dp-section-no{font-size:34px;font-weight:700;color:#fff;margin-bottom:14px}
+    .dp-section-line{width:146px;height:1px;background:rgba(255,255,255,.82);margin:16px auto}
+    .dp-content{position:relative;z-index:2;flex:1;display:grid;gap:28px}
+    .dp-two{grid-template-columns:1.02fr .98fr;align-items:center}
+    .dp-two-wide{grid-template-columns:1.15fr .85fr;align-items:start}
+    .dp-three{grid-template-columns:repeat(3,1fr)}
+    .dp-four{grid-template-columns:repeat(4,1fr)}
+    .dp-kicker{font-size:16px;color:var(--dp-red);font-weight:800;margin-bottom:14px}
+    .dp-title{font-size:44px;line-height:1.2;font-weight:800;color:var(--dp-ink);letter-spacing:0;margin:0}
+    .dp-title-lg{font-size:56px;line-height:1.15;font-weight:800;margin:0}
+    .dp-title-xl{font-size:min(7.4vw,82px);line-height:1.1;font-weight:800;margin:0}
+    .dp-subtitle{font-size:20px;line-height:1.55;color:var(--dp-muted);font-weight:400}
+    .dp-red .dp-subtitle{color:rgba(255,255,255,.92)}
+    .dp-lead{font-size:21px;line-height:1.75;color:#555;max-width:840px;margin:0}
+    .dp-rule{width:70px;height:2px;background:var(--dp-red);margin:18px 0 24px}
+    .dp-red .dp-rule{background:#fff}
+    .dp-card{background:rgba(255,255,255,.9);border-left:2px solid var(--dp-red);padding:25px 27px;min-height:150px}
+    .dp-card.soft{background:linear-gradient(180deg,#fff,rgba(255,247,247,.92))}
+    .dp-card h3{font-size:22px;line-height:1.35;color:var(--dp-red);margin:0 0 12px}
+    .dp-card p,.dp-card li{font-size:15px;line-height:1.75;color:#5f6368;margin:0}
+    .dp-card ul{margin:0;padding-left:18px}
+    .dp-num{font-family:var(--dp-mono);font-size:70px;line-height:1;color:var(--dp-red);font-weight:800}
+    .dp-unit{font-size:24px;color:var(--dp-red);font-weight:800;margin-left:4px}
+    .dp-stat-label{font-size:15px;color:#555;margin-top:10px;line-height:1.5}
+    .dp-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:end}
+    .dp-stat{border-left:2px solid var(--dp-red);padding-left:24px}
+    .dp-circle-row{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:nowrap}
+    .dp-circle{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:24px;border:1.5px solid rgba(230,0,18,.48);color:var(--dp-red);background:rgba(255,255,255,.76)}
+    .dp-circle.strong{background:radial-gradient(circle at 32% 20%,#ff858c,var(--dp-red) 68%);color:#fff;border:0}
+    .dp-circle h3{font-size:21px;line-height:1.3;margin:0}
+    .dp-circle p{font-size:13px;line-height:1.5;margin:8px 0 0;color:inherit;opacity:.86}
+    .dp-plus{font-size:32px;color:var(--dp-red);font-weight:300}
+    .dp-image-frame{width:100%;height:100%;min-height:360px;overflow:hidden;background:#f5f5f5;border:1px solid rgba(230,0,18,.16)}
+    .dp-image-frame img{width:100%;height:100%;object-fit:cover;display:block}
+    .dp-product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:end}
+    .dp-product{background:#fff;border-top:2px solid var(--dp-red);padding-top:10px}
+    .dp-product .tile{width:100%;aspect-ratio:3/4;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#ffe6e8);color:var(--dp-red)}
+    .dp-product svg{width:44%;height:44%;stroke:currentColor;fill:none;stroke-width:1.8}
+    .dp-product h4{font-size:15px;margin:14px 0 0;color:#555}
+    .dp-product p{font-size:12px;line-height:1.5;color:#888;margin:4px 0 0}
+    .dp-column-chart{height:380px;display:flex;align-items:end;gap:32px;padding:24px 18px 0}
+    .dp-column{flex:1;display:flex;flex-direction:column;align-items:center;gap:12px}
+    .dp-column-fill{width:100%;background:linear-gradient(180deg,#fff,rgba(230,0,18,.88));height:var(--h);min-height:44px}
+    .dp-column strong{color:var(--dp-red);font-size:24px}
+    .dp-column span{font-size:13px;color:#666}
+    .line-chart{height:360px;background:linear-gradient(#fff,#fff8f8);border:1px solid rgba(230,0,18,.14);padding:28px}
+    .line-chart svg{width:100%;height:100%;overflow:visible}
+    .line-chart text{font-size:12px;fill:#737373}
+    .dp-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
+    .dp-table th{background:linear-gradient(180deg,#ff7278,var(--dp-red));color:#fff;font-weight:700;padding:12px;border:1px solid #f5a3a8}
+    .dp-table td{padding:11px;border:1px solid #f6d4d6;color:#555;text-align:center}
+    .dp-table tr:nth-child(even) td{background:#fff8f8}
+    .quote{max-width:820px;text-align:center;margin:auto}
+    .quote .main{font-size:34px;line-height:1.55;color:var(--dp-red);font-weight:800}
+    .quote .sub{font-size:16px;color:#666;margin-top:18px}
+    .mindmap{position:relative;min-height:430px;display:grid;place-items:center}
+    .mind-center{width:170px;height:170px;border-radius:50%;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,#ff4b55,var(--dp-red));color:#fff;font-size:24px;font-weight:800}
+    .mind-node{position:absolute;width:170px;min-height:82px;background:#fff;border-left:2px solid var(--dp-red);padding:16px 18px;color:#555}
+    .mind-node strong{display:block;color:var(--dp-red);font-size:18px;margin-bottom:6px}
+    .mind-node small{line-height:1.5}
+    .mind-node.n1{left:0;top:20px}.mind-node.n2{right:0;top:20px}.mind-node.n3{left:2vw;bottom:40px}.mind-node.n4{right:2vw;bottom:40px}
+    .icon-list{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .icon-cell{background:#fff;border-left:2px solid var(--dp-red);padding:20px;text-align:center;color:var(--dp-red)}
+    .icon-cell svg{width:34px;height:34px;stroke:currentColor;fill:none;stroke-width:1.8}
+    .icon-cell span{display:block;margin-top:10px;font-size:13px;color:#666}
+    #nav{position:fixed;right:5.5vw;bottom:2.1vh;z-index:30;display:flex;gap:8px}
+    #nav .dot{width:7px;height:7px;border:0;border-radius:50%;background:rgba(230,0,18,.28);cursor:pointer;transition:all .25s ease}
+    #nav .dot.active{width:28px;border-radius:999px;background:var(--dp-red)}
+    body.dp-red-bg #nav .dot{background:rgba(255,255,255,.36)}
+    body.dp-red-bg #nav .dot.active{background:#fff}
+    #index{position:fixed;inset:0;background:rgba(255,255,255,.96);z-index:80;display:none;padding:7vh 5vw;overflow:auto}
+    #index.open{display:block}
+    #index h2{color:var(--dp-red);font-size:26px;margin:0 0 24px}
+    #index .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+    #index button{text-align:left;border:1px solid #f0c9cc;background:#fff;padding:16px;color:#333;cursor:pointer}
+    #toast{position:fixed;right:20px;bottom:20px;z-index:120;background:var(--dp-red);color:#fff;padding:10px 14px;font-size:13px;opacity:0;transform:translateY(10px);transition:.25s}
+    #toast.show{opacity:1;transform:none}
+    [contenteditable="true"]{outline:2px dashed rgba(230,0,18,.35);outline-offset:4px}
+    .inserted{margin-top:18px}
+    .edit-free{position:absolute!important;margin:0!important;z-index:25}
+    .selected-editable{outline:2px solid var(--dp-red)!important;outline-offset:4px}
+    .selection-box{position:absolute;z-index:130;pointer-events:none;border:1px solid rgba(230,0,18,.65)}
+    .selection-box.hidden{display:none}
+    .edit-move-handle,.edit-resize-handle{position:absolute;z-index:140;background:var(--dp-red);color:#fff;border:1px solid #fff;box-shadow:0 4px 16px rgba(230,0,18,.2);user-select:none;touch-action:none}
+    .edit-move-handle{left:-2px;top:-34px;height:26px;min-width:62px;padding:0 9px;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:move}
+    .edit-resize-handle{right:-13px;bottom:-13px;width:24px;height:24px;cursor:nwse-resize;display:grid;place-items:center}
+    .edit-resize-handle::before{content:"";width:10px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:920px){
+      .toolbar{left:8px;right:8px;top:8px}
+      .toolbar strong{display:none}
+      .slide{padding:9vh 6vw 7vh}
+      .dp-two,.dp-two-wide,.dp-three,.dp-four{grid-template-columns:1fr}
+      .dp-cover-main{grid-template-columns:1fr}
+      .dp-stat-grid{grid-template-columns:1fr}
+      .dp-product-grid{grid-template-columns:repeat(2,1fr)}
+      .dp-title-lg{font-size:40px}
+      .dp-circle-row{gap:16px;flex-wrap:wrap}
+      .dp-circle{width:142px;height:142px}
+      .mind-node{position:static;width:auto;margin:8px 0}
+      .mindmap{display:block}
+      .mind-center{margin:0 auto 14px}
+    }
+  </style>
+</head>
+<body class="editor-workspace editor-on">
+  <header class="toolbar" aria-label="课件编辑器">
+    <strong>东鹏 UI 课件编辑器</strong>
+    <div class="group">
+      <button class="tool-btn" id="prevBtn" type="button" title="上一页"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="tool-btn" id="nextBtn" type="button" title="下一页"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      <button class="tool-btn" id="addPageBtn" type="button" title="插入页面"><svg viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></svg></button>
+      <button class="tool-btn" id="duplicatePageBtn" type="button" title="复制当前页"><svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M4 16V5a1 1 0 0 1 1-1h11"/></svg></button>
+      <button class="tool-btn primary" id="editToggle" type="button" title="切换编辑">
+        <svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg><span>编辑</span>
+      </button>
+      <button class="tool-btn" id="saveBtn" type="button" title="保存到本机">
+        <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"/><path d="M17 21v-8H7v8"/><path d="M7 3v5h8"/></svg><span>保存</span>
+      </button>
+      <button class="tool-btn" id="addChartBtn" type="button" title="插入图表">
+        <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16V9"/><path d="M12 16V5"/><path d="M17 16v-3"/></svg><span>图表</span>
+      </button>
+      <button class="tool-btn" id="addTableBtn" type="button" title="插入表格">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 10h18"/><path d="M9 5v14"/><path d="M15 5v14"/></svg><span>表格</span>
+      </button>
+      <button class="tool-btn" id="imageBtn" type="button" title="插入图片">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><circle cx="8" cy="10" r="2"/><path d="m21 15-5-5L5 19"/></svg><span>图片</span>
+      </button>
+      <input class="sr-only" id="imageInput" type="file" accept="image/*" />
+    </div>
+    <div class="group" aria-label="对象调整">
+      <button class="tool-btn edit-only" id="fontDownBtn" type="button" title="减小字号">
+        <svg viewBox="0 0 24 24"><path d="M4 19 10 5l6 14"/><path d="M6.5 14h7"/><path d="M18 12h4"/></svg>
+      </button>
+      <label class="tool-label">字号<input class="tool-input edit-only" id="fontSizeInput" type="number" min="8" max="120" step="1" /></label>
+      <button class="tool-btn edit-only" id="fontUpBtn" type="button" title="增大字号">
+        <svg viewBox="0 0 24 24"><path d="M3 19 9 5l6 14"/><path d="M5.5 14h7"/><path d="M19 10v8"/><path d="M15 14h8"/></svg>
+      </button>
+      <button class="tool-btn edit-only" id="moveLeftBtn" type="button" title="左移"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="tool-btn edit-only" id="moveUpBtn" type="button" title="上移"><svg viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></svg></button>
+      <button class="tool-btn edit-only" id="moveDownBtn" type="button" title="下移"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+      <button class="tool-btn edit-only" id="moveRightBtn" type="button" title="右移"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+      <button class="tool-btn edit-only" id="sizeDownBtn" type="button" title="缩小对象">
+        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M8 12h8"/></svg>
+      </button>
+      <button class="tool-btn edit-only" id="sizeUpBtn" type="button" title="放大对象">
+        <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M16 3h3a2 2 0 0 1 2 2v3"/><path d="M8 21H5a2 2 0 0 1-2-2v-3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+      </button>
+      <button class="tool-btn edit-only" id="addRowBtn" type="button" title="表格增加一行"><span>加行</span></button>
+      <button class="tool-btn edit-only" id="addColBtn" type="button" title="表格增加一列"><span>加列</span></button>
+    </div>
+    <div class="group">
+      <button class="tool-btn" id="indexBtn" type="button" title="目录">
+        <svg viewBox="0 0 24 24"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>
+      </button>
+      <button class="tool-btn" id="exportBtn" type="button" title="导出 HTML">
+        <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg><span>导出</span>
+      </button>
+      <button class="tool-btn" id="resetBtn" type="button" title="恢复初始内容">
+        <svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <aside class="slide-sidebar" aria-label="页面缩略图">
+    <h2>页面列表</h2>
+    <div id="thumbList" class="thumb-list"></div>
+  </aside>
+  <div class="workspace-bg" aria-hidden="true"></div>
+
+  <main id="deck">
+    <section class="slide dp-red" data-layout="DP01" data-title="封面">
+      <div class="dp-chrome"><div class="left"></div><div class="right"><img class="dp-logo" src="images/dongpeng-logo.png" alt="DONGPENG"></div></div>
+      <div class="dp-cover-main">
+        <div>
+          <h1 class="dp-cover-title editable">东鹏 UI 设计规范系统<br>网页课件</h1>
+          <div class="dp-cover-en editable">DESIGN SYSTEM COURSEWARE WITH BUILT-IN EDITOR</div>
+        </div>
+        <div class="dp-cover-meta editable">基于 PDF 思维导图与集团 PPT 模板<br>2026.07</div>
+      </div>
+      <div class="dp-copyright">Copyright © Dongpeng. All rights reserved</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP02" data-title="课程目录">
+      <div class="dp-chrome"><div class="left">目录<br><span style="font-weight:400">CONTENTS</span></div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="dp-content dp-three editable-target" style="align-items:center">
+        <div class="dp-card soft editable"><h3>01</h3><p>从思维导图到设计系统</p></div>
+        <div class="dp-card soft editable"><h3>02</h3><p>品牌基础：色彩、字体、图标</p></div>
+        <div class="dp-card soft editable"><h3>03</h3><p>组件库与页面模板</p></div>
+        <div class="dp-card soft editable"><h3>04</h3><p>图表、表格与数据表达</p></div>
+        <div class="dp-card soft editable"><h3>05</h3><p>多端输出与 AI 协同</p></div>
+        <div class="dp-card soft editable"><h3>06</h3><p>沉淀为 GitHub Skill</p></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-red" data-layout="DP03" data-title="章节：设计系统">
+      <div class="dp-section-center">
+        <div>
+          <div class="dp-section-no editable">01</div>
+          <h2 class="dp-title-xl editable">把规范变成可复用的生产系统</h2>
+          <div class="dp-section-line"></div>
+          <p class="dp-subtitle editable">不仅是视觉文档，更是组件、页面、课件与 Skill 的统一入口</p>
+        </div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP04" data-title="核心观点">
+      <div class="dp-chrome"><div class="left">观点 / SLOGAN</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="quote editable-target">
+        <div class="main editable">设计规范不是静态文档<br>而是持续生产一致体验的工具</div>
+        <div class="dp-rule" style="margin-left:auto;margin-right:auto"></div>
+        <div class="sub editable">首页定调，目录建立路径，章节切换节奏，正文承载方法，结尾沉淀行动。</div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP08" data-title="思维导图结构">
+      <div class="dp-chrome"><div class="left">结构 / MIND MAP</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="dp-content dp-two">
+        <div>
+          <h2 class="dp-title editable">PDF 思维导图的<br>四层结构</h2>
+          <div class="dp-rule"></div>
+          <p class="dp-lead editable">课件按“原则、令牌、组件、输出”组织，把抽象规范转化成可以讲、可以改、可以复用的页面。</p>
+        </div>
+        <div class="mindmap editable-target">
+          <div class="mind-center editable">设计规范<br>系统</div>
+          <div class="mind-node n1 editable"><strong>原则</strong><small>一致性、高效性、可扩展、可访问</small></div>
+          <div class="mind-node n2 editable"><strong>令牌</strong><small>色彩、字体、间距、圆角、阴影</small></div>
+          <div class="mind-node n3 editable"><strong>组件</strong><small>按钮、表单、导航、表格、反馈</small></div>
+          <div class="mind-node n4 editable"><strong>输出</strong><small>Web、移动端、大屏、规范文档、Skill</small></div>
+        </div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP05" data-title="参考图">
+      <div class="dp-chrome"><div class="left">证据 / REFERENCE</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="dp-content dp-two">
+        <div>
+          <div class="dp-kicker editable">从参考图提炼课件语言</div>
+          <h2 class="dp-title-lg editable">组件库、规范文档、Demo 页面保持同一套视觉语法</h2>
+          <div class="dp-rule"></div>
+          <p class="dp-lead editable">红白主色、克制中性色、清晰图标和密集但有序的信息组织，是东鹏 UI 规范在课件中的核心表达。</p>
+        </div>
+        <div class="dp-image-frame"><img src="images/ui-reference.png" alt="东鹏 UI 参考图"></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP06" data-title="设计原则">
+      <div class="dp-chrome"><div class="left">原则 / PRINCIPLES</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div><h2 class="dp-title editable">四个原则，约束所有界面表达</h2><div class="dp-rule"></div></div>
+      <div class="dp-content dp-four editable-target" style="align-items:start">
+        <div class="dp-card editable"><h3>一致性</h3><p>统一控件状态、图标线宽、文案层级，降低跨系统学习成本。</p></div>
+        <div class="dp-card editable"><h3>高效性</h3><p>为高频业务保留密度，让筛选、表格、操作更适合反复使用。</p></div>
+        <div class="dp-card editable"><h3>可扩展</h3><p>组件和页面模板先定义规则，再服务 RTM、助销宝和新业务。</p></div>
+        <div class="dp-card editable"><h3>可访问</h3><p>对比度、字号、反馈状态和触控热区要能覆盖多端场景。</p></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP07" data-title="设计令牌">
+      <div class="dp-chrome"><div class="left">令牌 / TOKENS</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <h2 class="dp-title editable">用少量设计令牌<br>托住大量业务页面</h2><div class="dp-rule"></div>
+      <div class="dp-stat-grid editable-target" style="flex:1">
+        <div class="dp-stat editable"><div><span class="dp-num">1</span><span class="dp-unit">套</span></div><div class="dp-stat-label">东鹏红白品牌主系统</div></div>
+        <div class="dp-stat editable"><div><span class="dp-num">4</span><span class="dp-unit">px</span></div><div class="dp-stat-label">基础网格控制间距节奏</div></div>
+        <div class="dp-stat editable"><div><span class="dp-num">2</span><span class="dp-unit">px</span></div><div class="dp-stat-label">图标线宽与组件边界</div></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP10" data-title="组件成熟度">
+      <div class="dp-chrome"><div class="left">图表 / CHART</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="dp-content dp-two-wide">
+        <div>
+          <h2 class="dp-title editable">组件成熟度<br>分阶段推进</h2><div class="dp-rule"></div>
+          <p class="dp-lead editable">先固化基础控件，再沉淀业务组件，最后把页面模板和 AI 生成规则一起封装。</p>
+        </div>
+        <div class="dp-column-chart editable-target">
+          <div class="dp-column editable"><strong>40%</strong><div class="dp-column-fill" style="--h:40%"></div><span>基础</span></div>
+          <div class="dp-column editable"><strong>64%</strong><div class="dp-column-fill" style="--h:64%"></div><span>组件</span></div>
+          <div class="dp-column editable"><strong>78%</strong><div class="dp-column-fill" style="--h:78%"></div><span>页面</span></div>
+          <div class="dp-column editable"><strong>92%</strong><div class="dp-column-fill" style="--h:92%"></div><span>Skill</span></div>
+        </div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP11" data-title="组件清单">
+      <div class="dp-chrome"><div class="left">表格 / TABLE</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <h2 class="dp-title editable">组件库交付清单</h2><div class="dp-rule"></div>
+      <div class="editable-target">
+        <table class="dp-table editable">
+          <thead><tr><th>模块</th><th>核心内容</th><th>状态</th><th>输出形式</th></tr></thead>
+          <tbody>
+            <tr><td>基础</td><td>颜色、字体、间距、图标</td><td>已成型</td><td>DESIGN.md / 网页规范</td></tr>
+            <tr><td>组件</td><td>按钮、表单、表格、反馈</td><td>可复用</td><td>组件库 / Demo</td></tr>
+            <tr><td>页面</td><td>RTM、助销宝、Dashboard</td><td>可扩展</td><td>页面模板</td></tr>
+            <tr><td>课件</td><td>PPT 风格网页与编辑器</td><td>本次新增</td><td>HTML Courseware</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP09" data-title="多端输出">
+      <div class="dp-chrome"><div class="left">输出 / MULTI OUTPUT</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <h2 class="dp-title editable">同一套规范，输出到多个业务终端</h2><div class="dp-rule"></div>
+      <div class="dp-product-grid editable-target">
+        <div class="dp-product editable"><div class="tile"><svg viewBox="0 0 24 24"><path d="M3 5h18v12H3z"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div><h4>Web 端</h4><p>后台系统与管理台</p></div>
+        <div class="dp-product editable"><div class="tile"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><h4>移动端</h4><p>助销宝与门店应用</p></div>
+        <div class="dp-product editable"><div class="tile"><svg viewBox="0 0 24 24"><path d="M4 4h16v13H4z"/><path d="M4 9h16"/><path d="M9 17v3"/><path d="M15 17v3"/></svg></div><h4>大屏端</h4><p>经营看板与会议展示</p></div>
+        <div class="dp-product editable"><div class="tile"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></div><h4>规范文档</h4><p>DESIGN.md 与组件说明</p></div>
+        <div class="dp-product editable"><div class="tile"><svg viewBox="0 0 24 24"><path d="M12 3 4 7l8 4 8-4-8-4Z"/><path d="m4 12 8 4 8-4"/><path d="m4 17 8 4 8-4"/></svg></div><h4>Skill</h4><p>AI 自动生成东鹏风格资产</p></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP05" data-title="系统图">
+      <div class="dp-chrome"><div class="left">协同 / AI WORKFLOW</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div class="dp-content dp-two">
+        <div>
+          <div class="dp-kicker editable">品牌基线 + 业务自定义 + AI 协同</div>
+          <h2 class="dp-title-lg editable">下一步可以封装成 GitHub Skill</h2>
+          <div class="dp-rule"></div>
+          <p class="dp-lead editable">把模板、资产、布局规则、检查清单和生成流程写进 Skill，之后只要输入主题和素材，就能稳定产出东鹏风格网页课件或 PPT。</p>
+        </div>
+        <div class="dp-image-frame"><img src="images/system-map.png" alt="东鹏设计系统输出关系图"></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-light" data-layout="DP06" data-title="Skill 化路线">
+      <div class="dp-chrome"><div class="left">路线 / SKILL ROADMAP</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+      <div><h2 class="dp-title editable">GitHub Skill 建议拆成四个文件层</h2><div class="dp-rule"></div></div>
+      <div class="dp-content dp-four editable-target" style="align-items:start">
+        <div class="dp-card editable"><h3>01 SKILL.md</h3><p>写清触发场景、输入要求、输出物和东鹏红白风格硬规则。</p></div>
+        <div class="dp-card editable"><h3>02 assets</h3><p>放 logo、背景、课件模板、组件截图和可复用图片槽位。</p></div>
+        <div class="dp-card editable"><h3>03 references</h3><p>沉淀布局、组件、图表、表格和质量检查清单。</p></div>
+        <div class="dp-card editable"><h3>04 scripts</h3><p>做占位符检查、图片路径检查、版式编号检查和打包命令。</p></div>
+      </div>
+      <div class="dp-foot">以此为主 · 精于此道</div>
+    </section>
+
+    <section class="slide dp-red" data-layout="DP12" data-title="收尾">
+      <div class="dp-chrome"><div class="left"></div><div class="right"><img class="dp-logo" src="images/dongpeng-logo.png" alt="DONGPENG"></div></div>
+      <div class="dp-section-center">
+        <div>
+          <h2 class="dp-title-xl editable">让规范进入生产流程</h2>
+          <div class="dp-section-line"></div>
+          <p class="dp-subtitle editable">网页课件先可讲、可改、可复用；下一步再封装成 Skill</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="nav" aria-label="slide navigation"></div>
+  <div id="index" aria-hidden="true"><h2>目录 / Slides</h2><div class="grid"></div></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="selectionBox" class="selection-box hidden" aria-hidden="true">
+    <div id="moveHandle" class="edit-move-handle">移动</div>
+    <div id="resizeHandle" class="edit-resize-handle"></div>
+  </div>
+
+  <script>
+    const deck = document.getElementById('deck');
+    const nav = document.getElementById('nav');
+    const thumbList = document.getElementById('thumbList');
+    const indexPanel = document.getElementById('index');
+    const toast = document.getElementById('toast');
+    const selectionBox = document.getElementById('selectionBox');
+    const moveHandle = document.getElementById('moveHandle');
+    const resizeHandle = document.getElementById('resizeHandle');
+    const storageKey = 'dongpeng-courseware-v4';
+    const initialDeck = deck.innerHTML;
+    let slides = [];
+    let idx = 0;
+    let editing = true;
+    let selectedEl = null;
+    let dragState = null;
+
+    function iconTableBlock(){
+      return `<table class="dp-table inserted editable edit-free" style="left:22%;top:30%;width:56%;height:auto"><thead><tr><th>项目</th><th>说明</th><th>状态</th></tr></thead><tbody><tr><td>新增项</td><td>点击编辑文字</td><td>进行中</td></tr><tr><td>新增项</td><td>点击编辑文字</td><td>待确认</td></tr></tbody></table>`;
+    }
+    function chartBlock(){
+      return `<div class="dp-column-chart inserted editable edit-free" style="left:28%;top:28%;width:44%;height:40%"><div class="dp-column"><strong>45%</strong><div class="dp-column-fill" style="--h:45%"></div><span>阶段一</span></div><div class="dp-column"><strong>68%</strong><div class="dp-column-fill" style="--h:68%"></div><span>阶段二</span></div><div class="dp-column"><strong>86%</strong><div class="dp-column-fill" style="--h:86%"></div><span>阶段三</span></div></div>`;
+    }
+    function newPageTemplate(){
+      return `<section class="slide dp-light" data-layout="DP05" data-title="新页面">
+        <div class="dp-chrome"><div class="left editable">NEW SECTION</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+        <div class="dp-content dp-two editable-target">
+          <div>
+            <div class="dp-kicker editable">NEW SECTION</div>
+            <h2 class="dp-title-lg editable">双击编辑<br>页面标题</h2>
+            <div class="dp-rule"></div>
+            <p class="dp-lead editable">在这里输入页面正文。</p>
+          </div>
+          <div class="dp-card editable" style="min-height:320px;background:#111;color:#fff;border-left:0">
+            <h3 style="color:var(--dp-red);font-size:64px">01</h3>
+            <p style="color:#fff">在这里输入重点信息。</p>
+          </div>
+        </div>
+        <div class="dp-foot">以此为主 · 精于此道</div>
+      </section>`;
+    }
+    function applyStageSize(){
+      const availableW = Math.max(520, window.innerWidth - 300);
+      const availableH = Math.max(320, window.innerHeight - 88);
+      const w = Math.min(availableW - 28, availableH * 16 / 9);
+      const h = w * 9 / 16;
+      deck.style.width = `${w}px`;
+      deck.style.height = `${h}px`;
+      deck.style.left = `${260 + (availableW - w) / 2}px`;
+      deck.style.top = `${52 + (availableH - h) / 2}px`;
+      slides.forEach(slide => {
+        slide.style.width = `${w}px`;
+        slide.style.height = `${h}px`;
+        slide.style.flexBasis = `${w}px`;
+      });
+    }
+    function slideWidth(){
+      return slides[0]?.getBoundingClientRect().width || window.innerWidth;
+    }
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+    function selectableFrom(target){
+      return target.closest('.dp-image-frame, .dp-table, .dp-column-chart, .dp-card, .dp-product, .mind-node, .mind-center, .dp-stat, .dp-circle, .quote, .editable');
+    }
+    function activeSlide(){
+      return slides[idx];
+    }
+    function slideRect(){
+      return activeSlide().getBoundingClientRect();
+    }
+    function makeFree(el){
+      if(!el || el.classList.contains('edit-free')) return;
+      const sr = slideRect();
+      const r = el.getBoundingClientRect();
+      el.style.left = `${((r.left - sr.left) / sr.width) * 100}%`;
+      el.style.top = `${((r.top - sr.top) / sr.height) * 100}%`;
+      el.style.width = `${(r.width / sr.width) * 100}%`;
+      el.style.height = `${(r.height / sr.height) * 100}%`;
+      el.classList.add('edit-free');
+    }
+    function updateSelectionBox(){
+      if(!editing || !selectedEl || !activeSlide().contains(selectedEl)){
+        selectionBox.classList.add('hidden');
+        return;
+      }
+      const sr = slideRect();
+      const r = selectedEl.getBoundingClientRect();
+      selectionBox.style.left = `${r.left - sr.left}px`;
+      selectionBox.style.top = `${r.top - sr.top}px`;
+      selectionBox.style.width = `${r.width}px`;
+      selectionBox.style.height = `${r.height}px`;
+      activeSlide().appendChild(selectionBox);
+      selectionBox.classList.remove('hidden');
+    }
+    function selectElement(el){
+      if(!editing || !el || !activeSlide().contains(el)) return;
+      if(selectedEl) selectedEl.classList.remove('selected-editable');
+      selectedEl = el;
+      selectedEl.classList.add('selected-editable');
+      syncEditorControls();
+      updateSelectionBox();
+    }
+    function clearSelection(){
+      if(selectedEl) selectedEl.classList.remove('selected-editable');
+      selectedEl = null;
+      selectionBox.classList.add('hidden');
+      syncEditorControls();
+    }
+    function syncEditorControls(){
+      const hasSelection = Boolean(selectedEl);
+      document.querySelectorAll('.edit-only').forEach(el => {
+        el.disabled = editing ? !hasSelection : true;
+      });
+      const fontInput = document.getElementById('fontSizeInput');
+      if(selectedEl){
+        fontInput.value = Math.round(parseFloat(getComputedStyle(selectedEl).fontSize) || 16);
+      }else{
+        fontInput.value = '';
+      }
+      const table = selectedTable();
+      document.getElementById('addRowBtn').disabled = !(editing && table);
+      document.getElementById('addColBtn').disabled = !(editing && table);
+    }
+    function selectedTable(){
+      if(!selectedEl) return null;
+      return selectedEl.matches('table') ? selectedEl : selectedEl.querySelector('table');
+    }
+    function nudgeSelected(dx, dy){
+      if(!selectedEl) return;
+      makeFree(selectedEl);
+      const left = parseFloat(selectedEl.style.left) || 0;
+      const top = parseFloat(selectedEl.style.top) || 0;
+      const sr = slideRect();
+      selectedEl.style.left = `${left + (dx / sr.width) * 100}%`;
+      selectedEl.style.top = `${top + (dy / sr.height) * 100}%`;
+      updateSelectionBox();
+    }
+    function scaleSelected(factor){
+      if(!selectedEl) return;
+      makeFree(selectedEl);
+      const w = parseFloat(selectedEl.style.width) || 20;
+      const h = parseFloat(selectedEl.style.height) || 20;
+      selectedEl.style.width = `${Math.max(5, w * factor)}%`;
+      selectedEl.style.height = `${Math.max(4, h * factor)}%`;
+      updateSelectionBox();
+    }
+    function setFontSize(size){
+      if(!selectedEl || !size) return;
+      selectedEl.style.fontSize = `${Math.max(8, Math.min(120, Number(size)))}px`;
+      selectedEl.querySelectorAll('h1,h2,h3,h4,p,span,strong,small,td,th,li,div').forEach(child => {
+        if(child.closest('.edit-move-handle,.edit-resize-handle')) return;
+        child.style.fontSize = 'inherit';
+      });
+      updateSelectionBox();
+    }
+    function changeFont(delta){
+      if(!selectedEl) return;
+      const base = parseFloat(getComputedStyle(selectedEl).fontSize) || 16;
+      setFontSize(base + delta);
+      syncEditorControls();
+    }
+    function addTableRow(){
+      const table = selectedTable();
+      if(!table) return;
+      const body = table.tBodies[0] || table.createTBody();
+      const cols = table.rows[0]?.cells.length || 3;
+      const row = body.insertRow();
+      for(let i = 0; i < cols; i += 1){
+        const cell = row.insertCell();
+        cell.textContent = '新增内容';
+      }
+      updateSelectionBox();
+    }
+    function addTableCol(){
+      const table = selectedTable();
+      if(!table) return;
+      [...table.rows].forEach((row, i) => {
+        const cell = i === 0 ? document.createElement('th') : document.createElement('td');
+        cell.textContent = i === 0 ? '新增列' : '新增内容';
+        row.appendChild(cell);
+      });
+      updateSelectionBox();
+    }
+    function collectSlides(){
+      slides = [...deck.querySelectorAll('.slide')];
+      applyStageSize();
+      nav.innerHTML = '';
+      slides.forEach((slide, i) => {
+        const b = document.createElement('button');
+        b.className = 'dot';
+        b.type = 'button';
+        b.setAttribute('aria-label', `Go to slide ${i + 1}`);
+        b.addEventListener('click', () => go(i));
+        nav.appendChild(b);
+      });
+      buildIndex();
+      buildThumbs();
+      applyEditable();
+    }
+    function setChrome(){
+      document.body.classList.toggle('dp-red-bg', slides[idx]?.classList.contains('dp-red'));
+    }
+    function go(n){
+      idx = Math.max(0, Math.min(slides.length - 1, n));
+      deck.style.transform = `translateX(-${idx * slideWidth()}px)`;
+      nav.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === idx));
+      thumbList.querySelectorAll('.thumb').forEach((d, i) => d.classList.toggle('active', i === idx));
+      setChrome();
+      if(selectedEl && !activeSlide().contains(selectedEl)) clearSelection();
+      updateSelectionBox();
+    }
+    function buildThumbs(){
+      thumbList.innerHTML = '';
+      slides.forEach((slide, i) => {
+        const title = slide.dataset.title || '未命名页面';
+        const layout = slide.dataset.layout || 'DP';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'thumb';
+        btn.innerHTML = `<span class="thumb-num">${i + 1}</span><div class="thumb-layout">${layout}</div><div class="thumb-title">${title}</div><div class="thumb-foot">DONGPENG DESIGN</div>`;
+        btn.addEventListener('click', () => go(i));
+        thumbList.appendChild(btn);
+      });
+    }
+    function buildIndex(){
+      const grid = indexPanel.querySelector('.grid');
+      grid.innerHTML = '';
+      slides.forEach((slide, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.innerHTML = `<strong>${String(i + 1).padStart(2,'0')}</strong><br>${slide.dataset.title || '未命名页面'}`;
+        b.addEventListener('click', () => {
+          indexPanel.classList.remove('open');
+          go(i);
+        });
+        grid.appendChild(b);
+      });
+    }
+    function applyEditable(){
+      deck.querySelectorAll('.editable').forEach(el => {
+        el.contentEditable = editing ? 'true' : 'false';
+      });
+      document.body.classList.toggle('editor-on', editing);
+      document.getElementById('editToggle').querySelector('span').textContent = editing ? '退出' : '编辑';
+      if(!editing) clearSelection();
+      syncEditorControls();
+    }
+    function targetForInsert(){
+      return slides[idx].querySelector('.editable-target') || slides[idx].querySelector('.dp-content') || slides[idx];
+    }
+    function insertHtml(html){
+      const target = html.includes('edit-free') ? activeSlide() : targetForInsert();
+      target.insertAdjacentHTML('beforeend', html);
+      applyEditable();
+      const inserted = target.lastElementChild;
+      if(inserted) selectElement(inserted);
+      showToast('已插入，可直接编辑');
+    }
+    function insertPage(){
+      slides[idx].insertAdjacentHTML('afterend', newPageTemplate());
+      collectSlides();
+      go(idx + 1);
+      showToast('已插入新页面');
+    }
+    function duplicatePage(){
+      const copy = slides[idx].cloneNode(true);
+      copy.querySelector('#selectionBox')?.remove();
+      copy.querySelectorAll('.selected-editable').forEach(el => el.classList.remove('selected-editable'));
+      copy.dataset.title = `${copy.dataset.title || '页面'} 副本`;
+      slides[idx].insertAdjacentElement('afterend', copy);
+      collectSlides();
+      go(idx + 1);
+      showToast('已复制当前页');
+    }
+    function cleanDeckHtml(){
+      const clone = deck.cloneNode(true);
+      clone.querySelector('#selectionBox')?.remove();
+      clone.querySelectorAll('.selected-editable').forEach(el => el.classList.remove('selected-editable'));
+      clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      return clone.innerHTML;
+    }
+    function saveDeck(){
+      localStorage.setItem(storageKey, cleanDeckHtml());
+      showToast('已保存到本机浏览器');
+    }
+    function loadDeck(){
+      const saved = localStorage.getItem(storageKey);
+      if(saved){
+        deck.innerHTML = saved;
+      }
+      collectSlides();
+      go(0);
+    }
+    function resetDeck(){
+      if(confirm('确定恢复初始课件？本机保存的修改会被清除。')){
+        localStorage.removeItem(storageKey);
+        deck.innerHTML = initialDeck;
+        collectSlides();
+        go(0);
+        showToast('已恢复初始内容');
+      }
+    }
+    function exportHtml(){
+      const clone = document.documentElement.cloneNode(true);
+      clone.querySelector('#deck').innerHTML = cleanDeckHtml();
+      clone.querySelector('#selectionBox')?.remove();
+      clone.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
+      clone.querySelectorAll('.selected-editable').forEach(el => el.classList.remove('selected-editable'));
+      clone.querySelector('body').classList.remove('editor-on');
+      const html = '<!doctype html>\n' + clone.outerHTML;
+      const blob = new Blob([html], {type:'text/html;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'dongpeng-ui-courseware.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+    document.getElementById('editToggle').addEventListener('click', () => {
+      editing = !editing;
+      applyEditable();
+      showToast(editing ? '已进入编辑模式' : '已退出编辑模式');
+    });
+    document.getElementById('saveBtn').addEventListener('click', saveDeck);
+    document.getElementById('resetBtn').addEventListener('click', resetDeck);
+    document.getElementById('exportBtn').addEventListener('click', exportHtml);
+    document.getElementById('indexBtn').addEventListener('click', () => indexPanel.classList.toggle('open'));
+    document.getElementById('addChartBtn').addEventListener('click', () => insertHtml(chartBlock()));
+    document.getElementById('addTableBtn').addEventListener('click', () => insertHtml(iconTableBlock()));
+    document.getElementById('addPageBtn').addEventListener('click', insertPage);
+    document.getElementById('duplicatePageBtn').addEventListener('click', duplicatePage);
+    document.getElementById('prevBtn').addEventListener('click', () => go(idx - 1));
+    document.getElementById('nextBtn').addEventListener('click', () => go(idx + 1));
+    document.getElementById('imageBtn').addEventListener('click', () => document.getElementById('imageInput').click());
+    document.getElementById('imageInput').addEventListener('change', event => {
+      const file = event.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => insertHtml(`<div class="dp-image-frame inserted edit-free" style="left:32%;top:28%;width:36%;height:36%"><img src="${reader.result}" alt="插入图片"></div>`);
+      reader.readAsDataURL(file);
+      event.target.value = '';
+    });
+    deck.addEventListener('click', event => {
+      if(!editing) return;
+      const handleClick = event.target.closest('#selectionBox');
+      if(handleClick) return;
+      const target = selectableFrom(event.target);
+      if(target && activeSlide().contains(target)){
+        selectElement(target);
+      }else{
+        clearSelection();
+      }
+    });
+    moveHandle.addEventListener('pointerdown', event => {
+      if(!selectedEl) return;
+      event.preventDefault();
+      makeFree(selectedEl);
+      dragState = {
+        mode:'move',
+        startX:event.clientX,
+        startY:event.clientY,
+        left:parseFloat(selectedEl.style.left) || 0,
+        top:parseFloat(selectedEl.style.top) || 0
+      };
+      moveHandle.setPointerCapture(event.pointerId);
+    });
+    resizeHandle.addEventListener('pointerdown', event => {
+      if(!selectedEl) return;
+      event.preventDefault();
+      makeFree(selectedEl);
+      dragState = {
+        mode:'resize',
+        startX:event.clientX,
+        startY:event.clientY,
+        width:parseFloat(selectedEl.style.width) || 10,
+        height:parseFloat(selectedEl.style.height) || 10
+      };
+      resizeHandle.setPointerCapture(event.pointerId);
+    });
+    document.addEventListener('pointermove', event => {
+      if(!dragState || !selectedEl) return;
+      const sr = slideRect();
+      const dx = event.clientX - dragState.startX;
+      const dy = event.clientY - dragState.startY;
+      if(dragState.mode === 'move'){
+        selectedEl.style.left = `${dragState.left + (dx / sr.width) * 100}%`;
+        selectedEl.style.top = `${dragState.top + (dy / sr.height) * 100}%`;
+      }else{
+        selectedEl.style.width = `${Math.max(4, dragState.width + (dx / sr.width) * 100)}%`;
+        selectedEl.style.height = `${Math.max(4, dragState.height + (dy / sr.height) * 100)}%`;
+      }
+      updateSelectionBox();
+    });
+    document.addEventListener('pointerup', () => {
+      dragState = null;
+    });
+    window.addEventListener('resize', () => {
+      applyStageSize();
+      go(idx);
+      updateSelectionBox();
+    });
+    document.getElementById('fontDownBtn').addEventListener('click', () => changeFont(-2));
+    document.getElementById('fontUpBtn').addEventListener('click', () => changeFont(2));
+    document.getElementById('fontSizeInput').addEventListener('change', event => {
+      setFontSize(event.target.value);
+      syncEditorControls();
+    });
+    document.getElementById('moveLeftBtn').addEventListener('click', () => nudgeSelected(-10, 0));
+    document.getElementById('moveRightBtn').addEventListener('click', () => nudgeSelected(10, 0));
+    document.getElementById('moveUpBtn').addEventListener('click', () => nudgeSelected(0, -10));
+    document.getElementById('moveDownBtn').addEventListener('click', () => nudgeSelected(0, 10));
+    document.getElementById('sizeDownBtn').addEventListener('click', () => scaleSelected(.92));
+    document.getElementById('sizeUpBtn').addEventListener('click', () => scaleSelected(1.08));
+    document.getElementById('addRowBtn').addEventListener('click', addTableRow);
+    document.getElementById('addColBtn').addEventListener('click', addTableCol);
+    document.addEventListener('keydown', e => {
+      const active = document.activeElement;
+      const typing = active && (active.isContentEditable || active.tagName === 'INPUT' || active.tagName === 'TEXTAREA');
+      if(typing) return;
+      if(e.key === 'ArrowRight' || e.key === ' '){ e.preventDefault(); go(idx + 1); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); go(idx - 1); }
+      if(e.key === 'Home') go(0);
+      if(e.key === 'End') go(slides.length - 1);
+      if(e.key === 'Escape') indexPanel.classList.toggle('open');
+    });
+    let wheelLock = false;
+    document.addEventListener('wheel', e => {
+      if(wheelLock || editing) return;
+      wheelLock = true;
+      go(idx + (e.deltaY > 0 ? 1 : -1));
+      setTimeout(() => wheelLock = false, 650);
+    }, {passive:true});
+    loadDeck();
+  </script>
+</body>
+</html>
