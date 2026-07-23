@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>东鹏企业汇报视觉模板 · DONGPENG Deck</title>
+<style>
+  :root{
+    --dp-red:#e60012;
+    --dp-red-deep:#c9000f;
+    --dp-red-soft:#ff4b55;
+    --dp-ink:#202124;
+    --dp-text:#333333;
+    --dp-muted:#737373;
+    --dp-line:#f0c9cc;
+    --dp-paper:#ffffff;
+    --dp-wash:#fff7f7;
+    --dp-font:"Microsoft YaHei UI","Microsoft YaHei","微软雅黑","PingFang SC","Hiragino Sans GB","Noto Sans SC",Arial,sans-serif;
+    --dp-mono:"DIN Alternate","Arial Narrow",Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:100%;height:100%;overflow:hidden;background:#f3f3f3;color:var(--dp-ink);font-family:var(--dp-font);-webkit-font-smoothing:antialiased}
+  #deck{position:fixed;inset:0;width:10000vw;height:100vh;display:flex;transition:transform .76s cubic-bezier(.77,0,.175,1);z-index:10}
+  .slide{width:100vw;height:100vh;flex:0 0 100vw;position:relative;overflow:hidden;background:var(--dp-paper);padding:5.1vh 5.5vw 6.2vh;display:flex;flex-direction:column}
+  .slide::after{content:"";position:absolute;left:0;right:0;bottom:0;height:13vh;background:linear-gradient(0deg,rgba(230,0,18,.18),rgba(230,0,18,0));pointer-events:none}
+  .slide.dp-red{color:#fff;background:var(--dp-red) url("images/dp-ppt-bg1.png") center/cover no-repeat}
+  .slide.dp-red::after{display:none}
+  .slide.dp-light{background:radial-gradient(circle at 82% 96%,rgba(230,0,18,.16),transparent 34%),radial-gradient(circle at 5% 12%,rgba(230,0,18,.10),transparent 22%),#fff}
+  .slide.dp-blank{background:#fff}
+  .slide.dp-blank::after{display:none}
+
+  .dp-chrome{position:relative;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;min-height:34px;margin-bottom:4.6vh;font-size:11px;line-height:1.3;color:var(--dp-red);font-weight:700}
+  .dp-red .dp-chrome{color:#fff}
+  .dp-chrome .left{letter-spacing:.02em}
+  .dp-chrome .right{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.02em}
+  .dp-logo{width:112px;height:auto;display:block}
+  .dp-mark-text{font-size:15px;font-weight:800;letter-spacing:.01em;color:var(--dp-red)}
+  .dp-foot{position:absolute;z-index:3;left:0;right:0;bottom:2.2vh;text-align:center;font-size:12px;letter-spacing:.08em;color:var(--dp-red)}
+  .dp-red .dp-foot{color:#fff}
+  .dp-copyright{position:absolute;left:5.5vw;bottom:2.2vh;font-size:10px;color:rgba(255,255,255,.82)}
+  .dp-date{position:absolute;right:5.5vw;bottom:2.2vh;font-size:11px;color:var(--dp-muted)}
+  .dp-red .dp-date{color:rgba(255,255,255,.82)}
+
+  .dp-kicker{font-size:16px;color:var(--dp-red);font-weight:700;margin-bottom:14px}
+  .dp-red .dp-kicker{color:#fff}
+  .dp-title{font-size:44px;line-height:1.2;font-weight:700;color:var(--dp-ink);letter-spacing:0}
+  .dp-red .dp-title{color:#fff}
+  .dp-title-lg{font-size:56px;line-height:1.15;font-weight:700}
+  .dp-title-xl{font-size:min(7.4vw,82px);line-height:1.1;font-weight:700}
+  .dp-subtitle{font-size:20px;line-height:1.55;color:var(--dp-muted);font-weight:400}
+  .dp-red .dp-subtitle{color:rgba(255,255,255,.92)}
+  .dp-lead{font-size:21px;line-height:1.8;color:#555;max-width:820px}
+  .dp-red .dp-lead{color:rgba(255,255,255,.9)}
+  .dp-rule{width:70px;height:2px;background:var(--dp-red);margin:18px 0 24px}
+  .dp-red .dp-rule{background:#fff}
+  .dp-vrule{width:1px;background:var(--dp-line)}
+
+  .dp-cover-main{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4vw;flex:1}
+  .dp-cover-title{font-size:min(5.5vw,58px);line-height:1.25;font-weight:700;color:#fff}
+  .dp-cover-en{margin-top:10px;font-size:16px;letter-spacing:.02em;color:rgba(255,255,255,.9);text-transform:uppercase}
+  .dp-cover-meta{align-self:end;text-align:right;font-size:13px;line-height:1.9;color:rgba(255,255,255,.9)}
+
+  .dp-section-center{position:relative;z-index:2;flex:1;display:grid;place-items:center;text-align:center}
+  .dp-section-no{font-size:34px;font-weight:700;color:#fff;margin-bottom:14px}
+  .dp-section-line{width:146px;height:1px;background:rgba(255,255,255,.82);margin:16px auto}
+
+  .dp-content{position:relative;z-index:2;flex:1;display:grid;gap:28px}
+  .dp-two{grid-template-columns:1.05fr .95fr;align-items:center}
+  .dp-two-wide{grid-template-columns:1.2fr .8fr;align-items:start}
+  .dp-three{grid-template-columns:repeat(3,1fr)}
+  .dp-four{grid-template-columns:repeat(4,1fr)}
+  .dp-card{background:rgba(255,255,255,.88);border-left:2px solid var(--dp-red);padding:26px 28px;min-height:150px}
+  .dp-card h3{font-size:22px;line-height:1.35;color:var(--dp-red);margin-bottom:12px}
+  .dp-card p{font-size:15px;line-height:1.75;color:#5f6368}
+  .dp-card.soft{background:linear-gradient(180deg,#fff,rgba(255,247,247,.92))}
+  .dp-num{font-family:var(--dp-mono);font-size:70px;line-height:1;color:var(--dp-red);font-weight:700}
+  .dp-unit{font-size:24px;color:var(--dp-red);font-weight:700;margin-left:4px}
+  .dp-stat-label{font-size:15px;color:#555;margin-top:10px;line-height:1.5}
+  .dp-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:end}
+  .dp-stat{border-left:2px solid var(--dp-red);padding:0 0 0 24px}
+
+  .dp-circle-row{display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:nowrap}
+  .dp-circle{width:180px;height:180px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:24px;border:1.5px solid rgba(230,0,18,.48);color:var(--dp-red);background:rgba(255,255,255,.72)}
+  .dp-circle.strong{background:radial-gradient(circle at 32% 20%,#ff858c,var(--dp-red) 68%);color:#fff;border:0}
+  .dp-circle h3{font-size:22px;line-height:1.3}
+  .dp-circle p{font-size:13px;line-height:1.5;margin-top:8px;color:inherit;opacity:.86}
+  .dp-plus{font-size:34px;color:var(--dp-red);font-weight:300}
+
+  .dp-image-frame{width:100%;height:100%;min-height:360px;overflow:hidden;background:#f5f5f5}
+  .dp-image-frame img{width:100%;height:100%;object-fit:cover;display:block}
+  .dp-product-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;align-items:end}
+  .dp-product img{width:100%;aspect-ratio:3/4;object-fit:cover;background:#eee;display:block}
+  .dp-product h4{font-size:15px;margin-top:14px;color:#555}
+  .dp-product p{font-size:12px;line-height:1.5;color:#888;margin-top:4px}
+
+  .dp-bars{display:grid;gap:18px}
+  .dp-bar{display:grid;grid-template-columns:72px 1fr 44px;gap:14px;align-items:center;font-size:14px;color:#555}
+  .dp-bar-track{height:14px;background:#f0f0f0;overflow:hidden}
+  .dp-bar-fill{height:100%;background:linear-gradient(90deg,rgba(230,0,18,.24),var(--dp-red));width:var(--v)}
+  .dp-column-chart{height:380px;display:flex;align-items:end;gap:34px;padding:24px 18px 0}
+  .dp-column{flex:1;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .dp-column-fill{width:100%;background:linear-gradient(180deg,#fff,rgba(230,0,18,.88));height:var(--h);min-height:44px}
+  .dp-column strong{color:var(--dp-red);font-size:24px}
+  .dp-column span{font-size:13px;color:#666}
+
+  .dp-table{width:100%;border-collapse:collapse;font-size:14px;background:#fff}
+  .dp-table th{background:linear-gradient(180deg,#ff7278,var(--dp-red));color:#fff;font-weight:700;padding:12px;border:1px solid #f5a3a8}
+  .dp-table td{padding:11px;border:1px solid #f6d4d6;color:#555;text-align:center}
+  .dp-table tr:nth-child(even) td{background:#fff8f8}
+
+  .dp-quote{max-width:760px;text-align:center;margin:auto}
+  .dp-quote .main{font-size:34px;line-height:1.55;color:var(--dp-red);font-weight:700}
+  .dp-quote .sub{font-size:16px;color:#666;margin-top:18px}
+  .dp-red .dp-quote .main,.dp-red .dp-quote .sub{color:#fff}
+
+  #nav{position:fixed;left:50%;bottom:2.1vh;transform:translateX(-50%);z-index:30;display:flex;gap:8px}
+  #nav .dot{width:7px;height:7px;border:0;border-radius:50%;background:rgba(230,0,18,.28);cursor:pointer;transition:all .25s ease}
+  #nav .dot.active{width:28px;border-radius:999px;background:var(--dp-red)}
+  body.dp-red-bg #nav .dot{background:rgba(255,255,255,.36)}
+  body.dp-red-bg #nav .dot.active{background:#fff}
+  #index{position:fixed;inset:0;background:rgba(255,255,255,.94);z-index:80;display:none;padding:5vh 5vw;overflow:auto}
+  #index.open{display:block}
+  #index h2{color:var(--dp-red);font-size:24px;margin-bottom:24px}
+  #index .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  #index button{text-align:left;border:1px solid #f0c9cc;background:#fff;padding:16px;color:#333;font:inherit;cursor:pointer}
+
+  @media(max-width:820px){
+    .slide{padding:4.2vh 6vw 7vh}
+    .dp-two,.dp-two-wide,.dp-three,.dp-four{grid-template-columns:1fr}
+    .dp-cover-main{grid-template-columns:1fr}
+    .dp-stat-grid{grid-template-columns:1fr}
+    .dp-product-grid{grid-template-columns:repeat(2,1fr)}
+    .dp-title-lg{font-size:40px}
+    .dp-circle-row{gap:16px;flex-wrap:wrap}
+    .dp-circle{width:142px;height:142px}
+  }
+</style>
+</head>
+<body>
+<main id="deck">
+<section class="slide dp-red" data-layout="DP01" data-title="汇报封面">
+  <div class="dp-chrome"><div class="left"></div><div class="right"><img class="dp-logo" src="images/dongpeng-logo.png" alt="DONGPENG"></div></div>
+  <div class="dp-cover-main">
+    <div><h1 class="dp-cover-title">东鹏企业汇报<br>视觉模板</h1><div class="dp-cover-en">DONGPENG CORPORATE REPORT SYSTEM</div></div>
+    <div class="dp-cover-meta">设计体系示例<br>2026.07</div>
+  </div>
+  <div class="dp-copyright">Copyright © Dongpeng. All rights reserved</div>
+</section>
+<section class="slide dp-light" data-layout="DP02" data-title="目录">
+  <div class="dp-chrome"><div class="left">目录<br><span style="font-weight:400">CONTENTS</span></div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+  <div class="dp-content dp-three" style="align-items:center">
+    <div class="dp-card soft"><h3>01</h3><p>品牌基础</p></div><div class="dp-card soft"><h3>02</h3><p>经营概览</p></div><div class="dp-card soft"><h3>03</h3><p>核心策略</p></div>
+    <div class="dp-card soft"><h3>04</h3><p>产品矩阵</p></div><div class="dp-card soft"><h3>05</h3><p>行动计划</p></div><div class="dp-card soft"><h3>06</h3><p>总结展望</p></div>
+  </div><div class="dp-foot">以此为主 · 精于此道</div>
+</section>
+<section class="slide dp-red" data-layout="DP03" data-title="章节页">
+  <div class="dp-section-center"><div><div class="dp-section-no">01</div><h2 class="dp-title-xl">经营概览</h2><div class="dp-section-line"></div><p class="dp-subtitle">用清晰的数据，看见确定的增长</p></div></div>
+  <div class="dp-foot">以此为主 · 精于此道</div>
+</section>
+<section class="slide dp-light" data-layout="DP07" data-title="数据大字报">
+  <div class="dp-chrome"><div class="left">数据 / KPI</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+  <h2 class="dp-title">核心经营指标稳步增长</h2><div class="dp-rule"></div>
+  <div class="dp-stat-grid" style="flex:1">
+    <div class="dp-stat"><div><span class="dp-num">68</span><span class="dp-unit">%</span></div><div class="dp-stat-label">年度业绩完成率</div></div>
+    <div class="dp-stat"><div><span class="dp-num">2,386</span><span class="dp-unit">万</span></div><div class="dp-stat-label">年度采购总额</div></div>
+    <div class="dp-stat"><div><span class="dp-num">128</span><span class="dp-unit">+</span></div><div class="dp-stat-label">重点项目落地</div></div>
+  </div><div class="dp-foot">以此为主 · 精于此道</div>
+</section>
+<section class="slide dp-light" data-layout="DP06" data-title="核心策略">
+  <div class="dp-chrome"><div class="left">策略 / STRATEGY</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+  <div><h2 class="dp-title">三条路径，共同驱动增长</h2><div class="dp-rule"></div></div>
+  <div class="dp-content dp-three" style="align-items:start">
+    <div class="dp-card"><h3>01 渠道提效</h3><p>围绕核心业务场景简化流程，让组织协同更高效。</p></div>
+    <div class="dp-card"><h3>02 产品焕新</h3><p>以用户需求为中心，持续构建更有竞争力的产品组合。</p></div>
+    <div class="dp-card"><h3>03 数字驱动</h3><p>用统一数据口径支撑判断，让经营动作有据可循。</p></div>
+  </div><div class="dp-foot">以此为主 · 精于此道</div>
+</section>
+<section class="slide dp-light" data-layout="DP10" data-title="趋势图表">
+  <div class="dp-chrome"><div class="left">数据图表 / CHART</div><div class="right"><span class="dp-mark-text">DONGPENG</span></div></div>
+  <div class="dp-content dp-two-wide">
+    <div><h2 class="dp-title">季度目标<br>逐步兑现</h2><div class="dp-rule"></div><p class="dp-lead">红白渐变表达趋势，重点突出结论，不使用多色 dashboard。</p></div>
+    <div class="dp-column-chart">
+      <div class="dp-column"><strong>42%</strong><div class="dp-column-fill" style="--h:42%"></div><span>Q1</span></div><div class="dp-column"><strong>58%</strong><div class="dp-column-fill" style="--h:58%"></div><span>Q2</span></div>
+      <div class="dp-column"><strong>76%</strong><div class="dp-column-fill" style="--h:76%"></div><span>Q3</span></div><div class="dp-column"><strong>92%</strong><div class="dp-column-fill" style="--h:92%"></div><span>Q4</span></div>
+    </div>
+  </div><div class="dp-foot">以此为主 · 精于此道</div>
+</section>
+<section class="slide dp-red" data-layout="DP12" data-title="收尾">
+  <div class="dp-chrome"><div class="left"></div><div class="right"><img class="dp-logo" src="images/dongpeng-logo.png" alt="DONGPENG"></div></div>
+  <div class="dp-section-center"><div><h2 class="dp-title-xl">谢谢观看</h2><div class="dp-section-line"></div><p class="dp-subtitle">以此为主 · 精于此道</p></div></div>
+</section>
+</main>
+<div id="nav" aria-label="slide navigation"></div>
+<div id="index" aria-hidden="true"><h2>目录 / Slides</h2><div class="grid"></div></div>
+
+<script>
+const deck=document.getElementById('deck');
+const slides=[...deck.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');
+const index=document.getElementById('index');
+let idx=0;
+slides.forEach((slide,i)=>{
+  const b=document.createElement('button');
+  b.className='dot';
+  b.type='button';
+  b.setAttribute('aria-label',`Go to slide ${i+1}`);
+  b.addEventListener('click',()=>go(i));
+  nav.appendChild(b);
+});
+function setChrome(){
+  document.body.classList.toggle('dp-red-bg',slides[idx]?.classList.contains('dp-red'));
+}
+function go(n){
+  idx=Math.max(0,Math.min(slides.length-1,n));
+  deck.style.transform=`translateX(-${idx*100}vw)`;
+  nav.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
+  setChrome();
+}
+function toggleIndex(){
+  if(!index.querySelector('button')){
+    const grid=index.querySelector('.grid');
+    slides.forEach((slide,i)=>{
+      const title=slide.dataset.title || slide.querySelector('.dp-title,.dp-title-lg,.dp-cover-title,.dp-quote .main')?.textContent?.trim() || `Slide ${i+1}`;
+      const b=document.createElement('button');
+      b.textContent=`${String(i+1).padStart(2,'0')} · ${title}`;
+      b.addEventListener('click',()=>{index.classList.remove('open');go(i)});
+      grid.appendChild(b);
+    });
+  }
+  index.classList.toggle('open');
+}
+window.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();go(idx+1)}
+  if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(idx-1)}
+  if(e.key==='Escape'){toggleIndex()}
+});
+let wheelLock=0;
+window.addEventListener('wheel',e=>{
+  const now=Date.now();
+  if(now-wheelLock<620) return;
+  if(Math.abs(e.deltaX)+Math.abs(e.deltaY)<24) return;
+  wheelLock=now;
+  go(idx+(e.deltaY+e.deltaX>0?1:-1));
+},{passive:true});
+let sx=0;
+window.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+window.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-sx;
+  if(Math.abs(dx)>48) go(idx+(dx<0?1:-1));
+},{passive:true});
+go(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="东鹏 UI 视觉规范体系：品牌规范、RTM 后台、助销宝移动端与汇报 PPT 视觉组件库。" />
+  <title>东鹏 UI 视觉设计体系</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <header class="dp-site-header">
+    <a class="dp-site-brand" href="#overview" aria-label="东鹏 UI 视觉设计体系首页">
+      <img src="./assets/dongpeng-ui-logo.png" alt="东鹏 UI 视觉设计体系" />
+    </a>
+    <div class="search-box dp-site-search">
+      <i data-lucide="search"></i>
+      <input id="doc-search" type="search" placeholder="搜索组件、规范或页面…" aria-label="搜索文档" />
+      <kbd><span>Ctrl</span><span>K</span></kbd>
+      <div id="search-results" class="search-results" role="listbox" aria-label="搜索结果" hidden></div>
+    </div>
+    <nav class="dp-site-nav" aria-label="顶部导航">
+      <a href="#overview">设计</a>
+      <a href="#buttons">基础组件</a>
+      <a href="#rtm-home">页面模板</a>
+      <a href="#ppt-overview">资源</a>
+      <a href="#systems">关于</a>
+    </nav>
+    <div class="dp-site-tools">
+      <span class="version">v1.0.0</span>
+      <a href="https://lucide.dev/icons/" target="_blank" rel="noreferrer" aria-label="Lucide 图标库"><i data-lucide="feather"></i></a>
+      <a href="https://github.com/fan604925-dev/dongpeng-ppt-editor" target="_blank" rel="noreferrer" aria-label="GitHub"><i data-lucide="github"></i></a>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="东鹏 UI 视觉设计体系首页">
+        <img src="./assets/dongpeng-ui-logo.png" alt="东鹏 UI 视觉设计体系" />
+      </a>
+
+      <nav id="sidebar-nav" aria-label="设计体系导航">
+        <div class="nav-section">
+          <p class="nav-title">开始</p>
+          <a class="nav-item active" href="#overview"><i data-lucide="house"></i>概览</a>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>品牌基础视觉</span><i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#colors">颜色</a>
+            <a class="nav-item" href="#typography">字体</a>
+            <a class="nav-item" href="#radius">间距与圆角</a>
+            <a class="nav-item" href="#shadow">阴影与动效</a>
+            <a class="nav-item" href="#icons">图标</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>基础组件</span><i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#buttons">按钮</a>
+            <a class="nav-item" href="#inputs">输入框 / 选择器</a>
+            <a class="nav-item" href="#cards">卡片</a>
+            <a class="nav-item" href="#tabs">标签页</a>
+            <a class="nav-item" href="#status">状态指示</a>
+            <a class="nav-item" href="#quick-actions">快捷入口</a>
+            <a class="nav-item" href="#table">标准表格</a>
+            <a class="nav-item" href="#pagination">分页</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>RTM 后台系统视觉</span><i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#rtm-home">首页</a>
+            <a class="nav-item" href="#rtm-list">列表页</a>
+            <a class="nav-item" href="#rtm-form">表单页</a>
+            <a class="nav-item" href="#empty">空状态</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>助销宝系统视觉</span><i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#zxb-foundation">色彩 / 图标</a>
+            <a class="nav-item" href="#zxb-components">移动组件</a>
+            <a class="nav-item" href="#zxb-home">首页模板</a>
+            <a class="nav-item" href="#zxb-form">表单页</a>
+            <a class="nav-item" href="#zxb-states">弹窗 / 成功</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>汇报 PPT 视觉</span><i data-lucide="chevron-down"></i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#ppt-overview">PPT 概览</a>
+            <a class="nav-item" href="#ppt-foundation">视觉规范</a>
+            <a class="nav-item" href="#ppt-layouts">页面版式</a>
+            <a class="nav-item" href="#ppt-skill">PPT Skill</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="false">
+            <span>其他系统视觉</span><i data-lucide="chevron-right"></i>
+          </button>
+          <div class="nav-children collapsed">
+            <a class="nav-item" href="#systems">设计家系统</a>
+            <a class="nav-item" href="#systems">IW 系统</a>
+            <a class="nav-item" href="#systems">ROP 后台</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" type="button" aria-label="打开导航"><i data-lucide="menu"></i></button>
+      </header>
+
+      <main id="content">
+        <section id="overview" class="doc-section hero-section dp-home" data-search="概览 东鹏 设计体系">
+          <div class="dp-hero-stage">
+            <video class="dp-hero-video dp-hero-video-forward" autoplay loop muted playsinline preload="auto" poster="./assets/hero-glass-cube.png" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+              <source src="./assets/hero-background.mp4" type="video/mp4" />
+            </video>
+            <video class="dp-hero-video dp-hero-video-reverse" loop muted playsinline preload="auto" poster="./assets/hero-glass-cube.png" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+              <source src="./assets/hero-background-reverse.mp4" type="video/mp4" />
+            </video>
+            <span class="dp-hero-video-hint" aria-hidden="true"><i data-lucide="mouse-pointer-2"></i>左侧倒放 · 右侧播放</span>
+            <div class="dp-hero-copy">
+              <div class="eyebrow">DONGPENG UI DESIGN SYSTEM</div>
+              <h1>东鹏 UI<br /><span>视觉设计体系</span></h1>
+              <p>基于东鹏品牌视觉提炼的网页版组件库<br />让每一个业务界面 清晰、一致、有章可循</p>
+              <div class="hero-actions">
+                <a class="dp-button primary" href="#buttons">浏览基础组件 <i data-lucide="arrow-right"></i></a>
+                <a class="dp-button secondary" href="#rtm-home">查看页面模板</a>
+              </div>
+            </div>
+            <div class="dp-hero-art" aria-hidden="true">
+              <span class="dp-art-ring ring-a"></span>
+              <span class="dp-art-ring ring-b"></span>
+              <span class="dp-art-core">DP</span>
+              <span class="dp-art-tile tile-a"><i data-lucide="layout-dashboard"></i></span>
+              <span class="dp-art-tile tile-b"><i data-lucide="panels-top-left"></i></span>
+              <span class="dp-art-tile tile-c"><i data-lucide="smartphone"></i></span>
+              <span class="dp-art-dot dot-a"></span>
+              <span class="dp-art-dot dot-b"></span>
+            </div>
+          </div>
+
+          <div class="dp-home-updates">
+            <a href="#colors"><span>基础视觉</span><strong>东鹏品牌色与视觉 Token</strong><small>红白品牌语言、字体、间距、圆角与阴影</small><time>FOUNDATION</time></a>
+            <a href="#buttons"><span>基础组件</span><strong>Web 组件规范</strong><small>按钮、表单、卡片、表格与分页实时预览</small><time>COMPONENTS</time></a>
+            <a href="#zxb-foundation"><span>移动端</span><strong>助销宝设计规范</strong><small>移动组件、首页、表单和业务状态页面</small><time>MOBILE</time></a>
+            <a href="#ppt-overview"><span>品牌资源</span><strong>东鹏汇报 PPT</strong><small>集团模板、标准版式与生成 Skill</small><time>RESOURCES</time></a>
+          </div>
+
+        </section>
+
+        <section id="colors" class="doc-section" data-search="颜色 色彩 token 主色 辅助色 中性色">
+          <div class="section-heading"><div><span class="section-index">01</span><h2>颜色</h2><p>以东鹏红建立品牌识别，用克制的辅助色传达业务状态。</p></div></div>
+          <div class="color-grid">
+            <article class="color-card large" style="--swatch:#E61817"><div class="swatch"></div><div><strong>品牌红</strong><code>#E61817</code></div></article>
+            <article class="color-card" style="--swatch:#C62828"><div class="swatch"></div><div><strong>深红</strong><code>#C62828</code></div></article>
+            <article class="color-card" style="--swatch:linear-gradient(135deg,#FC6F6F 0%,#FF0A12 100%)"><div class="swatch"></div><div><strong>渐变红</strong><code>#FC6F6F → #FF0A12</code></div></article>
+            <article class="color-card" style="--swatch:#FFF5F5"><div class="swatch bordered"></div><div><strong>背景红</strong><code>#FFF5F5</code></div></article>
+            <article class="color-card" style="--swatch:#4590E6"><div class="swatch"></div><div><strong>信息蓝</strong><code>#4590E6</code></div></article>
+            <article class="color-card" style="--swatch:#2E7D32"><div class="swatch"></div><div><strong>成功绿</strong><code>#2E7D32</code></div></article>
+            <article class="color-card" style="--swatch:#ED6C02"><div class="swatch"></div><div><strong>警示橙</strong><code>#ED6C02</code></div></article>
+            <article class="color-card" style="--swatch:#1A1A1A"><div class="swatch"></div><div><strong>文本主色</strong><code>#1A1A1A</code></div></article>
+          </div>
+        </section>
+
+        <section id="typography" class="doc-section" data-search="字体 文字 HarmonyOS Sans MiSans">
+          <div class="section-heading"><div><span class="section-index">02</span><h2>字体</h2><p>中文界面优先 HarmonyOS Sans SC，数字与特殊西文使用 MiSans。</p></div></div>
+          <div class="type-specimen">
+            <div class="type-row title-xl"><span>大标题</span><strong>东鹏全渠道系统 20</strong><code>20 / Bold</code></div>
+            <div class="type-row title-md"><span>中标题</span><strong>业务概览与待办事项</strong><code>16 / Bold</code></div>
+            <div class="type-row title-sm"><span>小标题</span><strong>订单查询结果</strong><code>14 / Bold</code></div>
+            <div class="type-row body-md"><span>正文 · 中</span><p>用于表单、表格和主要说明文字。</p><code>14 / Regular</code></div>
+            <div class="type-row caption"><span>注释 · 中</span><p>用于辅助说明、日期和弱化信息。</p><code>12 / Regular</code></div>
+          </div>
+        </section>
+
+        <section id="radius" class="doc-section" data-search="间距 圆角 radius spacing">
+          <div class="section-heading"><div><span class="section-index">03</span><h2>间距与圆角</h2><p>采用 4px 基础网格。紧凑但不拥挤，适应高信息密度的 B 端界面。</p></div></div>
+          <div class="token-grid">
+            <div class="token-card"><div class="space-demo s4"></div><strong>4px</strong><span>图标与文字</span></div>
+            <div class="token-card"><div class="space-demo s8"></div><strong>8px</strong><span>控件内部</span></div>
+            <div class="token-card"><div class="space-demo s16"></div><strong>16px</strong><span>组件间距</span></div>
+            <div class="token-card"><div class="space-demo s24"></div><strong>24px</strong><span>区块间距</span></div>
+            <div class="token-card"><div class="radius-demo r2"></div><strong>2px</strong><span>标签 / 表格</span></div>
+            <div class="token-card"><div class="radius-demo r4"></div><strong>4px</strong><span>按钮 / 输入框</span></div>
+            <div class="token-card"><div class="radius-demo r8"></div><strong>8px</strong><span>卡片</span></div>
+          </div>
+        </section>
+
+        <section id="shadow" class="doc-section" data-search="阴影 动效 motion shadow">
+          <div class="section-heading"><div><span class="section-index">04</span><h2>阴影与动效</h2><p>层级依靠边界与轻阴影表达；交互动效快速、克制、可预测。</p></div></div>
+          <div class="shadow-grid">
+            <div class="shadow-card level-1"><strong>Level 1</strong><span>悬浮按钮、下拉菜单</span><code>0 2px 8px rgba(0,0,0,.08)</code></div>
+            <div class="shadow-card level-2"><strong>Level 2</strong><span>弹窗、抽屉</span><code>0 8px 24px rgba(0,0,0,.12)</code></div>
+            <div class="motion-card"><span class="motion-dot"></span><strong>160–240ms</strong><span>标准过渡时长</span></div>
+          </div>
+        </section>
+
+        <section id="icons" class="doc-section" data-search="图标 Lucide 16 24 2px">
+          <div class="section-heading"><div><span class="section-index">05</span><h2>图标</h2><p>统一使用 Lucide，线宽固定 2px；16px 用于行内，24px 用于金刚区或标题旁。</p></div></div>
+          <div class="icon-board">
+            <div class="icon-size"><i data-lucide="chart-no-axes-combined"></i><strong>24px</strong><span>标题 / 快捷入口</span></div>
+            <div class="icon-list">
+              <div><i data-lucide="house"></i><span>house</span></div>
+              <div><i data-lucide="clipboard-list"></i><span>clipboard-list</span></div>
+              <div><i data-lucide="truck"></i><span>truck</span></div>
+              <div><i data-lucide="file-text"></i><span>file-text</span></div>
+              <div><i data-lucide="search"></i><span>search</span></div>
+              <div><i data-lucide="settings-2"></i><span>settings-2</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="buttons" class="doc-section component-section" data-search="按钮 button primary secondary danger">
+          <div class="section-heading"><div><span class="section-index">06</span><h2>按钮</h2><p>主要操作使用品牌红；一个操作区域通常只保留一个主按钮。</p></div></div>
+          <div class="demo-card">
+            <div class="demo-toolbar"><div class="segmented"><button class="active">预览</button><button>代码</button></div><button class="copy-button" type="button"><i data-lucide="copy"></i>复制代码</button></div>
+            <div class="demo-preview button-demo">
+              <button class="dp-button primary"><i data-lucide="plus"></i>创建订单</button>
+              <button class="dp-button secondary">导入</button>
+              <button class="dp-button text">重置</button>
+              <button class="dp-button primary" disabled>不可用</button>
+            </div>
+            <pre class="code-panel"><code>&lt;button class="dp-button primary"&gt;
+  &lt;i data-lucide="plus"&gt;&lt;/i&gt;创建订单
+&lt;/button&gt;
+&lt;button class="dp-button secondary"&gt;导入&lt;/button&gt;</code></pre>
+          </div>
+        </section>
+
+        <section id="inputs" class="doc-section component-section" data-search="输入框 选择器 筛选 日期">
+          <div class="section-heading"><div><span class="section-index">07</span><h2>输入框 / 选择器</h2><p>表单控件高度统一为 36px，标签与控件保持 8px 间距。</p></div></div>
+          <div class="demo-card">
+            <div class="demo-toolbar"><div class="segmented"><button class="active">预览</button><button>代码</button></div><button class="copy-button" type="button"><i data-lucide="copy"></i>复制代码</button></div>
+            <div class="demo-preview form-demo">
+              <label><span>订单编号</span><div class="dp-input"><i data-lucide="search"></i><input placeholder="请输入订单编号" /></div></label>
+              <label><span>业务状态</span><select class="dp-select"><option>全部状态</option><option>待确认</option><option>已完成</option></select></label>
+              <label><span>创建时间</span><div class="dp-input"><i data-lucide="calendar"></i><input value="2026-05-13" /></div></label>
+            </div>
+            <pre class="code-panel"><code>&lt;label&gt;
+  &lt;span&gt;订单编号&lt;/span&gt;
+  &lt;div class="dp-input"&gt;
+    &lt;i data-lucide="search"&gt;&lt;/i&gt;
+    &lt;input placeholder="请输入订单编号" /&gt;
+  &lt;/div&gt;
+&lt;/label&gt;</code></pre>
+          </div>
+        </section>
+
+        <section id="cards" class="doc-section component-section" data-search="卡片 数据卡片">
+          <div class="section-heading"><div><span class="section-index">08</span><h2>数据卡片</h2><p>关键指标使用大号数字，趋势信息用语义色辅助判断。</p></div></div>
+          <div class="metric-grid">
+            <article class="metric-card"><span>年业绩完成率</span><strong><em>68</em>%</strong><small>同比 <b class="up">+50% ↑</b>　环比 <b class="down">-10% ↓</b></small></article>
+            <article class="metric-card"><span>年业绩</span><strong>8,608<small>元</small></strong><small>同比 <b class="up">+50% ↑</b>　环比 <b class="down">-10% ↓</b></small></article>
+            <article class="metric-card"><span>采购总额</span><strong>23,868<small>元</small></strong><small>同比 <b class="up">+50% ↑</b>　环比 <b class="down">-10% ↓</b></small></article>
+            <article class="metric-card"><span>未提货</span><strong><em>38</em><small>单</small></strong><small>同比 <b class="up">+50% ↑</b>　环比 <b class="down">-10% ↓</b></small></article>
+          </div>
+        </section>
+
+        <section id="tabs" class="doc-section component-section" data-search="标签页 tabs">
+          <div class="section-heading"><div><span class="section-index">09</span><h2>标签页</h2><p>用于同级页面切换；当前项通过品牌红与底边强调。</p></div></div>
+          <div class="page-tabs"><button class="active">首页</button><button>创建报价单 <i data-lucide="x"></i></button><button>提货订单 <i data-lucide="x"></i></button></div>
+        </section>
+
+        <section id="status" class="doc-section component-section" data-search="状态 指示 标签 成功 警告">
+          <div class="section-heading"><div><span class="section-index">10</span><h2>状态指示</h2><p>状态不仅依赖颜色，同时保留文字语义以提高可访问性。</p></div></div>
+          <div class="status-row"><span class="status success">已完成</span><span class="status warning">待处理</span><span class="status danger">已逾期</span><span class="status info">进行中</span><span class="status neutral">草稿</span></div>
+        </section>
+
+        <section id="quick-actions" class="doc-section component-section" data-search="快捷入口 金刚区">
+          <div class="section-heading"><div><span class="section-index">11</span><h2>快捷入口</h2><p>24px 图标搭配简短动宾结构名称，建议每组不超过 6 项。</p></div></div>
+          <div class="quick-grid">
+            <button><span><i data-lucide="clipboard-plus"></i></span>创建订单</button>
+            <button><span><i data-lucide="truck"></i></span>订单提货</button>
+            <button><span><i data-lucide="scroll-text"></i></span>开票申请</button>
+            <button><span><i data-lucide="chart-no-axes-combined"></i></span>经营信息</button>
+            <button class="add"><span><i data-lucide="plus"></i></span>添加常用</button>
+          </div>
+        </section>
+
+        <section id="table" class="doc-section component-section" data-search="标准表格 table">
+          <div class="section-heading"><div><span class="section-index">12</span><h2>标准表格</h2><p>表头 44px、数据行 48px；悬停与选中状态保持明确区分。</p></div></div>
+          <div class="table-card">
+            <div class="table-actions"><span>提货订单</span><div><button class="dp-button secondary small"><i data-lucide="download"></i>导出</button><button class="dp-button secondary small"><i data-lucide="settings-2"></i>自定义</button></div></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th><input type="checkbox" /></th><th>序号</th><th>时间 <i data-lucide="chevrons-up-down"></i></th><th>负责业务员</th><th>所属阶段</th><th>单号</th><th>变更项</th><th>金额</th></tr></thead>
+                <tbody>
+                  <tr><td><input type="checkbox" /></td><td>1</td><td>2026-06-11 13:00</td><td>李冬</td><td><span class="status info">新增</span></td><td>320322198612134225</td><td>申请新增门店</td><td>58</td></tr>
+                  <tr class="selected"><td><input type="checkbox" checked /></td><td>2</td><td>2026-06-11 13:00</td><td>徐晓云</td><td><span class="status warning">重装</span></td><td>320322198612134226</td><td>申请装修</td><td>985</td></tr>
+                  <tr><td><input type="checkbox" /></td><td>3</td><td>2026-06-11 13:00</td><td>黄金梁</td><td><span class="status neutral">局改</span></td><td>320322198612134227</td><td>门店升级</td><td>776</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="pagination" class="doc-section component-section" data-search="分页 pagination">
+          <div class="section-heading"><div><span class="section-index">13</span><h2>分页</h2><p>默认每页 10 条，同时展示总数与当前范围。</p></div></div>
+          <div class="pagination"><span>共 366 条</span><button disabled><i data-lucide="chevron-left"></i></button><button class="active">1</button><button>2</button><button>3</button><span>…</span><button>37</button><button><i data-lucide="chevron-right"></i></button><select><option>10 条 / 页</option><option>20 条 / 页</option></select></div>
+        </section>
+
+        <section id="rtm-home" class="doc-section page-section" data-search="RTM 首页 页面模板">
+          <div class="section-heading"><div><span class="section-index">14</span><h2>RTM 首页模板</h2><p>按照 RTM 高保真原型重建顶部平台导航、侧边栏与完整工作台信息结构。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+          <div class="rtm-frame rtm-frame-hi">
+            <div class="rtm-header">
+              <div class="rtm-brand"><img src="./assets/rtm-logo.png" alt="东鹏 RTM 全渠道系统" /></div>
+              <button class="rtm-collapse" aria-label="收起侧边栏"><i data-lucide="panel-left-close"></i></button>
+              <div class="rtm-platform active"><i data-lucide="clipboard-check"></i><span>订单 / 提货 / 开票 OMS</span></div>
+              <div class="rtm-platform"><i data-lucide="layers-3"></i><span>商机 / 合同 LTC</span></div>
+              <div class="rtm-platform"><i data-lucide="user-round"></i><span>BASE 客户</span></div>
+              <div class="rtm-platform"><i data-lucide="plus"></i><span>更多平台</span></div>
+              <div class="rtm-search"><i data-lucide="search"></i><span>输入搜索内容</span></div>
+              <span class="avatar">樊</span><span class="rtm-user">樊态　上海东鹏官方旗舰店</span><i class="rtm-chevron" data-lucide="chevron-down"></i>
+            </div>
+            <div class="rtm-body">
+              <aside class="rtm-side">
+                <a class="active"><i data-lucide="house"></i><span>首页</span></a>
+                <a><i data-lucide="monitor"></i><span>工作台</span><i data-lucide="chevron-up"></i></a>
+                <a class="sub"><span>我的代办</span></a><a class="sub"><span>我的已办</span></a>
+                <a><i data-lucide="layout-dashboard"></i><span>瓷砖事业部</span><i data-lucide="chevron-down"></i></a>
+                <a><i data-lucide="monitor-cog"></i><span>卫浴事业部</span><i data-lucide="chevron-down"></i></a>
+                <a><i data-lucide="chart-no-axes-combined"></i><span>报表管理</span><i data-lucide="chevron-down"></i></a>
+                <a><i data-lucide="clipboard-list"></i><span>政策管理</span><i data-lucide="chevron-down"></i></a>
+                <a><i data-lucide="handshake"></i><span>业务管理</span><i data-lucide="chevron-down"></i></a>
+                <a><i data-lucide="smartphone"></i><span>OMS 鹏客 APP</span><i data-lucide="chevron-down"></i></a>
+              </aside>
+              <div class="rtm-main">
+                <div class="rtm-tabs"><span class="active">首页</span><span>创建报价单 <i data-lucide="x"></i></span></div>
+                <div class="rtm-content">
+                  <div class="welcome"><div><strong>欢迎来到 东鹏RTM全渠道系统</strong><span>上海东鹏官方旗舰店</span></div></div>
+                  <div class="rtm-dashboard-grid">
+                    <div class="rtm-panel overview-panel">
+                      <h4>本月概况 <i data-lucide="circle-help"></i></h4>
+                      <div class="mini-metrics">
+                        <div><span>年业绩完成率</span><b class="red">68<small>%</small></b><em>同比 <i>+50% ↑</i>　环比 <u>-10% ↓</u></em></div>
+                        <div><span>年业绩</span><b>8,608<small>元</small></b><em>同比 <i>+50% ↑</i>　环比 <u>-10% ↓</u></em></div>
+                        <div><span>采购总额</span><b>23,868<small>元</small></b><em>同比 <i>+50% ↑</i>　环比 <u>-10% ↓</u></em></div>
+                        <div><span>未提货</span><b class="red">38<small>单</small></b><em>同比 <i>+50% ↑</i>　环比 <u>-10% ↓</u></em></div>
+                      </div>
+                    </div>
+                    <div class="rtm-panel account">
+                      <div class="rtm-panel-head"><h4>账号资金 <i data-lucide="circle-help"></i></h4><span><b>8A00</b>　7500　7B30</span></div>
+                      <div class="account-grid"><div><span>可开单金额 <i data-lucide="eye"></i></span><b>682,038<small>元</small></b><em>账号逾期，请打款10万元</em></div><div><span>可用现金 <i data-lucide="eye-off"></i></span><b>＊＊＊<small>元</small></b></div></div>
+                    </div>
+                    <div class="rtm-panel quick-panel">
+                      <div class="rtm-panel-head"><h4>常用快捷操作</h4><span>自定义 <i data-lucide="chevron-right"></i></span></div>
+                      <div class="mini-actions"><span><i data-lucide="clipboard-plus"></i>创建订单</span><span><i data-lucide="truck"></i>订单提货</span><span><i data-lucide="scroll-text"></i>开票申请</span><span><i data-lucide="square-plus"></i>创建订单</span><span><i data-lucide="chart-no-axes-combined"></i>经营信息</span><span class="add"><i data-lucide="plus"></i>添加常用</span></div>
+                    </div>
+                    <div class="rtm-panel alerts">
+                      <h4>仓储费预警 <small>2项</small></h4>
+                      <p><i data-lucide="siren"></i><span>有 <b>9</b> 件商品将在 <b>7</b> 天内逾期，已开始收取仓储费<em>橙色预警信号　2026-06-11　09:00:45</em></span></p>
+                      <p><i data-lucide="siren"></i><span>有 <b>3</b> 件商品已逾期，已开始收取仓储费<em>红色预警信号　2026-06-11　09:00:45</em></span></p>
+                    </div>
+                    <div class="rtm-panel list-panel">
+                      <div class="rtm-panel-head"><h4>通知公告 <small>3项</small></h4><span>查看全部 <i data-lucide="chevron-right"></i></span></div>
+                      <ul><li>“鹏哥”APP操作指引&操作视频 <time>2026-06-11</time></li><li>东瓷销字〔2026〕22号 关于2026年零售渠道营销… <time>2026-06-11</time></li><li>东瓷销字〔2026〕19号 2026年上半年零售渠道… <time>2026-06-11</time></li><li>经销商信用评级结果公示 <time>2026-06-11</time></li><li>关于3月产品价格调整的通知 <time>2026-06-11</time></li></ul>
+                    </div>
+                    <div class="rtm-panel list-panel">
+                      <div class="rtm-panel-head"><h4>待办事项 <small>3项</small></h4><span>查看全部 <i data-lucide="chevron-right"></i></span></div>
+                      <ul><li>订单 WO20260401023 金额变更待确认 <time>2026-06-11</time></li><li>订单 WO20260401023 金额变更待确认 <time>2026-06-11</time></li><li>提货单 TH20260400857 收货地址变更待确认 <time>2026-06-11</time></li><li>LTC项目「龙湖天街」价审待确认 <time>2026-06-11</time></li><li>提货单 TH20260400857 收货地址变更待确认 <time>2026-06-11</time></li></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rtm-list" class="doc-section page-section" data-search="RTM 列表页 筛选 表格">
+          <div class="section-heading"><div><span class="section-index">15</span><h2>RTM 列表页模板</h2><p>将筛选、主操作、批量操作、数据表格与分页组织为稳定骨架。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+          <div class="list-template">
+            <div class="list-title"><strong>提货订单</strong><button class="dp-button primary"><i data-lucide="plus"></i>创建订单</button></div>
+            <div class="filter-bar">
+              <label>参考单号<select class="dp-select"><option>=</option></select><input placeholder="请输入内容" /></label>
+              <label>订单编号<select class="dp-select"><option>不等于</option></select><input value="SAP20260415" /></label>
+              <label>创建时间<input value="2026-05-13" /><span>至</span><input value="2026-06-13" /></label>
+              <button class="dp-button primary">查询</button><button class="dp-button text">重置</button>
+            </div>
+            <div class="template-table">
+              <div class="template-th"><span>序号</span><span>时间</span><span>负责业务员</span><span>所属阶段</span><span>单号</span><span>变更项</span><span>金额</span></div>
+              <div class="template-tr"><span>1</span><span>2026-06-11 13:00</span><span>李冬</span><span>新增</span><span>320322198612134225</span><span>申请新增门店</span><span>58</span></div>
+              <div class="template-tr active"><span>2</span><span>2026-06-11 13:00</span><span>徐晓云</span><span>重装</span><span>320322198612134226</span><span>申请装修</span><span>985</span></div>
+              <div class="template-tr"><span>3</span><span>2026-06-11 13:00</span><span>黄金梁</span><span>局改</span><span>320322198612134227</span><span>门店升级</span><span>776</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rtm-form" class="doc-section page-section" data-search="RTM 表单页 form">
+          <div class="section-heading"><div><span class="section-index">16</span><h2>RTM 表单页模板</h2><p>按照业务语义分组字段，底部操作区保持固定顺序。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+          <div class="form-template">
+            <div class="form-title"><strong>创建提货订单</strong><span>带 <em>*</em> 为必填项</span></div>
+            <fieldset><legend>基础信息</legend><div class="form-grid">
+              <label><span><em>*</em> 客户名称</span><input placeholder="请选择客户" /></label>
+              <label><span><em>*</em> 提货方式</span><select><option>物流配送</option></select></label>
+              <label><span>参考单号</span><input placeholder="请输入" /></label>
+              <label><span><em>*</em> 期望日期</span><input value="2026-06-18" /></label>
+            </div></fieldset>
+            <fieldset><legend>收货信息</legend><div class="form-grid">
+              <label><span><em>*</em> 联系人</span><input placeholder="请输入联系人" /></label>
+              <label><span><em>*</em> 联系电话</span><input placeholder="请输入手机号" /></label>
+              <label class="full"><span><em>*</em> 收货地址</span><input placeholder="省 / 市 / 区 / 详细地址" /></label>
+            </div></fieldset>
+            <div class="form-footer"><button class="dp-button secondary">取消</button><button class="dp-button primary">提交订单</button></div>
+          </div>
+        </section>
+
+        <section id="empty" class="doc-section" data-search="空状态 empty">
+          <div class="section-heading"><div><span class="section-index">17</span><h2>空状态</h2><p>解释“为什么为空”，并在可恢复时提供明确下一步。</p></div></div>
+          <div class="empty-state"><div class="empty-illustration"><i data-lucide="inbox"></i></div><strong>暂无订单数据</strong><p>当前筛选条件下没有结果，请调整筛选条件后重试。</p><button class="dp-button primary">清空筛选</button></div>
+        </section>
+
+        <section id="systems" class="doc-section roadmap" data-search="系统 设计家 助销宝 IW ROP PPT">
+          <div class="section-heading"><div><span class="section-index">18</span><h2>系统视觉路线图</h2><p>当前版本已完成 RTM 后台、助销宝移动端与汇报 PPT，其他业务系统按统一框架逐步接入。</p></div></div>
+          <div class="roadmap-grid"><div class="done">RTM 后台系统<strong>已建立</strong></div><div>设计家系统<strong>待接入</strong></div><div class="done">助销宝系统<strong>已接入</strong></div><div>IW 系统<strong>待接入</strong></div><div>ROP 后台<strong>待接入</strong></div><div class="done">汇报 PPT<strong>已接入</strong></div></div>
+        </section>
+
+        <section id="zxb-foundation" class="doc-section zxb-section" data-search="助销宝 色彩 图标 移动端 小程序">
+          <div class="section-heading"><div><span class="section-index">22</span><h2>助销宝 · 色彩 / 图标</h2><p>助销宝是偏移动端、小程序场景的销售工具，视觉更强调红色渐变、圆角卡片、底部胶囊导航与高识别度业务图标。</p></div><span class="template-badge">MOBILE SYSTEM</span></div>
+          <div class="zxb-foundation-grid">
+            <div class="zxb-phone mini">
+              <div class="zxb-status"><b>9:41</b><span></span></div>
+              <div class="zxb-hero-card">
+                <div class="zxb-home-top"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
+                <p>2022.10.19–2022.10.19</p>
+                <h4>客户</h4>
+                <div class="zxb-kpi-row"><span><b>145</b>未接单</span><span><b>38</b>未反馈</span><span><b>7879</b>跟进中</span><span><b>87</b>已交定</span><span><b>38</b>已超时</span><span><b>68</b>已完成</span></div>
+                <button>添加客户 <i data-lucide="circle-plus"></i></button>
+              </div>
+            </div>
+            <div class="zxb-token-panel">
+              <h3>移动端主色</h3>
+              <div class="zxb-color-row"><span style="--c:#FF161F"></span><div><b>助销宝红</b><code>#FF161F</code><small>主按钮、选中、强调文字</small></div></div>
+              <div class="zxb-color-row"><span style="--c:#FF6B71"></span><div><b>渐变起色</b><code>#FF6B71</code><small>首页头图、登录页背景</small></div></div>
+              <div class="zxb-color-row"><span style="--c:#FFF1F2"></span><div><b>浅红底</b><code>#FFF1F2</code><small>图标底、弱按钮、空状态按钮</small></div></div>
+              <div class="zxb-color-row"><span style="--c:#2B2C31"></span><div><b>底部导航黑</b><code>#2B2C31</code><small>底栏、浮层深色容器</small></div></div>
+              <div class="zxb-color-row"><span style="--c:#F7F7F7"></span><div><b>页面底色</b><code>#F7F7F7</code><small>移动端页面背景</small></div></div>
+            </div>
+            <div class="zxb-token-panel">
+              <h3>图标规则</h3>
+              <div class="zxb-icon-rules">
+                <div><i data-lucide="graduation-cap"></i><span>常用工具</span></div>
+                <div><i data-lucide="stamp"></i><span>审核 / 报备</span></div>
+                <div><i data-lucide="message-circle"></i><span>沟通跟进</span></div>
+                <div><i data-lucide="package-open"></i><span>分享商品</span></div>
+                <div><i data-lucide="badge-yen-sign"></i><span>收款管理</span></div>
+                <div><i data-lucide="target"></i><span>目标管理</span></div>
+              </div>
+              <p>专属业务图标将替换为独立 SVG 文件；当前暂用 Lucide 2px 线性图标，并保留浅红 / 浅黄 / 浅紫 / 浅青分类底。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-components" class="doc-section zxb-section" data-search="助销宝 组件 按钮 弹窗 输入框 卡片 标签页 状态 表格 图表">
+          <div class="section-heading"><div><span class="section-index">23</span><h2>助销宝 · 移动组件</h2><p>从登录、客户新增、接待筛选、提现确认等界面提炼移动端标准组件。</p></div></div>
+          <div class="zxb-component-grid">
+            <article class="zxb-comp-card"><h3>按钮</h3><button class="zxb-btn">保存</button><button class="zxb-btn ghost">取消</button><button class="zxb-btn soft">去添加跟进</button><code>.zxb-btn / 56px 高 / 999px 胶囊</code></article>
+            <article class="zxb-comp-card"><h3>输入框</h3><div class="zxb-field"><span>账号</span><input value="xls" /></div><div class="zxb-field"><span>密码</span><input value="********" /><i data-lucide="eye-off"></i></div><code>左标签 + 右内容，底部分割线</code></article>
+            <article class="zxb-comp-card"><h3>卡片</h3><div class="zxb-card-sample"><b>员工 | 12.15-1.15目标</b><div><span>报备数（个）<em>42609</em></span><span>转化率（%）<em>42%</em></span></div></div><code>白底 20–24px 圆角，轻阴影</code></article>
+            <article class="zxb-comp-card"><h3>标签页 / 状态</h3><div class="zxb-tabs"><span class="active">已收款 12</span><span>未收款 56</span></div><p><mark>紧急</mark><mark class="purple">新零售</mark><mark class="outline">自然到店</mark></p><code>红色下划线或浅色胶囊表示选中</code></article>
+            <article class="zxb-comp-card"><h3>弹窗</h3><div class="zxb-dialog-demo"><strong>确认提示</strong><span>请确认是否提现</span><div><button>取消</button><button>确认</button></div></div><code>居中弹窗，按钮左右等分</code></article>
+            <article class="zxb-comp-card"><h3>图表 / 进度</h3><div class="zxb-progress"><span><i style="width:68%"></i></span><b>达成 32026</b></div><div class="zxb-progress orange"><span><i style="width:54%"></i></span><b>转化率 32%</b></div><code>小尺寸条形进度，红橙渐变</code></article>
+          </div>
+        </section>
+
+        <section id="zxb-home" class="doc-section zxb-section" data-search="助销宝 首页 页面模板 手机 首页">
+          <div class="section-heading"><div><span class="section-index">24</span><h2>助销宝 · 首页模板</h2><p>还原店长首页的头部经营概览、目标卡片、常用工具、设计师雷达与底部导航。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+          <div class="zxb-showcase">
+            <div class="zxb-phone home">
+              <div class="zxb-status"><b>9:41</b><span></span></div>
+              <div class="zxb-home-hero">
+                <div class="zxb-home-top"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
+                <div class="zxb-date">2022.10.19–2022.10.19</div>
+                <em class="zxb-internal">仅供东鹏内部人员使用</em>
+                <h4>客户</h4>
+                <div class="zxb-home-kpis"><span><b>145</b>未接单</span><span><b>38</b>未反馈</span><span><b>7879</b>跟进中</span><span><b>87</b>已交定</span><span><b>38</b>已超时</span><span><b>68</b>已完成</span></div>
+                <button>添加客户 <i data-lucide="circle-plus"></i></button>
+              </div>
+              <div class="zxb-mobile-card">
+                <div class="zxb-card-title">员工 | 12.15-1.15目标 <span>更多目标 ›</span></div>
+                <div class="zxb-target-grid"><div><b>报备数（个）</b><p>目标 42609 <em>达成 32026</em></p><span><i style="width:62%"></i></span></div><div><b>转化率（%）</b><p>目标 42% <em>达成 32%</em></p><span><i style="width:70%"></i></span></div></div>
+              </div>
+              <div class="zxb-mobile-card">
+                <div class="zxb-card-title">常用工具 <span>更多 ›</span></div>
+                <div class="zxb-tool-row"><span><i data-lucide="graduation-cap"></i>学院</span><span><i data-lucide="stamp"></i>同城审核</span><span><i data-lucide="share-2"></i>分享名片</span><span><i data-lucide="messages-square"></i>群发助手</span><span><i data-lucide="package-open"></i>预约表单</span></div>
+              </div>
+              <div class="zxb-mobile-card radar">
+                <div class="zxb-card-title">设计师雷达 <span>全部 ›</span></div>
+                <p><b>郑在</b><small>10月20日 09:36　归属导购：张涛</small></p><strong>该用户正在浏览<span>设计师案例</span>，请注意跟进！</strong><button>查看详情</button>
+              </div>
+              <div class="zxb-bottom-nav"><span class="ai">AI</span><span><i data-lucide="house"></i>首页</span><span><i data-lucide="chart-column"></i>统计</span><span><i data-lucide="user-round"></i>我的</span></div>
+            </div>
+            <div class="zxb-template-notes">
+              <h3>页面结构</h3>
+              <ol><li>顶部红色渐变经营卡承载最重要 KPI 与主 CTA。</li><li>白色圆角卡片按“目标 → 工具 → 线索提醒”排列。</li><li>底部深色胶囊导航强调小程序工具属性，AI 入口作为高优先级功能。</li></ol>
+              <h3>可复用组件</h3>
+              <p>Header KPI Card、Target Card、Tool Grid、Radar Feed、Capsule Tabbar。</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-form" class="doc-section zxb-section" data-search="助销宝 表单页 新增客户 登录 输入 保存">
+          <div class="section-heading"><div><span class="section-index">25</span><h2>助销宝 · 表单页 / 登录页</h2><p>表单以分组卡片承载长流程，底部固定主操作；登录页使用红色品牌头图与白色浮层表单。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+          <div class="zxb-two-phones">
+            <div class="zxb-phone login">
+              <div class="zxb-login-hero">
+                <div class="zxb-status white"><b>9:41</b><span></span></div>
+                <div class="zxb-page-title white">‹ 登录 <span>••• ◎</span></div>
+                <strong>欢迎登录东鹏助销宝</strong><em>DONGPENG</em>
+              </div>
+              <div class="zxb-login-panel"><div class="zxb-login-tabs"><b>账户密码登录</b><span>短信登录</span></div><div class="zxb-field"><span>账号</span><input value="xls" /><i data-lucide="chevron-down"></i></div><div class="zxb-field"><span>密码</span><input value="********" /><i data-lucide="eye-off"></i></div><label><input type="checkbox" checked />记住密码</label></div>
+              <button class="zxb-btn">登录</button><p class="zxb-agree"><input type="checkbox" checked />我已阅读并同意《东鹏助销宝隐私政策》</p>
+              <div class="zxb-login-footer"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><p>东鹏瓷砖门店助销平台<br>仅供东鹏内部人员使用</p></div>
+            </div>
+            <div class="zxb-phone form">
+              <div class="zxb-status"><b>9:41</b><span></span></div><h3>‹ 新增客户</h3>
+              <div class="zxb-form-card"><div class="zxb-form-row required"><span>客户类型</span><b>意向</b><b class="selected">报备</b></div><div class="zxb-form-row"><span>带单人</span><em>请选择</em><i data-lucide="chevron-right"></i></div><div class="zxb-form-row"><span>客户阶段</span><b>已测量</b><i data-lucide="chevron-right"></i></div><div class="zxb-form-row"><span>客户来源</span><b>自然进店</b><i data-lucide="chevron-right"></i></div></div>
+              <h4>【客户基础信息】</h4>
+              <div class="zxb-form-card"><div class="zxb-form-row"><span>姓名</span><b>方梦雨</b></div><div class="zxb-form-row"><span>性别</span><b>女</b></div><div class="zxb-form-row"><span>手机号</span><b>14688909906</b></div><div class="zxb-form-row"><span>省市区</span><b>广东省 佛山市 禅城区</b><i data-lucide="chevron-right"></i></div></div>
+              <h4>【客户需求信息】</h4>
+              <div class="zxb-form-card"><div class="zxb-form-row required"><span>装修风格</span><b>奶油风</b><i data-lucide="chevron-right"></i></div><div class="zxb-form-row required"><span>用砖时间</span><em>请选择</em><i data-lucide="chevron-right"></i></div><div class="zxb-form-row required"><span>套内面积</span><em>请输入</em><small>㎡</small></div></div>
+              <div class="zxb-form-actions"><button>取消</button><button>保存</button></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-states" class="doc-section zxb-section" data-search="助销宝 成功页 弹窗 结果页">
+          <div class="section-heading"><div><span class="section-index">26</span><h2>助销宝 · 弹窗 / 成功</h2><p>结果页确认关键操作结果；弹窗只用于必要的二次确认，避免放入复杂信息。</p></div></div>
+          <div class="zxb-state-grid">
+            <div class="zxb-phone state"><div class="zxb-status"><b>9:41</b><span></span></div><h3>‹ 结果</h3><div class="zxb-success"><span class="zxb-success-icon"><i data-lucide="check"></i></span><strong>申请成功</strong><p>审核通过后自动发放至微信零钱<br>请注意查收！</p><button class="zxb-btn">返回</button></div></div>
+            <div class="zxb-phone state"><div class="zxb-status"><b>9:41</b><span></span></div><h3>‹ 积分兑换</h3><div class="zxb-dim"></div><div class="zxb-dialog-demo floating"><strong>确认提示</strong><span>请确认是否提现</span><div><button>取消</button><button>确认</button></div></div></div>
+          </div>
+        </section>
+
+        <section id="ppt-overview" class="doc-section ppt-hero" data-search="汇报 PPT 东鹏 企业汇报 概览">
+          <div class="ppt-hero-copy">
+            <div class="eyebrow">DONGPENG CORPORATE REPORT</div>
+            <h2>东鹏汇报 PPT<br><span>视觉与生成体系</span></h2>
+            <p>以集团 PPT 标准模板为视觉锚点，将红白品牌语言、12 种 DP 标准版式和 dongpeng-ppt-editor 接入设计体系。</p>
+            <div class="hero-actions">
+              <a class="dp-button primary" href="./ppt/index.html">打开网页版 PPT <i data-lucide="presentation"></i></a>
+              <a class="dp-button secondary" href="./assets/downloads/东鹏集团PPT标准模板.pptx">下载集团模板 <i data-lucide="download"></i></a>
+            </div>
+          </div>
+          <a class="ppt-preview-card" href="./ppt/index.html" aria-label="打开东鹏企业汇报网页版 PPT">
+            <div class="ppt-preview-top"><span>DONGPENG</span><small>16 : 9</small></div>
+            <strong>东鹏企业汇报<br>视觉模板</strong>
+            <span class="ppt-preview-en">CORPORATE REPORT SYSTEM</span>
+            <span class="ppt-preview-open">点击进入横向翻页演示 <i data-lucide="arrow-up-right"></i></span>
+          </a>
+        </section>
+
+        <section id="ppt-foundation" class="doc-section" data-search="PPT 颜色 字体 品牌 视觉规范">
+          <div class="section-heading"><div><span class="section-index">28</span><h2>PPT 视觉规范</h2><p>红色仪式页承载章节与关键节点，白底红晕页负责信息表达。</p></div></div>
+          <div class="ppt-foundation-grid">
+            <article class="ppt-rule-card red"><span>品牌主色</span><strong>#E60012</strong><small>封面、章节、重点数字</small></article>
+            <article class="ppt-rule-card"><span>中文字体</span><strong>微软雅黑</strong><small>标题稳重，正文清晰</small></article>
+            <article class="ppt-rule-card"><span>标准画布</span><strong>16 : 9</strong><small>适合会议室与大屏投影</small></article>
+            <article class="ppt-rule-card"><span>品牌页脚</span><strong>以此为主</strong><small>精于此道</small></article>
+          </div>
+          <div class="ppt-principles">
+            <div><i data-lucide="circle-check"></i><span><strong>保持红白主叙事</strong>不引入蓝紫、霓虹或暗黑科技渐变。</span></div>
+            <div><i data-lucide="circle-check"></i><span><strong>图片直角呈现</strong>产品与空间图片不添加圆角和卡片阴影。</span></div>
+            <div><i data-lucide="circle-check"></i><span><strong>数据突出结论</strong>图表使用东鹏红系，不做多色 dashboard。</span></div>
+          </div>
+        </section>
+
+        <section id="ppt-layouts" class="doc-section" data-search="PPT 页面 版式 DP01 DP12">
+          <div class="section-heading"><div><span class="section-index">29</span><h2>12 种标准版式</h2><p>按集团 PPT 红白视觉重绘缩略页，并把图片、图标、图表、表格等关键界面样式对应到 DP 版式。</p></div></div>
+          <div class="ppt-layout-grid">
+            <article class="ppt-layout red cover">
+              <div class="ppt-page-head"><span>DP01</span><small>DONGPENG</small></div>
+              <strong>封面</strong><small>红色渐变仪式页</small>
+              <em>项目汇报 / 年会开场</em>
+            </article>
+            <article class="ppt-layout toc">
+              <div class="ppt-page-head"><span>DP02</span><small>目录</small></div>
+              <strong>目录</strong><small>章节总览</small>
+              <ol><li>项目背景</li><li>关键数据</li><li>落地计划</li></ol>
+            </article>
+            <article class="ppt-layout red chapter">
+              <div class="ppt-page-head"><span>DP03</span><small>01</small></div>
+              <strong>章节页</strong><small>节奏切换</small>
+              <em>阶段标题 / 重点转场</em>
+            </article>
+            <article class="ppt-layout quote">
+              <div class="ppt-page-head"><span>DP04</span><small>观点</small></div>
+              <strong>标语观点</strong><small>结论先行 · 证据展开</small>
+            </article>
+            <article class="ppt-layout image-text">
+              <div class="ppt-page-head"><span>DP05</span><small>图文</small></div>
+              <strong>左文右图</strong><small>案例与证据</small>
+              <div class="ppt-image-block"><i data-lucide="image"></i></div>
+            </article>
+            <article class="ppt-layout icon-cols">
+              <div class="ppt-page-head"><span>DP06</span><small>图标</small></div>
+              <strong>文字重点</strong><small>三列内容 / 能力拆解</small>
+              <div class="ppt-icons-row"><i data-lucide="layers-3"></i><i data-lucide="chart-no-axes-combined"></i><i data-lucide="shield-check"></i></div>
+            </article>
+            <article class="ppt-layout kpi">
+              <div class="ppt-page-head"><span>DP07</span><small>数据</small></div>
+              <strong>数据大字报</strong><small>KPI 汇报</small>
+              <div class="ppt-kpi-row"><b>68%</b><b>8,608</b><b>23,868</b></div>
+            </article>
+            <article class="ppt-layout relation">
+              <div class="ppt-page-head"><span>DP08</span><small>关系</small></div>
+              <strong>关键词关系</strong><small>圆形节点 / 逻辑链路</small>
+              <div class="ppt-node-map"><b>品牌</b><span>系统</span><span>组件</span><span>页面</span></div>
+            </article>
+            <article class="ppt-layout product">
+              <div class="ppt-page-head"><span>DP09</span><small>图片</small></div>
+              <strong>产品矩阵</strong><small>系列展示 / 图片墙</small>
+              <div class="ppt-product-grid"><i></i><i></i><i></i><i></i></div>
+            </article>
+            <article class="ppt-layout chart">
+              <div class="ppt-page-head"><span>DP10</span><small>图表</small></div>
+              <strong>图表</strong><small>趋势分析</small>
+              <div class="ppt-chart-mini"><i></i><i></i><i></i><i></i><svg viewBox="0 0 120 42"><polyline points="0,32 30,24 58,28 86,12 120,6"/></svg></div>
+            </article>
+            <article class="ppt-layout table">
+              <div class="ppt-page-head"><span>DP11</span><small>表格</small></div>
+              <strong>表格</strong><small>结构化数据</small>
+              <div class="ppt-table-mini"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </article>
+            <article class="ppt-layout red closing">
+              <div class="ppt-page-head"><span>DP12</span><small>END</small></div>
+              <strong>收尾</strong><small>品牌结束页</small>
+              <em>精于此道 · 以此为主</em>
+            </article>
+          </div>
+        </section>
+
+        <section id="ppt-skill" class="doc-section" data-search="PPT Skill 网页 PPT GitHub 生成">
+          <div class="section-heading"><div><span class="section-index">30</span><h2>PPT Skill</h2><p>接入基于东鹏集团 PPT 标准模板制作的 dongpeng-ppt-editor，用统一流程生成可横向翻页的企业汇报网页。</p></div><span class="status success">已接入</span></div>
+          <div class="skill-panel">
+            <div class="skill-main"><span class="skill-icon"><i data-lucide="presentation"></i></span><div><strong>dongpeng-ppt-editor</strong><p>根据东鹏集团 PPT 标准模板沉淀 DP01–DP12 版式，支持把大纲、数据、图片、图标、图表与表格生成红白品牌风格的网页版汇报。</p></div></div>
+            <div class="skill-flow">
+              <span><b>01</b>导入集团模板</span><i data-lucide="arrow-right"></i><span><b>02</b>整理大纲与素材</span><i data-lucide="arrow-right"></i>
+              <span><b>03</b>匹配 DP 版式</span><i data-lucide="arrow-right"></i><span><b>04</b>生成网页汇报</span>
+            </div>
+            <div class="skill-actions">
+              <a class="dp-button primary" href="./ppt/index.html">查看示例</a>
+              <a class="dp-button secondary" href="https://github.com/fan604925-dev/dongpeng-ppt-editor" rel="noreferrer">打开 Skill 仓库 <i data-lucide="github"></i></a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div id="toast" role="status" aria-live="polite">代码已复制</div>
+  <script src="./app.js"></script>
+</body>
+</html>
