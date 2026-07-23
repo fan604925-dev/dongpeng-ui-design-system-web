@@ -7,7 +7,7 @@
 - 集团标准 `.pptx` 模板下载
 - DP01–DP12 标准版式说明
 - 可横向翻页的网页版 PPT 示例
-- `dp-ppt-skill` 生成流程与仓库入口
+- `dongpeng-ppt-editor` 生成流程与仓库入口
 
 ## 使用
 
