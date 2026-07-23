@@ -1132,7 +1132,7 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 .dp-site-tools a { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 6px; color: #303033; }
 .dp-site-tools a:hover { background: var(--brand-bg); color: var(--brand); }.dp-site-tools svg { width: 18px; height: 18px; }
 
-#overview.dp-home { display: block; min-height: auto; padding: 28px 0 70px; background: none; }
+#overview.dp-home { display: block; min-height: auto; padding: 28px 0 18px; background: none; }
 .dp-hero-stage { position: relative; display: grid; grid-template-columns: 1fr; min-height: clamp(540px, 58vh, 660px); overflow: hidden; border: 1px solid #ececef; border-radius: 20px; background: #f7f8fa url("./assets/hero-glass-cube.png") right center / cover no-repeat; box-shadow: 0 20px 60px rgba(28,28,32,.06); }
 .dp-hero-stage::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgba(255,255,255,.9) 0%, rgba(255,255,255,.74) 34%, rgba(255,255,255,.25) 62%, rgba(255,255,255,.04) 100%); pointer-events: none; }
 .dp-hero-video { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; pointer-events: none; }
