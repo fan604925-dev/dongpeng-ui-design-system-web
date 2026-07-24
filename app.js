@@ -169,6 +169,117 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+document.querySelectorAll("[data-zxb-tab]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const group = button.closest(".zxb-customer-tabs");
+    if (!group) return;
+    group.querySelectorAll("[data-zxb-tab]").forEach((item) => {
+      const active = item === button;
+      item.classList.toggle("is-active", active);
+      item.setAttribute("aria-selected", String(active));
+    });
+  });
+});
+
+document.querySelectorAll("[data-zxb-filter]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const group = button.closest(".zxb-customer-filters");
+    if (!group) return;
+    group.querySelectorAll("[data-zxb-filter]").forEach((item) => {
+      item.classList.toggle("is-active", item === button);
+    });
+  });
+});
+
+document.querySelectorAll(".zxb-customer-select").forEach((button) => {
+  button.addEventListener("click", () => {
+    const selected = button.getAttribute("aria-pressed") !== "true";
+    button.setAttribute("aria-pressed", String(selected));
+    button.closest(".zxb-customer-card")?.classList.toggle("is-selected", selected);
+  });
+});
+
+document.querySelectorAll(".zxb-pin-action").forEach((button) => {
+  button.addEventListener("click", () => {
+    const pinned = button.getAttribute("aria-pressed") !== "true";
+    button.setAttribute("aria-pressed", String(pinned));
+    button.classList.toggle("is-pinned", pinned);
+    const label = button.querySelector("span");
+    if (label) label.textContent = pinned ? "取消置顶" : "置顶";
+    const icon = button.querySelector("svg");
+    if (icon) icon.outerHTML = `<i data-lucide="${pinned ? "pin-off" : "pin"}"></i>`;
+    refreshIcons();
+  });
+});
+
+const followStatusOptions = ["已加微", "待回访", "已到店"];
+document.querySelectorAll("[data-zxb-follow-status]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const current = followStatusOptions.indexOf(button.textContent.trim());
+    button.textContent = followStatusOptions[(current + 1) % followStatusOptions.length];
+  });
+});
+
+document.querySelectorAll("[data-zxb-follow-time]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const label = button.querySelector("b");
+    if (!label) return;
+    const isDefault = label.textContent.replace(/\s+/g, " ").trim() === "2022.10.16 12:00";
+    label.textContent = isDefault ? "请选择回访时间" : "2022.10.16  12:00";
+  });
+});
+
+document.querySelectorAll(".zxb-reason-chips button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const selected = button.getAttribute("aria-pressed") !== "true";
+    button.setAttribute("aria-pressed", String(selected));
+    button.classList.toggle("is-selected", selected);
+  });
+});
+
+document.querySelectorAll(".zxb-record-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const recording = button.getAttribute("aria-pressed") !== "true";
+    button.setAttribute("aria-pressed", String(recording));
+    button.classList.toggle("is-recording", recording);
+    const label = button.querySelector("span");
+    if (label) label.textContent = recording ? "录音中..." : "点击录音";
+  });
+});
+
+document.querySelectorAll(".zxb-loss-selector").forEach((selector) => {
+  const summary = selector.querySelector(".zxb-selector-summary");
+  selector.querySelector("[data-zxb-cancel]")?.addEventListener("click", () => {
+    selector.querySelectorAll(".zxb-reason-chips button").forEach((button) => {
+      button.classList.remove("is-selected");
+      button.setAttribute("aria-pressed", "false");
+    });
+    const textarea = selector.querySelector("textarea");
+    if (textarea) textarea.value = "";
+    const record = selector.querySelector(".zxb-record-button");
+    if (record) {
+      record.classList.remove("is-recording");
+      record.setAttribute("aria-pressed", "false");
+      const label = record.querySelector("span");
+      if (label) label.textContent = "点击录音";
+    }
+    if (summary) {
+      summary.textContent = "已清空";
+      setTimeout(() => { summary.textContent = ""; }, 1200);
+    }
+  });
+  selector.querySelector("[data-zxb-confirm]")?.addEventListener("click", (event) => {
+    const count = selector.querySelectorAll(".zxb-reason-chips .is-selected").length;
+    if (summary) summary.textContent = count ? `已选择 ${count} 项` : "请至少选择一项";
+    const original = event.currentTarget.textContent;
+    if (count) event.currentTarget.textContent = "已保存";
+    setTimeout(() => {
+      if (summary) summary.textContent = "";
+      event.currentTarget.textContent = original;
+    }, 1500);
+  });
+});
+
 const heroVideo = document.querySelector(".dp-hero-video-forward");
 const heroVideoReverse = document.querySelector(".dp-hero-video-reverse");
 const heroStage = document.querySelector(".dp-hero-stage");

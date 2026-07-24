@@ -431,14 +431,60 @@
         <section id="zxb-foundation" class="doc-section zxb-section" data-search="助销宝 色彩 图标 移动端 小程序">
           <div class="section-heading"><div><span class="section-index">22</span><h2>助销宝 · 色彩 / 图标</h2><p>助销宝是偏移动端、小程序场景的销售工具，视觉更强调红色渐变、圆角卡片、底部胶囊导航与高识别度业务图标。</p></div><span class="template-badge">MOBILE SYSTEM</span></div>
           <div class="zxb-foundation-grid">
-            <div class="zxb-phone mini">
-              <div class="zxb-status"><b>9:41</b><span></span></div>
-              <div class="zxb-hero-card">
-                <div class="zxb-home-top"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
-                <p>2022.10.19–2022.10.19</p>
-                <h4>客户</h4>
-                <div class="zxb-kpi-row"><span><b>145</b>未接单</span><span><b>38</b>未反馈</span><span><b>7879</b>跟进中</span><span><b>87</b>已交定</span><span><b>38</b>已超时</span><span><b>68</b>已完成</span></div>
-                <button>添加客户 <i data-lucide="circle-plus"></i></button>
+            <div class="zxb-phone mini zxb-customer-list zxb-foundation-preview" aria-label="助销宝新零售跟进中组件示例">
+              <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>客户列表</b></div>
+              <div class="zxb-customer-tabs" role="tablist" aria-label="客户状态">
+                <button type="button" data-zxb-tab><span>未接单</span><b>622</b></button>
+                <button type="button" class="is-active" data-zxb-tab aria-selected="true"><span>跟进中</span><b>56</b></button>
+                <button type="button" data-zxb-tab><span>已完成</span><b>28</b></button>
+                <button type="button" data-zxb-tab><span>已流失</span><b>28</b></button>
+              </div>
+              <div class="zxb-customer-filters" aria-label="列表筛选">
+                <button type="button" class="is-active" data-zxb-filter>员工<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>跟进<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>更多<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>排序<i data-lucide="chevron-down"></i></button>
+              </div>
+              <div class="zxb-customer-cards">
+                <article class="zxb-customer-card is-selected">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                    <span class="zxb-source-badge tmall">天猫</span>
+                    <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                    <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true"><i data-lucide="pin-off"></i><span>取消置顶</span></button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                    <p><span>状态：</span><b>已到店</b></p>
+                    <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                    <p><span>客户标签：</span>豪爽、大气多金</p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">电话<i data-lucide="phone"></i></button>
+                    <button type="button">加微<i data-lucide="message-circle"></i></button>
+                    <button type="button">短信<i data-lucide="mail"></i></button>
+                    <button type="button" class="primary">修改跟进状态</button>
+                  </div>
+                </article>
+                <article class="zxb-customer-card">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                    <span class="zxb-source-badge guobu">国补</span>
+                    <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                    <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                    <p><span>状态：</span><b>已到店</b></p>
+                    <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                    <p><span>客户标签：</span>豪爽、大气多金</p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">更多</button>
+                    <button type="button" class="outline">转国补</button>
+                    <button type="button" class="primary">修改跟进状态</button>
+                  </div>
+                </article>
               </div>
             </div>
             <div class="zxb-token-panel">
@@ -452,19 +498,28 @@
             <div class="zxb-token-panel">
               <h3>图标规则</h3>
               <div class="zxb-icon-rules">
-                <div><i data-lucide="graduation-cap"></i><span>常用工具</span></div>
-                <div><i data-lucide="stamp"></i><span>审核 / 报备</span></div>
-                <div><i data-lucide="message-circle"></i><span>沟通跟进</span></div>
-                <div><i data-lucide="package-open"></i><span>分享商品</span></div>
-                <div><i data-lucide="badge-yen-sign"></i><span>收款管理</span></div>
-                <div><i data-lucide="target"></i><span>目标管理</span></div>
+                <div class="tone-red row-red"><img src="assets/zxb-icons/academy.svg" alt="" /><span>学院</span></div>
+                <div class="tone-red row-red"><img src="assets/zxb-icons/customer-report.svg" alt="" /><span>客户报备查询</span></div>
+                <div class="tone-red row-red"><img src="assets/zxb-icons/special-address.svg" alt="" /><span>特殊地址</span></div>
+                <div class="tone-red row-red"><img src="assets/zxb-icons/city-review.svg" alt="" /><span>同城审核</span></div>
+                <div class="tone-red row-red"><img src="assets/zxb-icons/public-pool.svg" alt="" /><span>报备公共池</span></div>
+                <div class="tone-yellow row-yellow"><img src="assets/zxb-icons/materials.svg" alt="" /><span>素材库</span></div>
+                <div class="tone-yellow row-yellow"><img src="assets/zxb-icons/promotion-image.svg" alt="" /><span>宣传图</span></div>
+                <div class="tone-yellow row-yellow"><img src="assets/zxb-icons/share-case.svg" alt="" /><span>分享案例</span></div>
+                <div class="tone-yellow row-yellow"><img src="assets/zxb-icons/share-product.svg" alt="" /><span>分享商品</span></div>
+                <div class="tone-yellow row-yellow"><img src="assets/zxb-icons/qrcode.svg" alt="" /><span>二维码</span></div>
+                <div class="tone-green row-green"><img src="assets/zxb-icons/campaign.svg" alt="" /><span>渠道活动</span></div>
+                <div class="tone-green row-green"><img src="assets/zxb-icons/order-management.svg" alt="" /><span>带单管理</span></div>
+                <div class="tone-green row-green"><img src="assets/zxb-icons/target.svg" alt="" /><span>我的目标</span></div>
+                <div class="tone-green row-green"><img src="assets/zxb-icons/payment.svg" alt="" /><span>收款管理</span></div>
+                <div class="tone-green row-green"><img src="assets/zxb-icons/refund.svg" alt="" /><span>退款管理</span></div>
               </div>
-              <p>专属业务图标将替换为独立 SVG 文件；当前暂用 Lucide 2px 线性图标，并保留浅红 / 浅黄 / 浅紫 / 浅青分类底。</p>
+              <p>助销宝业务图标统一使用 50×50 SVG 画布，按红、黄、绿三种业务色分行排列。图形保持原始比例居中展示，不额外叠加卡片底色；通用操作图标仍使用 Lucide 2px 线性风格。</p>
             </div>
           </div>
         </section>
 
-        <section id="zxb-components" class="doc-section zxb-section" data-search="助销宝 组件 按钮 弹窗 输入框 卡片 标签页 状态 表格 图表">
+        <section id="zxb-components" class="doc-section zxb-section" data-search="助销宝 组件 按钮 弹窗 输入框 卡片 标签页 状态 表格 图表 客户列表 客户信息 选择页 流失原因">
           <div class="section-heading"><div><span class="section-index">23</span><h2>助销宝 · 移动组件</h2><p>从登录、客户新增、接待筛选、提现确认等界面提炼移动端标准组件。</p></div></div>
           <div class="zxb-component-grid">
             <article class="zxb-comp-card"><h3>按钮</h3><button class="zxb-btn">保存</button><button class="zxb-btn ghost">取消</button><button class="zxb-btn soft">去添加跟进</button><code>.zxb-btn / 56px 高 / 999px 胶囊</code></article>
@@ -473,6 +528,201 @@
             <article class="zxb-comp-card"><h3>标签页 / 状态</h3><div class="zxb-tabs"><span class="active">已收款 12</span><span>未收款 56</span></div><p><mark>紧急</mark><mark class="purple">新零售</mark><mark class="outline">自然到店</mark></p><code>红色下划线或浅色胶囊表示选中</code></article>
             <article class="zxb-comp-card"><h3>弹窗</h3><div class="zxb-dialog-demo"><strong>确认提示</strong><span>请确认是否提现</span><div><button>取消</button><button>确认</button></div></div><code>居中弹窗，按钮左右等分</code></article>
             <article class="zxb-comp-card"><h3>图表 / 进度</h3><div class="zxb-progress"><span><i style="width:68%"></i></span><b>达成 32026</b></div><div class="zxb-progress orange"><span><i style="width:54%"></i></span><b>转化率 32%</b></div><code>小尺寸条形进度，红橙渐变</code></article>
+          </div>
+          <div class="zxb-business-heading">
+            <div><span>BUSINESS COMPONENTS</span><h3>客户经营业务组件</h3></div>
+            <p>保留助销宝移动端的信息密度、选中反馈与底部主操作，支持直接点击体验组件状态。</p>
+          </div>
+          <div class="zxb-business-components zxb-business-specimens">
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div><span>01 / CUSTOMER FOLLOW-UP</span><h3>客户跟进信息卡</h3></div>
+                <p>用于客户详情与回访表单，以清晰的左标签、右侧胶囊值承载关键跟进信息。</p>
+              </div>
+              <div class="zxb-component-stage">
+                <article class="zxb-followup-card">
+                  <h4>客户：张先生</h4>
+                  <div class="zxb-followup-divider"></div>
+                  <div class="zxb-followup-row">
+                    <span>跟进状态</span>
+                    <button type="button" class="zxb-followup-value" data-zxb-follow-status>已加微</button>
+                  </div>
+                  <div class="zxb-followup-row">
+                    <span>添加回访时间</span>
+                    <button type="button" class="zxb-followup-value zxb-followup-time" data-zxb-follow-time>
+                      <b>2022.10.16&nbsp;&nbsp;12:00</b><i data-lucide="chevron-right"></i>
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div><span>02 / SELECTION GROUP</span><h3>原因选择标签组</h3></div>
+                <p>用于流失原因、客户标签与多条件选择，以浅灰默认态和红色描边强化当前选择。</p>
+              </div>
+              <div class="zxb-component-stage">
+                <section class="zxb-selection-specimen">
+                  <h4>产品原因</h4>
+                  <div class="zxb-reason-chips zxb-reason-chips-large" aria-label="产品原因">
+                    <button type="button" class="is-selected" aria-pressed="true">花色风格</button>
+                    <button type="button" aria-pressed="false">规格</button>
+                    <button type="button" aria-pressed="false">担心实际效果</button>
+                    <button type="button" aria-pressed="false">产品功能疑虑</button>
+                  </div>
+                  <div class="zxb-component-divider"></div>
+                </section>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div><span>03 / CUSTOMER SUMMARY</span><h3>客户列表信息卡</h3></div>
+                <p>聚合客户来源、派单状态、地址标签与常用操作，适用于跟进列表和客户池。</p>
+              </div>
+              <div class="zxb-component-stage">
+                <article class="zxb-customer-card zxb-customer-summary-card">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择客户"><i data-lucide="check"></i></button>
+                    <span class="zxb-source-badge jd">京东</span>
+                    <button type="button" class="zxb-customer-name"><b>黄先生&nbsp;&nbsp;18967589868</b><i data-lucide="chevron-right"></i></button>
+                    <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p><span>派单时间：</span>2022-10-08&nbsp;&nbsp;15:55:11 <small>1分钟未跟进</small></p>
+                    <p><span>状态：</span><b>已到店</b></p>
+                    <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                    <p><span>客户标签：</span>豪爽、大气多金</p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">更多</button>
+                    <button type="button" class="outline">转国补</button>
+                    <button type="button" class="primary">修改跟进状态</button>
+                  </div>
+                </article>
+              </div>
+            </article>
+          </div>
+          <div class="zxb-business-components zxb-business-pages-legacy" hidden>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div><span>01 / CUSTOMER LIST</span><h3>客户列表信息</h3></div>
+                <p>适用于待跟进、已完成等客户池，组合状态切换、筛选、客户摘要和快捷操作。</p>
+              </div>
+              <div class="zxb-phone zxb-customer-list">
+                <div class="zxb-status"><b>9:41</b><span></span></div>
+                <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>客户列表</b><span>•••　◎</span></div>
+                <div class="zxb-customer-tabs" role="tablist" aria-label="客户状态">
+                  <button type="button" data-zxb-tab><span>未接单</span><b>622</b></button>
+                  <button type="button" class="is-active" data-zxb-tab aria-selected="true"><span>跟进中</span><b>56</b></button>
+                  <button type="button" data-zxb-tab><span>已完成</span><b>28</b></button>
+                  <button type="button" data-zxb-tab><span>已流失</span><b>28</b></button>
+                </div>
+                <div class="zxb-customer-filters" aria-label="列表筛选">
+                  <button type="button" class="is-active" data-zxb-filter>员工<i data-lucide="chevron-down"></i></button>
+                  <button type="button" data-zxb-filter>跟进<i data-lucide="chevron-down"></i></button>
+                  <button type="button" data-zxb-filter>更多<i data-lucide="chevron-down"></i></button>
+                  <button type="button" data-zxb-filter>排序<i data-lucide="chevron-down"></i></button>
+                </div>
+                <div class="zxb-customer-cards">
+                  <article class="zxb-customer-card is-selected">
+                    <div class="zxb-customer-card-top">
+                      <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                      <span class="zxb-source-badge tmall">天猫</span>
+                      <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                      <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true"><i data-lucide="pin-off"></i><span>取消置顶</span></button>
+                    </div>
+                    <div class="zxb-customer-meta">
+                      <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                      <p><span>状态：</span><b>已到店</b></p>
+                      <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                      <p><span>客户标签：</span>豪爽、大气多金</p>
+                    </div>
+                    <div class="zxb-customer-actions">
+                      <button type="button">电话<i data-lucide="phone"></i></button>
+                      <button type="button">加微<i data-lucide="message-circle"></i></button>
+                      <button type="button">短信<i data-lucide="mail"></i></button>
+                      <button type="button" class="primary">修改跟进状态</button>
+                    </div>
+                  </article>
+                  <article class="zxb-customer-card">
+                    <div class="zxb-customer-card-top">
+                      <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                      <span class="zxb-source-badge guobu">国补</span>
+                      <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                      <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
+                    </div>
+                    <div class="zxb-customer-meta">
+                      <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                      <p><span>状态：</span><b>已到店</b></p>
+                      <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                      <p><span>客户标签：</span>豪爽、大气多金</p>
+                    </div>
+                    <div class="zxb-customer-actions">
+                      <button type="button">更多</button>
+                      <button type="button" class="outline">转国补</button>
+                      <button type="button" class="primary">修改跟进状态</button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div><span>02 / SELECTION PAGE</span><h3>流失原因选择页</h3></div>
+                <p>适用于分组多选、补充说明和语音输入场景，选中态以红色描边和浅红底强调。</p>
+              </div>
+              <div class="zxb-phone zxb-loss-selector">
+                <div class="zxb-status"><b>9:41</b><span></span></div>
+                <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>选择流失原因</b><span>•••　◎</span></div>
+                <div class="zxb-reason-groups">
+                  <section>
+                    <h4>价格原因</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" class="is-selected" aria-pressed="true">价格超出客户预算</button>
+                      <button type="button" class="is-selected" aria-pressed="true">客户要求折扣未满足</button>
+                      <button type="button" aria-pressed="false">竞品价更优</button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>产品原因</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" class="is-selected" aria-pressed="true">花色风格</button>
+                      <button type="button" aria-pressed="false">规格</button>
+                      <button type="button" aria-pressed="false">担心实际效果</button>
+                      <button type="button" aria-pressed="false">产品功能疑虑</button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>客户原因</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" aria-pressed="false">客户失联</button>
+                      <button type="button" aria-pressed="false">电话不接</button>
+                      <button type="button" aria-pressed="false">企微无回复超60天</button>
+                      <button type="button" aria-pressed="false">装修计划有变暂缓</button>
+                      <button type="button" aria-pressed="false">被设计师/工长/好友转推荐</button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>服务原因</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" aria-pressed="false">沟通不愉快体验差</button>
+                      <button type="button" class="is-selected" aria-pressed="true">服务响应不及时</button>
+                      <button type="button" aria-pressed="false">专业度信任不足</button>
+                    </div>
+                  </section>
+                  <section class="zxb-other-reason">
+                    <h4>其他原因</h4>
+                    <textarea maxlength="300" placeholder="请输入原因（限制300字）"></textarea>
+                  </section>
+                </div>
+                <button type="button" class="zxb-record-button" aria-pressed="false"><i data-lucide="audio-lines"></i><span>点击录音</span></button>
+                <div class="zxb-selector-summary" aria-live="polite"></div>
+                <div class="zxb-selector-actions">
+                  <button type="button" data-zxb-cancel>取消</button>
+                  <button type="button" data-zxb-confirm>确定</button>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
