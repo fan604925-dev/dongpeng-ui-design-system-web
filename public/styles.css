@@ -1042,9 +1042,9 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 .zxb-color-row div { display: grid; gap: 3px; }.zxb-color-row code, .zxb-color-row small { color: var(--text-4); }
 .zxb-icon-rules { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); grid-template-rows: repeat(3,auto); column-gap: 6px; row-gap: 18px; }
 .zxb-icon-rules div { display: grid; grid-template-rows: 50px auto; justify-items: center; align-items: center; gap: 7px; min-width: 0; padding: 0 2px; color: var(--zxb-ink); font-size: 11px; text-align: center; }
-.zxb-icon-rules .row-warm { grid-row: 1; }
+.zxb-icon-rules .row-red { grid-row: 1; }
 .zxb-icon-rules .row-yellow { grid-row: 2; }
-.zxb-icon-rules .row-cyan { grid-row: 3; }
+.zxb-icon-rules .row-green { grid-row: 3; }
 .zxb-icon-rules img { display: block; width: 50px; height: 50px; object-fit: contain; }
 .zxb-icon-rules span { display: flex; min-height: 28px; align-items: flex-start; justify-content: center; line-height: 1.25; overflow-wrap: anywhere; }
 .zxb-token-panel p { margin: 18px 0 0; color: var(--text-3); line-height: 1.7; }
