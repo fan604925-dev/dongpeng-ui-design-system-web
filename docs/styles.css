@@ -1118,6 +1118,13 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 .zxb-customer-actions .primary { background: var(--zxb-grad); color: #fff; box-shadow: 0 7px 16px rgba(255,22,31,.13); }
 .zxb-customer-actions .outline { margin-left: auto; border: 1px solid var(--zxb-red); color: var(--zxb-red); }
 .zxb-customer-actions .outline + .primary { margin-left: 0; }
+.zxb-foundation-preview { min-height: 0; background: #f7f7f7; box-shadow: 0 18px 48px rgba(32,34,39,.11); }
+.zxb-foundation-preview .zxb-page-title { height: 52px; padding-top: 4px; }
+.zxb-foundation-preview .zxb-customer-tabs { padding-top: 8px; padding-bottom: 7px; }
+.zxb-foundation-preview .zxb-customer-filters { padding-bottom: 7px; }
+.zxb-foundation-preview .zxb-customer-cards { gap: 10px; padding: 10px; }
+.zxb-foundation-preview .zxb-customer-card { padding: 13px 13px 11px; border-radius: 18px; }
+.zxb-foundation-preview .zxb-customer-meta { margin: 10px 0 9px; padding: 8px 0; }
 
 .zxb-loss-selector { min-height: 912px; padding-bottom: 82px; background: #fff; }
 .zxb-reason-groups { padding: 0 20px 148px; }

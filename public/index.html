@@ -431,14 +431,60 @@
         <section id="zxb-foundation" class="doc-section zxb-section" data-search="助销宝 色彩 图标 移动端 小程序">
           <div class="section-heading"><div><span class="section-index">22</span><h2>助销宝 · 色彩 / 图标</h2><p>助销宝是偏移动端、小程序场景的销售工具，视觉更强调红色渐变、圆角卡片、底部胶囊导航与高识别度业务图标。</p></div><span class="template-badge">MOBILE SYSTEM</span></div>
           <div class="zxb-foundation-grid">
-            <div class="zxb-phone mini">
-              <div class="zxb-status"><b>9:41</b><span></span></div>
-              <div class="zxb-hero-card">
-                <div class="zxb-home-top"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
-                <p>2022.10.19–2022.10.19</p>
-                <h4>客户</h4>
-                <div class="zxb-kpi-row"><span><b>145</b>未接单</span><span><b>38</b>未反馈</span><span><b>7879</b>跟进中</span><span><b>87</b>已交定</span><span><b>38</b>已超时</span><span><b>68</b>已完成</span></div>
-                <button>添加客户 <i data-lucide="circle-plus"></i></button>
+            <div class="zxb-phone mini zxb-customer-list zxb-foundation-preview" aria-label="助销宝新零售跟进中组件示例">
+              <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>客户列表</b></div>
+              <div class="zxb-customer-tabs" role="tablist" aria-label="客户状态">
+                <button type="button" data-zxb-tab><span>未接单</span><b>622</b></button>
+                <button type="button" class="is-active" data-zxb-tab aria-selected="true"><span>跟进中</span><b>56</b></button>
+                <button type="button" data-zxb-tab><span>已完成</span><b>28</b></button>
+                <button type="button" data-zxb-tab><span>已流失</span><b>28</b></button>
+              </div>
+              <div class="zxb-customer-filters" aria-label="列表筛选">
+                <button type="button" class="is-active" data-zxb-filter>员工<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>跟进<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>更多<i data-lucide="chevron-down"></i></button>
+                <button type="button" data-zxb-filter>排序<i data-lucide="chevron-down"></i></button>
+              </div>
+              <div class="zxb-customer-cards">
+                <article class="zxb-customer-card is-selected">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                    <span class="zxb-source-badge tmall">天猫</span>
+                    <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                    <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true"><i data-lucide="pin-off"></i><span>取消置顶</span></button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                    <p><span>状态：</span><b>已到店</b></p>
+                    <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                    <p><span>客户标签：</span>豪爽、大气多金</p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">电话<i data-lucide="phone"></i></button>
+                    <button type="button">加微<i data-lucide="message-circle"></i></button>
+                    <button type="button">短信<i data-lucide="mail"></i></button>
+                    <button type="button" class="primary">修改跟进状态</button>
+                  </div>
+                </article>
+                <article class="zxb-customer-card">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择黄先生"><i data-lucide="check"></i></button>
+                    <span class="zxb-source-badge guobu">国补</span>
+                    <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
+                    <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p><span>派单时间：</span>2022-10-08&nbsp; 15:55:11 <small>1分钟未跟进</small></p>
+                    <p><span>状态：</span><b>已到店</b></p>
+                    <p><span>地址：</span>四川省南充市南部县京东小区56号</p>
+                    <p><span>客户标签：</span>豪爽、大气多金</p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">更多</button>
+                    <button type="button" class="outline">转国补</button>
+                    <button type="button" class="primary">修改跟进状态</button>
+                  </div>
+                </article>
               </div>
             </div>
             <div class="zxb-token-panel">
