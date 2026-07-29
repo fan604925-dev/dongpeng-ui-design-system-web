@@ -330,3 +330,24 @@ if (heroVideo && heroVideoReverse && heroStage) {
     }
   });
 }
+/* Normalize the mobile component section heading to the component-card title style. */
+(() => {
+  const unifyZxbComponentTitle = () => {
+    const section = document.querySelector("#zxb-tab-style-spec");
+    if (!section) return;
+
+    const heading = [...section.querySelectorAll("h1, h2, h3, h4")].find(
+      (element) => element.textContent.trim() === "标签页样式"
+    );
+
+    heading?.classList.add("zxb-title-unified");
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", unifyZxbComponentTitle);
+  } else {
+    unifyZxbComponentTitle();
+  }
+
+  window.addEventListener("hashchange", unifyZxbComponentTitle);
+})();
