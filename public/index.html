@@ -7,6 +7,7 @@
   <title>东鹏 UI 视觉设计体系</title>
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="zxb-tabs.css">
 </head>
 <body>
   <header class="dp-site-header">
@@ -432,7 +433,7 @@
           <div class="section-heading"><div><span class="section-index">22</span><h2>助销宝 · 色彩 / 图标</h2><p>助销宝是偏移动端、小程序场景的销售工具，视觉更强调红色渐变、圆角卡片、底部胶囊导航与高识别度业务图标。</p></div><span class="template-badge">MOBILE SYSTEM</span></div>
           <div class="zxb-foundation-grid">
             <div class="zxb-phone mini zxb-customer-list zxb-foundation-preview" aria-label="助销宝新零售跟进中组件示例">
-              <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>客户列表</b></div>
+              <div class="zxb-page-title"><b>客户列表</b></div>
               <div class="zxb-customer-tabs" role="tablist" aria-label="客户状态">
                 <button type="button" data-zxb-tab><span>未接单</span><b>622</b></button>
                 <button type="button" class="is-active" data-zxb-tab aria-selected="true"><span>跟进中</span><b>56</b></button>
@@ -449,7 +450,6 @@
                 <article class="zxb-customer-card is-selected">
                   <div class="zxb-customer-card-top">
                     <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="选择黄先生"><i data-lucide="check"></i></button>
-                    <span class="zxb-source-badge tmall">天猫</span>
                     <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
                     <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true"><i data-lucide="pin-off"></i><span>取消置顶</span></button>
                   </div>
@@ -469,7 +469,6 @@
                 <article class="zxb-customer-card">
                   <div class="zxb-customer-card-top">
                     <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择黄先生"><i data-lucide="check"></i></button>
-                    <span class="zxb-source-badge guobu">国补</span>
                     <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
                     <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
                   </div>
@@ -912,5 +911,8 @@
   </div>
   <div id="toast" role="status" aria-live="polite">代码已复制</div>
   <script src="./app.js"></script>
+  <script src="zxb-tabs.js"></script>
+  <script src="zxb-home-fixes.js"></script>
+  <script src="zxb-layout-fix.js"></script>
 </body>
 </html>

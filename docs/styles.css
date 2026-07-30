@@ -1084,9 +1084,9 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 
 .zxb-customer-list { min-height: 748px; background: #f7f7f7; }
 .zxb-customer-list .zxb-page-title, .zxb-loss-selector .zxb-page-title { height: 52px; padding: 0 18px; border-bottom: 1px solid #f3f3f3; background: #fff; }
-.zxb-customer-tabs { display: grid; grid-template-columns: repeat(4,1fr); gap: 7px; padding: 12px 12px 10px; background: #fff; }
-.zxb-customer-tabs button { display: flex; min-width: 0; height: 34px; align-items: center; justify-content: center; gap: 4px; padding: 0 7px; border: 1px solid #e9e9e9; border-radius: 999px; background: #fff; color: #999; font-size: 12px; white-space: nowrap; }
-.zxb-customer-tabs button b { display: grid; min-width: 24px; height: 24px; place-items: center; padding: 0 5px; border-radius: 999px; background: #ff444c; color: #fff; font-size: 11px; }
+.zxb-customer-tabs { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; padding: 10px 12px 8px; background: #fff; }
+.zxb-customer-tabs button { display: flex; min-width: 0; height: 28px; align-items: center; justify-content: center; gap: 3px; padding: 0 6px; border: 1px solid #e9e9e9; border-radius: 999px; background: #fff; color: #999; font-size: 10px; white-space: nowrap; }
+.zxb-customer-tabs button b { display: grid; min-width: 18px; height: 18px; place-items: center; padding: 0 4px; border-radius: 999px; background: #ff444c; color: #fff; font-size: 9px; }
 .zxb-customer-tabs button.is-active { border-color: var(--zxb-red); color: var(--zxb-red); font-weight: 800; }
 .zxb-customer-filters { display: grid; grid-template-columns: repeat(4,1fr); padding: 0 12px 9px; border-bottom: 1px solid #f0f0f0; background: #fff; }
 .zxb-customer-filters button { position: relative; display: flex; height: 38px; align-items: center; justify-content: center; gap: 3px; border: 0; background: transparent; color: #888; font-size: 13px; font-weight: 700; }
@@ -1097,8 +1097,8 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 .zxb-customer-card { overflow: hidden; padding: 16px 16px 14px; border: 1px solid transparent; border-radius: 22px; background: #fff; box-shadow: 0 7px 24px rgba(25,25,28,.045); transition: border-color .18s ease,box-shadow .18s ease; }
 .zxb-customer-card.is-selected { border-color: rgba(255,10,18,.12); box-shadow: 0 8px 28px rgba(255,10,18,.075); }
 .zxb-customer-card-top { display: grid; grid-template-columns: 36px 38px minmax(0,1fr) 58px; gap: 8px; align-items: center; }
-.zxb-customer-select { display: grid; width: 34px; height: 34px; place-items: center; border: 1.5px solid #ccc; border-radius: 50%; background: #fff; color: transparent; }
-.zxb-customer-select svg { width: 21px; height: 21px; stroke-width: 3; }
+.zxb-customer-select { display: grid; width: 26px; height: 26px; place-items: center; border: 1.5px solid #ccc; border-radius: 50%; background: #fff; color: transparent; }
+.zxb-customer-select svg { width: 15px; height: 15px; stroke-width: 3; }
 .zxb-customer-select[aria-pressed="true"] { border-color: transparent; background: linear-gradient(145deg,#ff757a,#ff121a); color: #fff; }
 .zxb-source-badge { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 9px; color: #fff; font-size: 11px; font-weight: 900; line-height: 1; box-shadow: inset 0 0 0 1px rgba(255,255,255,.25); }
 .zxb-source-badge.tmall { background: linear-gradient(145deg,#fb2534,#bd0713); }
@@ -1157,7 +1157,7 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
 .zxb-component-divider { height: 1px; margin-top: 22px; background: #ececec; }
 .zxb-customer-summary-card { width: 100%; padding: 20px 18px 16px; border-color: #f1f1f1; border-radius: 24px; box-shadow: 0 12px 32px rgba(32,34,39,.045); }
 .zxb-customer-summary-card .zxb-customer-card-top { grid-template-columns: 32px 38px minmax(0,1fr) 48px; gap: 7px; }
-.zxb-customer-summary-card .zxb-customer-select { width: 31px; height: 31px; }
+.zxb-customer-summary-card .zxb-customer-select { width: 25px; height: 25px; }
 .zxb-source-badge.jd { background: linear-gradient(145deg,#ef2828,#d90e12); }
 .zxb-customer-summary-card .zxb-customer-name { font-size: 13px; }
 .zxb-customer-summary-card .zxb-customer-meta { margin: 13px 0 10px; padding: 10px 0; }
@@ -1315,8 +1315,35 @@ fieldset { margin: 22px; padding: 22px; border: 1px solid var(--border); border-
   .zxb-reason-chips-large { gap: 10px 8px; }
   .zxb-reason-chips-large button { min-height: 44px; padding: 0 16px; font-size: 14px; }
   .zxb-customer-summary-card { padding: 18px 16px 15px; }
-  .zxb-customer-tabs { gap: 4px; padding-inline: 8px; }.zxb-customer-tabs button { padding-inline: 4px; font-size: 10px; }.zxb-customer-tabs button b { min-width: 20px; height: 20px; font-size: 9px; }
-  .zxb-customer-card-top { grid-template-columns: 32px 34px minmax(0,1fr) 48px; gap: 6px; }.zxb-customer-select { width: 30px; height: 30px; }.zxb-source-badge { width: 34px; height: 34px; }
+  .zxb-customer-tabs { gap: 4px; padding-inline: 8px; }.zxb-customer-tabs button { padding-inline: 4px; font-size: 9px; }.zxb-customer-tabs button b { min-width: 17px; height: 17px; font-size: 8px; }
+  .zxb-customer-card-top { grid-template-columns: 28px 34px minmax(0,1fr) 48px; gap: 6px; }.zxb-customer-select { width: 25px; height: 25px; }.zxb-source-badge { width: 34px; height: 34px; }
   .zxb-customer-name { font-size: 13px; }.zxb-customer-actions { gap: 5px; }.zxb-customer-actions .primary, .zxb-customer-actions .outline { padding-inline: 10px; }
   .zxb-token-panel, .zxb-comp-card, .zxb-template-notes { width: 100%; }
+}
+.zxb-customer-card-top,
+.zxb-customer-summary-card .zxb-customer-card-top {
+  grid-template-columns: 26px minmax(0, 1fr) max-content;
+}
+
+.zxb-customer-card-top > :nth-child(2) {
+  min-width: 0;
+}
+
+.zxb-customer-card-top > :last-child {
+  justify-self: end;
+  margin-left: auto;
+}
+/* 助销宝客户卡片：姓名与手机号保留在中间，置顶操作固定右对齐 */
+.zxb-customer-card-top,
+.zxb-customer-summary-card .zxb-customer-card-top {
+  grid-template-columns: 26px minmax(0, 1fr) max-content;
+}
+
+.zxb-customer-card-top > :nth-child(2) {
+  min-width: 0;
+}
+
+.zxb-customer-card-top > :last-child {
+  justify-self: end;
+  margin-left: auto;
 }
