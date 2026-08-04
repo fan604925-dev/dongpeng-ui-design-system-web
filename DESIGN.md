@@ -1,5 +1,5 @@
 ---
-version: "1.0.0"
+version: "1.1.0"
 name: "Dongpeng Universal Design System"
 description: "东鹏通用设计基础：供设计师、前端与 AI 共同使用的视觉事实源。"
 colors:
@@ -87,6 +87,38 @@ spacing:
   lg: "24px"
   xl: "32px"
   xxl: "40px"
+components:
+  button-primary:
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.on-primary}"
+    typography: "{typography.label-md}"
+    rounded: "{rounded.sm}"
+    height: "36px"
+    padding: "16px"
+  input-default:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.text-primary}"
+    typography: "{typography.body-md}"
+    rounded: "{rounded.sm}"
+    height: "36px"
+    padding: "12px"
+  tag-success:
+    backgroundColor: "{colors.success-subtle}"
+    textColor: "{colors.success}"
+    typography: "{typography.label-sm}"
+    rounded: "{rounded.sm}"
+    padding: "8px"
+  alert-warning:
+    backgroundColor: "{colors.warning-subtle}"
+    textColor: "{colors.text-primary}"
+    typography: "{typography.body-sm}"
+    rounded: "{rounded.sm}"
+    padding: "16px"
+  metric-card:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.md}"
+    padding: "24px"
 ---
 
 # 东鹏通用设计体系
@@ -99,6 +131,7 @@ spacing:
 
 | 版本 | 日期 | 负责人 | 变更摘要 |
 | --- | --- | --- | --- |
+| 1.1.0 | 2026-08-04 | 设计与前端共同维护 | 新增 5 个基础组件 token 与网页应用示例。 |
 | 1.0.0 | 2026-07-30 | 设计与前端共同维护 | 建立品牌、色彩、字体、间距、形状、图标与延伸规则。 |
 
 ## Overview
@@ -158,7 +191,7 @@ spacing:
 
 ## Components
 
-本版不定义具体组件视觉规格；前端或设计新增组件时，必须遵守以下延伸原则：
+本版已提供 5 个基础组件的首批 token（主按钮、输入框、状态标签、警告提示、数据卡片），对应网页中的“DESIGN.md 应用示例”。其余组件仍按以下延伸原则新增：
 
 1. 复用已有颜色、字体、间距和圆角 token；若现有 token 不足，先提出 token 变更，再实现组件。
 2. 每个可交互组件必须定义默认、悬停、按下、禁用、聚焦与错误/选中等适用状态；状态通过语义 token 区分，不能只改变颜色深浅而忽略可访问性。

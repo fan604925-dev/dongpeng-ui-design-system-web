@@ -69,6 +69,24 @@ document.querySelectorAll(".demo-card").forEach((card) => {
   });
 });
 
+document.querySelectorAll("[data-design-action]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const original = button.textContent.trim();
+    button.innerHTML = '<i data-lucide="check"></i>已创建';
+    refreshIcons();
+    window.setTimeout(() => {
+      button.innerHTML = `<i data-lucide="plus"></i>${original}`;
+      refreshIcons();
+    }, 1600);
+  });
+});
+
+document.querySelectorAll("[data-close-design-alert]").forEach((button) => {
+  button.addEventListener("click", () => {
+    button.closest("[data-design-alert]")?.classList.add("is-dismissed");
+  });
+});
+
 const search = document.querySelector("#doc-search");
 const searchResults = document.querySelector("#search-results");
 const searchIndex = sections.map((section) => {

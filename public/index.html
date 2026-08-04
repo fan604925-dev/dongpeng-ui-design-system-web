@@ -62,6 +62,7 @@
           </button>
           <div class="nav-children">
             <a class="nav-item" href="#buttons">按钮</a>
+            <a class="nav-item" href="#design-md-components">DESIGN.md 示例 · 5项</a>
             <a class="nav-item" href="#inputs">输入框 / 选择器</a>
             <a class="nav-item" href="#cards">卡片</a>
             <a class="nav-item" href="#tabs">标签页</a>
@@ -222,6 +223,37 @@
               <div><i data-lucide="search"></i><span>search</span></div>
               <div><i data-lucide="settings-2"></i><span>settings-2</span></div>
             </div>
+          </div>
+        </section>
+
+        <section id="design-md-components" class="doc-section component-section design-md-showcase" data-search="DESIGN.md 设计规范 token 主按钮 输入框 状态标签 警告提示 数据卡片">
+          <div class="section-heading"><div><span class="section-index">06</span><h2>DESIGN.md 应用示例</h2><p>以下 5 个组件仅使用 DESIGN.md 中定义的颜色、字体、间距和圆角 token，作为前端扩展组件的起点。</p></div><a class="design-md-link" href="https://github.com/fan604925-dev/dongpeng-ui-design-system-web/blob/main/DESIGN.md" target="_blank" rel="noreferrer">查看 DESIGN.md <i data-lucide="arrow-up-right"></i></a></div>
+          <div class="design-component-grid">
+            <article class="design-component-card">
+              <div class="design-component-head"><span>01 / BUTTON</span><code>components.button-primary</code></div>
+              <h3>主按钮</h3><p>每个操作区域只突出一个最重要的行动。</p>
+              <div class="design-component-preview"><button class="design-button" type="button" data-design-action><i data-lucide="plus"></i>创建订单</button><button class="design-button secondary" type="button">取消</button></div>
+            </article>
+            <article class="design-component-card">
+              <div class="design-component-head"><span>02 / INPUT</span><code>components.input-default</code></div>
+              <h3>输入框</h3><p>36px 高度、4px 圆角，聚焦时使用品牌红提示。</p>
+              <label class="design-field"><span>订单编号</span><div><i data-lucide="search"></i><input type="text" placeholder="请输入订单编号" aria-label="订单编号" /></div></label>
+            </article>
+            <article class="design-component-card">
+              <div class="design-component-head"><span>03 / TAG</span><code>components.tag-success</code></div>
+              <h3>状态标签</h3><p>颜色搭配文字语义，避免只靠颜色区分状态。</p>
+              <div class="design-tag-list"><span class="design-tag success"><i data-lucide="check"></i>已完成</span><span class="design-tag warning"><i data-lucide="clock-3"></i>待处理</span><span class="design-tag error"><i data-lucide="circle-alert"></i>已逾期</span></div>
+            </article>
+            <article class="design-component-card design-alert-card">
+              <div class="design-component-head"><span>04 / ALERT</span><code>components.alert-warning</code></div>
+              <h3>警告提示</h3><p>在不阻塞操作的前提下，说明原因和下一步。</p>
+              <div class="design-alert" data-design-alert><i data-lucide="triangle-alert"></i><div><strong>有 3 笔订单待处理</strong><span>请在今天 18:00 前完成确认。</span></div><button type="button" aria-label="关闭提示" data-close-design-alert><i data-lucide="x"></i></button></div>
+            </article>
+            <article class="design-component-card design-metric-card">
+              <div class="design-component-head"><span>05 / METRIC CARD</span><code>components.metric-card</code></div>
+              <h3>数据卡片</h3><p>大号数字突出业务结果，辅助文字保持克制。</p>
+              <div class="design-metric"><span>本月订单完成率</span><strong>68<small>%</small></strong><p><b>+8.6%</b> 较上月</p></div>
+            </article>
           </div>
         </section>
 
