@@ -1,5 +1,17 @@
 # 东鹏 UI 视觉设计体系
 
+## Dongpeng Design Intelligence Platform
+
+```text
+AI Design Engine
+|
+├── Design System (DESIGN.md)
+├── Design Skill (skill/)
+└── AI Generator
+```
+
+`DESIGN.md` is the single Design System source. The [Design Skill](./skill/SKILL.md) provides reusable generation and UI review workflows without duplicating design rules.
+
 ## 发布目录
 
 - `public/`：Cloudflare Workers 静态资源
