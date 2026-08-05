@@ -1,5 +1,5 @@
 ---
-version: "3.3.6"
+version: "3.4.0"
 status: "AI Ready"
 lastUpdated: "2026-08-05"
 name: "Dongpeng Design System"
@@ -388,7 +388,7 @@ businessStatusMapping:
     草稿: "{components.status-tag-neutral}"
 ---
 
-# 东鹏 Design System v3.3.6
+# 东鹏 Design System v3.4.0
 
 ## 01 Foundations
 
@@ -815,6 +815,17 @@ Date Range Picker 必须为真实交互组件，不允许只生成视觉展示�
 
 - Header、Sidebar 与 Content Workspace 必须遵守 `Enterprise Layout Foundation`。
 - Content Area 使用 `workspace-canvas`；页面内主要区块使用 `Enterprise Page Container`、`surface`、`rounded.md` 与既有边框 token。
+
+### Enterprise Backend Stable Baseline
+
+v3.4.0 是基于已验证 RTM 提货订单页面收敛的企业后台稳定规范。企业后台页面必须保持以下结构：Header → Sidebar → Workspace → Page Container → Tabs → Page Header → Filter → Table → Pagination。
+
+- 保持企业后台系统风格、fluid Workspace 与白色 Page Container；不得使用营销官网、实验性布局或任意视觉装饰替代业务信息结构。
+- Page Header 禁止添加 Icon；标题仅使用 Typography。侧边栏导航、业务分类和功能入口可按 Icon System 使用 Icon。
+- Primary 用于创建订单、查询；Secondary 用于导入、导出；Tertiary 用于自定义、更多筛选；`button-text` 用于取消选择、返回、关闭等辅助操作。
+- Table Header 固定 44px，Row 固定 48px；选中行仅使用 `brand-red-subtle`（`#FFF5F5`），Selection Toolbar 保持白色普通 Toolbar，禁止整块红色选中区域。
+- Date Range Picker 必须支持年/月切换、日期范围选择，以及今天、最近7天、最近30天、本月、上月快捷选择；禁止生成不可操作的假日期组件。
+- 稳定版不继续引入实验性视觉规则。任何新规则必须先经过业务页面验证，再作为后续版本扩展。
 
 ### Page Tabs
 

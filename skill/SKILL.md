@@ -13,6 +13,8 @@ Generate enterprise application pages that follow the Dongpeng Design System and
 
 Read [`../DESIGN.md`](../DESIGN.md) before every task. Do not duplicate, override, or invent Design System rules in this skill.
 
+Source version: `DESIGN.md v3.4.0 Stable`.
+
 ## Workflow
 
 1. Read `DESIGN.md`.
