@@ -315,21 +315,49 @@
             <a href="#buttons"><span>基础组件</span><strong>Web 组件规范</strong><small>按钮、表单、卡片、表格与分页实时预览</small><time>COMPONENTS</time></a>
             <a href="#zxb-foundation"><span>移动端</span><strong>助销宝设计规范</strong><small>移动组件、首页、表单和业务状态页面</small><time>MOBILE</time></a>
             <a href="#ppt-overview"><span>品牌资源</span><strong>东鹏汇报 PPT</strong><small>集团模板、标准版式与生成 Skill</small><time>RESOURCES</time></a>
+            <div class="dp-ai-studio-entry" aria-label="AI Design Studio 产品入口">
+              <div class="dp-ai-studio-intro"><strong>AI Design Studio</strong><small>企业级 AI 设计智能平台：从业务需求规划，到页面生成与规范验证。</small></div>
+              <div class="dp-ai-studio-products">
+                <a class="dp-ai-product-card dp-ai-product-card--planner" href="./ai-planner/index.html" aria-label="打开 AI Planner"><span>AI Planner</span><strong>业务需求规划</strong><small>业务需求分析 · 信息架构生成<br>页面清单规划 · 设计任务拆解</small><b>开始规划 <i data-lucide="arrow-up-right"></i></b></a>
+                <a class="dp-ai-product-card" href="./ai-generator/index.html" aria-label="打开 AI Page Generator"><span>AI Page Generator</span><strong>页面自动生成</strong><small>Component Library · 企业组件资产<br>Design Validator · 设计规范检查</small><b>体验生成 <i data-lucide="arrow-up-right"></i></b></a>
+              </div>
+            </div>
           </div>
 
         </section>
 
         <section id="colors" class="doc-section" data-search="颜色 色彩 token 主色 辅助色 中性色">
-          <div class="section-heading"><div><span class="section-index">01</span><h2>颜色</h2><p>以东鹏红建立品牌识别，用克制的辅助色传达业务状态。</p></div></div>
-          <div class="color-grid">
-            <article class="color-card large" style="--swatch:#E61817"><div class="swatch"></div><div><strong>品牌红</strong><code>#E61817</code></div></article>
-            <article class="color-card" style="--swatch:#C62828"><div class="swatch"></div><div><strong>深红</strong><code>#C62828</code></div></article>
-            <article class="color-card" style="--swatch:linear-gradient(135deg,#FC6F6F 0%,#FF0A12 100%)"><div class="swatch"></div><div><strong>渐变红</strong><code>#FC6F6F → #FF0A12</code></div></article>
-            <article class="color-card" style="--swatch:#FFF5F5"><div class="swatch bordered"></div><div><strong>背景红</strong><code>#FFF5F5</code></div></article>
-            <article class="color-card" style="--swatch:#4590E6"><div class="swatch"></div><div><strong>信息蓝</strong><code>#4590E6</code></div></article>
-            <article class="color-card" style="--swatch:#2E7D32"><div class="swatch"></div><div><strong>成功绿</strong><code>#2E7D32</code></div></article>
-            <article class="color-card" style="--swatch:#ED6C02"><div class="swatch"></div><div><strong>警示橙</strong><code>#ED6C02</code></div></article>
-            <article class="color-card" style="--swatch:#1A1A1A"><div class="swatch"></div><div><strong>文本主色</strong><code>#1A1A1A</code></div></article>
+          <div class="section-heading"><div><span class="section-index">01</span><h2>颜色</h2><p>使用品牌 Token 与语义状态 Token，建立清晰、克制的企业界面层级。</p></div></div>
+          <div class="color-system">
+            <section class="color-token-group color-token-group--brand" aria-labelledby="brand-token-title">
+              <header class="color-group-heading"><div><h3 id="brand-token-title">品牌色</h3></div><p>品牌识别与主要操作，仅在需要强调的场景使用。</p></header>
+              <div class="color-brand-layout">
+                <article class="color-token-feature" style="--token-color:#E21413"><div class="color-token-swatch"></div><div class="color-token-copy"><span>brand-red</span><strong>品牌红</strong><code>#E21413</code><small>Logo、当前选中与关键强调</small></div></article>
+                <div class="color-brand-support">
+                  <article class="color-token color-token--gradient" style="--token-color:linear-gradient(148.66deg,#F96766 0%,#E21413 100%)"><div class="color-token-swatch"></div><div><span>action-gradient</span><strong>主操作渐变</strong><code>#F96766 → #E21413</code></div></article>
+                  <article class="color-token color-token--subtle" style="--token-color:#FFF5F5"><div class="color-token-swatch"></div><div><span>brand-red-subtle</span><strong>品牌弱化背景</strong><code>#FFF5F5</code></div></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="color-token-group" aria-labelledby="semantic-token-title">
+              <header class="color-group-heading"><div><h3 id="semantic-token-title">语义状态</h3></div><p>状态颜色只表达业务语义，不替代品牌强调。</p></header>
+              <div class="color-semantic-list">
+                <article class="color-semantic-token" style="--token-color:#16A34A"><div><span>success</span><strong>成功</strong><code>#16A34A</code></div></article>
+                <article class="color-semantic-token" style="--token-color:#ED6C02"><div><span>warning</span><strong>警示</strong><code>#ED6C02</code></div></article>
+                <article class="color-semantic-token" style="--token-color:#4590E6"><div><span>processing</span><strong>处理中</strong><code>#4590E6</code></div></article>
+              </div>
+            </section>
+
+            <section class="color-token-group" aria-labelledby="foundation-token-title">
+              <header class="color-group-heading"><div><h3 id="foundation-token-title">基础中性色</h3></div><p>用于页面、容器、边界与文本层级。</p></header>
+              <div class="color-foundation-list">
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#F5F6F8"><div><span>canvas</span><strong>页面底色</strong><code>#F5F6F8</code></div></article>
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#FFFFFF"><div><span>surface</span><strong>容器底色</strong><code>#FFFFFF</code></div></article>
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#EBEEF5"><div><span>border</span><strong>默认边框</strong><code>#EBEEF5</code></div></article>
+                <article class="color-foundation-token" style="--token-color:#303133"><div><span>text-primary</span><strong>文本主色</strong><code>#303133</code></div></article>
+              </div>
+            </section>
           </div>
         </section>
 
