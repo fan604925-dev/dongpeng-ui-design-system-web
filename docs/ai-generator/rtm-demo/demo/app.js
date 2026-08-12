@@ -9,6 +9,7 @@ const setSidebar = (expanded) => {
   document.documentElement.style.setProperty('--side', expanded ? '210px' : '64px');
   document.querySelectorAll('.sidebar .side').forEach(item => item.querySelector('b').hidden = !expanded);
   document.querySelectorAll('.sidebar .side em,.sidebar .sub').forEach(item => item.hidden = !expanded);
+  if (window.parent !== window) window.parent.postMessage({ type: 'rtm-sidebar', collapsed: !expanded }, '*');
 };
 setSidebar(new URLSearchParams(location.search).get('sidebar') !== 'collapsed');
 toggle.addEventListener('click', () => setSidebar(app.dataset.sidebar !== 'expanded'));
