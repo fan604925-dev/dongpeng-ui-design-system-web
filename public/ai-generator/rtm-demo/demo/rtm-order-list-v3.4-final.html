@@ -17,16 +17,36 @@
 <body>
   <iframe class="base-page" id="base-page" src="rtm-order-list-v3.4.html" title="RTM 提货订单列表"></iframe>
   <nav class="enterprise-tabs" aria-label="Enterprise 页面标签">
-    <button class="tab" type="button">首页</button>
+    <button class="tab" type="button" data-page="home" aria-controls="base-page">首页</button>
     <button class="tab closable" type="button">订单查询 <span class="tab-close" aria-label="关闭订单查询"><i data-lucide="x"></i></span></button>
-    <button class="tab active closable" type="button" aria-current="page">提货订单 <span class="tab-close" aria-label="关闭提货订单"><i data-lucide="x"></i></span></button>
+    <button class="tab active closable" type="button" data-page="order" aria-current="page" aria-controls="base-page">提货订单 <span class="tab-close" aria-label="关闭提货订单"><i data-lucide="x"></i></span></button>
   </nav>
   <script>
     const basePage=document.querySelector('#base-page');
+    const pageSources={home:'index.html',order:'rtm-order-list-v3.4.html'};
+    const pageTitles={home:'RTM 首页工作台',order:'RTM 提货订单列表'};
+    const tabs=document.querySelectorAll('[data-page]');
+    function openPage(page){
+      basePage.src=pageSources[page];
+      basePage.title=pageTitles[page];
+      tabs.forEach(tab=>{
+        const isActive=tab.dataset.page===page;
+        tab.classList.toggle('active',isActive);
+        tab.toggleAttribute('aria-current',isActive);
+      });
+    }
+    tabs.forEach(tab=>tab.addEventListener('click',()=>openPage(tab.dataset.page)));
+    window.addEventListener('message',event=>{
+      if(event.data?.type==='rtm-navigate' && pageSources[event.data.page]) openPage(event.data.page);
+    });
     basePage.addEventListener('load',()=>{
-      const spacing=document.createElement('style');
-      spacing.textContent='.main{padding-top:calc(var(--header) + 64px)!important}';
-      basePage.contentDocument.head.append(spacing);
+      const frameDocument=basePage.contentDocument;
+      const isOrderPage=basePage.getAttribute('src')===pageSources.order;
+      if(isOrderPage){
+        const spacing=document.createElement('style');
+        spacing.textContent='.main{padding-top:calc(var(--header) + 64px)!important}';
+        frameDocument.head.append(spacing);
+      }
     });
     document.querySelectorAll('.tab-close').forEach(close=>close.addEventListener('click',event=>{event.stopPropagation();const tab=close.closest('.tab');if(!tab.classList.contains('active'))tab.remove()}));
     window.lucide?.createIcons({attrs:{'stroke-width':2}});
