@@ -1,0 +1,34 @@
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  width: 100% !important;
+  margin: 24px 0 0 !important;
+  padding-top: 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-card-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-name {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.zxb-customer-summary-card .zxb-pin-action {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+  flex: none !important;
+  margin: 0 0 0 auto !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 720px) {
+  #zxb-tab-style-spec.zxb-tab-style-in-components {
+    margin-top: 16px !important;
+  }
+}

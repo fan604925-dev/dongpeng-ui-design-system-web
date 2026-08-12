@@ -1,0 +1,36 @@
+/* 助销宝内容归位与客户卡片对齐修复 */
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  width: 100% !important;
+  margin: 24px 0 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-card-top,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-card-top {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  min-width: 0 !important;
+  padding-right: 68px !important;
+}
+
+.zxb-customer-summary-card .zxb-pin-action,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-pin-action {
+  position: absolute !important;
+  top: 50% !important;
+  right: 0 !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-name,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-name {
+  min-width: 0 !important;
+}
+
+@media (max-width: 720px) {
+  #zxb-tab-style-spec.zxb-tab-style-in-components {
+    margin-top: 16px !important;
+  }
+}

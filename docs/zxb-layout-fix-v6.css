@@ -1,0 +1,39 @@
+/* 2026-07-27：助销宝内容归位与客户卡片对齐 */
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  width: 100% !important;
+  margin: 24px 0 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-card-top,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-card-top {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: 8px !important;
+  min-width: 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-pin-action,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-pin-action {
+  position: static !important;
+  justify-self: end !important;
+  align-self: center !important;
+  margin: 0 !important;
+  transform: none !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-name,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-name {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 720px) {
+  #zxb-tab-style-spec.zxb-tab-style-in-components {
+    margin-top: 16px !important;
+  }
+}
