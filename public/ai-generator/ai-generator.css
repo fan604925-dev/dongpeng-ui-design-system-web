@@ -2,7 +2,7 @@
 .ai-studio-page { --brand: #e21413; --brand-dark: #c90f10; min-width: 320px; background: #fafafa; color: var(--text); }
 .ai-topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; height: 68px; padding: 0 clamp(22px, 5vw, 72px); border-bottom: 1px solid var(--border); background: rgba(255,255,255,.94); backdrop-filter: blur(14px); }
 .ai-brand, .ai-back-link { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-size: 14px; font-weight: 700; }
-.ai-brand-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 7px; background: var(--brand); color: #fff; font-size: 12px; letter-spacing: -.04em; }
+.ai-brand > img { display: block; width: 72px; height: auto; }
 .ai-back-link { color: var(--text-3); font-size: 13px; font-weight: 600; }.ai-back-link:hover { color: var(--brand); }.ai-back-link svg { width: 16px; }
 .ai-main { width: min(1180px, calc(100% - 48px)); margin: 0 auto; padding: 72px 0 96px; }
 .ai-intro { max-width: 760px; }.ai-intro h1 { margin: 8px 0 16px; font-size: clamp(40px, 5vw, 64px); line-height: 1; letter-spacing: -.055em; }.ai-intro h1 span { color: var(--brand); }.ai-intro p { margin: 0; color: var(--text-3); font-size: 17px; line-height: 1.8; }
