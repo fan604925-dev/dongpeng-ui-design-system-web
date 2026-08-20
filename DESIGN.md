@@ -1,7 +1,7 @@
 ---
-version: "3.4.0"
+version: "3.4.1"
 status: "AI Ready"
-lastUpdated: "2026-08-05"
+lastUpdated: "2026-08-20"
 name: "Dongpeng Design System"
 description: "东鹏企业级产品的 AI 可执行设计规范。YAML token 为精确值；Markdown 规则定义生成、扩展与验收行为。"
 colors:
@@ -388,7 +388,7 @@ businessStatusMapping:
     草稿: "{components.status-tag-neutral}"
 ---
 
-# 东鹏 Design System v3.4.0
+# 东鹏 Design System v3.4.1
 
 ## 01 Foundations
 
@@ -401,6 +401,51 @@ businessStatusMapping:
 `brand-red` 是东鹏品牌识别色，用于：东鹏 Logo、品牌文字、当前选中状态和关键强调信息；它同时是企业后台主按钮品牌渐变的结束色，不作为大面积主按钮的单色背景。
 
 全局规则优先于业务规则。RTM、助销宝、PPT 等业务系统只能补充业务模式，不得覆盖本文件的品牌、颜色、字体、间距、图标与组件语义。
+
+### Brand Asset — Logo
+
+#### 正式资产与版本选择
+
+正式 Logo 资产统一存放于 `assets/brand/`：
+
+| 资产 | 用途 |
+| --- | --- |
+| `assets/brand/东鹏-logo.svg` | 默认主 Logo（横向版）；企业后台 Header、官网、登录页及绝大多数品牌展示场景必须优先使用。 |
+| `assets/brand/方形logo.svg` | 紧凑版 Logo；仅用于侧边栏收起、移动端极窄 Header 或其他展示空间明显受限的场景。 |
+
+- 默认必须使用主 Logo；不得仅因视觉偏好将主 Logo 替换为方形 Logo。
+- 方形 Logo 仅用于收纳 / 缩小场景，不得作为普通功能图标、状态图标或装饰图形使用。
+- 浅色背景使用正式标准彩版；深色背景只能使用经品牌确认的反白版资产。当前未提供反白版时，不得通过 CSS 滤镜、反色或修改 SVG 填充色自行生成。
+
+#### 最小尺寸与安全区域
+
+| 版本 | 最小展示尺寸 | 推荐尺寸 |
+| --- | --- | --- |
+| 横向主 Logo | 宽度不小于 `120px` | 企业后台 Header 中按可用空间展示，保持清晰可识别。 |
+| 方形 Logo | 宽度 / 高度不小于 `24px` | 移动端或收起导航中使用 `28px–32px`。 |
+
+- 小于最小尺寸时不得继续缩小；应调整布局、增加可用空间或隐藏非必要内容。
+- Logo 四周安全区域最小为 Logo 可视高度的 `25%`；Header、官网 Hero 等关键品牌位置推荐为 `50%`。
+- 安全区域内不得放置文字、图标、边框、分割线或其他品牌元素。
+
+#### 允许与禁止场景
+
+允许：Enterprise Application Header、Landing Page / Design System 官网品牌区域、登录页、启动页、移动端 Header、收起侧边栏的品牌入口，以及经品牌确认的导出文件或说明材料。
+
+禁止：
+
+- 将 Logo 用作普通按钮、状态标签、业务分类图标或装饰图标。
+- 在表格单元格、表单字段或普通 Page Header 前重复放置 Logo。
+- 拉伸、压缩、裁切、旋转、变形，或修改 Logo 的颜色、描边、透明度、字体、构图和内部间距。
+- 将 Logo 与第三方标识随意拼接、覆盖或叠加；除非已有明确的品牌合作规范。
+- 以低对比背景水印形式使用，造成品牌识别不清。
+
+#### Logo Asset Protection
+
+- 企业产品 Header 必须引用正式 Logo 资产；无正式资源时仅保留 `Logo Slot`，不得自行创建替代方案。
+- 禁止用文字、Emoji、Unicode 字符、AI 生成图片或近似图形替代官方 Logo。
+- 禁止 AI 自动生成、重绘、内联修改或猜测东鹏 Logo。
+- AI 生成或修改页面时，先检查 `assets/brand/`；默认引用 `东鹏-logo.svg`，仅在空间受限时引用 `方形logo.svg`，并遵守本节最小尺寸和安全区域规则。
 
 ### Token Source
 
