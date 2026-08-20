@@ -18,8 +18,8 @@
 
       #zxb-home .zxb-tool-svg {
         display: block;
-        width: 30px;
-        height: 30px;
+        width: 44px;
+        height: 44px;
         margin: 0 auto 7px;
         object-fit: contain;
       }
@@ -37,15 +37,20 @@
   const replaceToolIcons = () => {
     const toolCard = [...document.querySelectorAll("#zxb-home .zxb-mobile-card")]
       .find((card) => card.textContent.includes("常用工具"));
+
     if (!toolCard) return;
 
     Object.entries(toolIcons).forEach(([label, source]) => {
       const labelElement = findExactTextElement(toolCard, label);
       if (!labelElement) return;
+
       const item =
         labelElement.closest(".zxb-tool-item, .tool-item, .zxb-tool") ||
         labelElement.parentElement;
+
       if (!item) return;
+
+      if (item.querySelector("[data-zxb-custom-tool-icon]")) return;
 
       const currentIcon = item.querySelector(
         ".zxb-tool-svg, .zxb-tool-icon, .tool-icon, svg, img"
@@ -56,9 +61,17 @@
       image.alt = "";
       image.setAttribute("aria-hidden", "true");
 
-      if (currentIcon && currentIcon !== labelElement && currentIcon.parentElement === item) {
+      if (
+        currentIcon &&
+        currentIcon !== labelElement &&
+        currentIcon.parentElement === item
+      ) {
         currentIcon.replaceWith(image);
-      } else if (currentIcon && currentIcon !== labelElement && currentIcon.parentElement) {
+      } else if (
+        currentIcon &&
+        currentIcon !== labelElement &&
+        currentIcon.parentElement
+      ) {
         currentIcon.parentElement.replaceChildren(image);
       } else {
         item.prepend(image);
@@ -69,17 +82,23 @@
   const moveTabsToComponents = () => {
     const tabsSection = [...document.querySelectorAll("section")].find(
       (section) =>
-        /标签样式/.test(section.querySelector("h1, h2, h3")?.textContent || "")
+        /标签样式/.test(
+          section.querySelector("h1, h2, h3")?.textContent || ""
+        )
     );
+
     const componentLink = [...document.querySelectorAll('a[href^="#"]')].find(
       (link) => link.textContent.trim() === "移动组件"
     );
     const componentSection =
       document.querySelector("#zxb-components, #zxb-component") ||
-      (componentLink ? document.querySelector(componentLink.getAttribute("href")) : null);
+      (componentLink
+        ? document.querySelector(componentLink.getAttribute("href"))
+        : null);
 
     if (tabsSection && componentSection) {
       componentSection.insertAdjacentElement("afterend", tabsSection);
+
       if (tabsSection.id) {
         const tabsLink = document.querySelector(
           `a[href="#${CSS.escape(tabsSection.id)}"]`
@@ -91,11 +110,29 @@
     }
   };
 
+  const organizeInterfaceTemplates = () => {
+    const homeSection = document.querySelector("#zxb-home");
+    const showcase = homeSection?.querySelector(".zxb-showcase");
+    const legacyPages = document.querySelector(".zxb-business-pages-legacy");
+    if (!homeSection || !showcase || !legacyPages) return;
+
+    const notes = showcase.querySelector(".zxb-template-notes");
+    if (notes) homeSection.appendChild(notes);
+
+    showcase.classList.add("zxb-interface-template-showcase");
+    legacyPages.hidden = false;
+    legacyPages.classList.add("zxb-interface-templates");
+    showcase.appendChild(legacyPages);
+  };
+
   const applyFixes = () => {
     addStyles();
-    document.querySelector("#zxb-home .zxb-phone.home > .zxb-status")?.remove();
+    document
+      .querySelector("#zxb-home .zxb-phone.home > .zxb-status")
+      ?.remove();
     replaceToolIcons();
     moveTabsToComponents();
+    organizeInterfaceTemplates();
   };
 
   if (document.readyState === "loading") {
@@ -103,6 +140,7 @@
   } else {
     applyFixes();
   }
+
   window.addEventListener("load", applyFixes);
   setTimeout(applyFixes, 0);
 })();

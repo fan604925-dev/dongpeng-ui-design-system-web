@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="东鹏 AI Design Studio - Design Intelligence Platform 产品展示原型" />
+  <title>AI Design Studio · 东鹏 UI 视觉设计体系</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./ai-generator.css" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="ai-studio-page">
+  <header class="ai-topbar">
+    <a class="ai-brand" href="../index.html" aria-label="返回东鹏 UI 视觉设计体系">
+      <img src="assets/dongpeng-logo.svg" alt="东鹏" />
+      <span>东鹏 UI 视觉设计体系</span>
+    </a>
+    <a class="ai-back-link" href="../index.html"><i data-lucide="arrow-left"></i>返回设计系统</a>
+  </header>
+
+  <main class="ai-main">
+    <section class="ai-intro" aria-labelledby="ai-studio-title">
+      <span class="section-index">AI DESIGN</span>
+      <h1 id="ai-studio-title">AI Design <span>Studio</span></h1>
+      <p>基于东鹏 Design System 与 AI Skill 自动生成符合企业规范的页面。</p>
+    </section>
+
+    <section class="ai-prompt-card" aria-label="AI 页面需求输入">
+      <label for="design-prompt">描述你想生成的页面</label>
+      <div class="ai-input-row">
+        <textarea id="design-prompt" rows="2" placeholder="例如：生成一个 RTM 提货订单列表页面">生成一个 RTM 提货订单列表页面</textarea>
+        <button class="dp-button primary ai-generate-button" id="generate-button" type="button"><i data-lucide="sparkles"></i>开始生成</button>
+      </div>
+      <p class="ai-helper"><i data-lucide="shield-check"></i>当前为展示原型，不会发送或存储输入内容。</p>
+    </section>
+
+    <section class="ai-flow-section" aria-labelledby="flow-title">
+      <div class="ai-section-heading"><div><span class="section-index">01</span><h2 id="flow-title">生成流程</h2></div><p>Design Intelligence Platform</p></div>
+      <ol class="ai-flow" aria-label="设计生成流程">
+        <li><span class="ai-flow-icon"><i data-lucide="swatch-book"></i></span><strong>Design Token</strong><small>品牌色、间距与基础 Token</small></li>
+        <li><span class="ai-flow-icon"><i data-lucide="file-text"></i></span><strong>DESIGN.md v3.4.0</strong><small>Stable 设计规范</small></li>
+        <li><span class="ai-flow-icon"><i data-lucide="bot"></i></span><strong>AI Skill</strong><small>理解页面意图与约束</small></li>
+        <li><span class="ai-flow-icon"><i data-lucide="blocks"></i></span><strong>Component Library</strong><small>@dongpeng/design 企业组件库</small></li>
+        <li><span class="ai-flow-icon"><i data-lucide="shield-check"></i></span><strong>Design Validator</strong><small>设计规范校验与评分</small></li>
+      </ol>
+    </section>
+
+    <section class="ai-result-section" aria-labelledby="result-title">
+      <div class="ai-section-heading"><div><span class="section-index">02</span><h2 id="result-title">生成结果</h2></div><span class="ai-status"><i data-lucide="circle-check"></i>已验证 Demo</span></div>
+      <div class="ai-result-grid">
+        <article class="ai-preview-card is-clickable" role="link" tabindex="0" data-preview-url="./rtm-demo/demo/rtm-order-list-v3.4-final.html" aria-label="打开 RTM 提货订单列表最终页面">
+          <div class="ai-preview-head"><div><span>RTM 提货订单列表</span><small>rtm-order-list-v3.4-final.html</small></div><a href="./rtm-demo/demo/rtm-order-list-v3.4-final.html" target="_blank" rel="noreferrer" aria-label="在新标签页打开 RTM 提货订单列表"><i data-lucide="arrow-up-right"></i></a></div>
+          <div class="ai-preview-frame"><iframe title="RTM 提货订单列表预览" src="./rtm-demo/demo/rtm-order-list-v3.4-final.html" loading="lazy"></iframe></div>
+        </article>
+        <aside class="ai-summary-card" aria-label="生成摘要">
+          <span class="ai-summary-kicker">GENERATED PAGE</span>
+          <h3>RTM 提货订单列表</h3>
+          <p>已基于 RTM 后台列表场景完成页面结构、筛选区、数据表格与操作区的组合展示。</p>
+          <dl><div><dt>页面类型</dt><dd>企业后台 · 列表页</dd></div><div><dt>应用规范</dt><dd>DESIGN.md v3.4.0</dd></div><div><dt>生成方式</dt><dd>AI Skill + @dongpeng/design</dd></div></dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ai-check-section" aria-labelledby="check-title">
+      <div class="ai-section-heading"><div><span class="section-index">03</span><h2 id="check-title">设计规范检查</h2></div><p>Design Compliance Check · 展示版</p></div>
+      <div class="ai-validation-panel" aria-label="设计规范检查结果">
+        <div class="ai-validation-list">
+          <div class="ai-validation-item"><i data-lucide="circle-check"></i><div><strong>Token检查</strong><small>颜色、间距与圆角 Token 已匹配</small></div><em>通过</em></div>
+          <div class="ai-validation-item"><i data-lucide="circle-check"></i><div><strong>Button规范检查</strong><small>主次按钮层级与交互状态正确</small></div><em>通过</em></div>
+          <div class="ai-validation-item"><i data-lucide="circle-check"></i><div><strong>Table规范检查</strong><small>表格密度、列信息与操作一致</small></div><em>通过</em></div>
+          <div class="ai-validation-item"><i data-lucide="circle-check"></i><div><strong>Layout检查</strong><small>页面栅格、留白与响应式通过</small></div><em>通过</em></div>
+          <div class="ai-validation-item ai-validation-item--wide"><i data-lucide="circle-check"></i><div><strong>Component使用情况</strong><small>@dongpeng/design · 12 个企业组件已规范使用</small></div><em>12 / 12</em></div>
+        </div>
+        <aside class="ai-score-card" aria-label="综合评分 98 分"><span>综合评分</span><strong>98<small>/100</small></strong><p>Design Ready</p><div class="ai-score-bar" aria-hidden="true"><i></i></div></aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="ai-toast" id="ai-toast" role="status" aria-live="polite">Demo 已就绪：RTM 提货订单列表</div>
+  <script>
+    const button = document.querySelector('#generate-button');
+    const toast = document.querySelector('#ai-toast');
+    button.addEventListener('click', () => {
+      button.classList.add('is-generating');
+      button.innerHTML = '<i data-lucide="loader-circle"></i>生成中';
+      lucide.createIcons();
+      window.setTimeout(() => {
+        button.classList.remove('is-generating');
+        button.innerHTML = '<i data-lucide="sparkles"></i>开始生成';
+        toast.classList.add('is-visible');
+        lucide.createIcons();
+        window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
+      }, 700);
+    });
+    const previewCard = document.querySelector('.ai-preview-card.is-clickable');
+    if (previewCard) {
+      const openPreview = () => { window.location.href = previewCard.dataset.previewUrl; };
+      previewCard.addEventListener('click', (event) => {
+        if (!event.target.closest('.ai-preview-head a')) openPreview();
+      });
+      previewCard.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openPreview(); }
+      });
+    }
+    lucide.createIcons();
+  </script>
+</body>
+</html>

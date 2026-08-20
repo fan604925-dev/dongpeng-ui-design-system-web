@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RTM 首页工作台</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./layout-overrides.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+  <main class="app" data-sidebar="expanded">
+    <header class="topbar">
+      <span class="logo-switcher" aria-label="东鹏 RTM 全渠道系统">
+        <img class="logo logo-expanded" src="../assets/rtm-logo-expanded.svg" width="108" height="44" alt="">
+        <img class="logo logo-collapsed" src="../assets/rtm-logo-collapsed.svg" width="36" height="36" alt="">
+      </span>
+      <button class="collapse" aria-label="收起侧边栏" aria-expanded="true" type="button"><i data-lucide="panel-left-close"></i></button>
+      <nav class="platforms" aria-label="平台导航"><button class="active"><i data-lucide="clipboard-check"></i>订单/提货/开票 OMS</button><button><i data-lucide="layers-3"></i>商机/合同 LTC</button><button><i data-lucide="user-round"></i>BASE客户</button><button><i data-lucide="plus"></i>更多平台</button></nav>
+      <label class="search"><i data-lucide="search"></i><input aria-label="搜索" placeholder="输入搜索内容"></label>
+      <span class="avatar">樊</span><span class="user">樊态　上海东鹏官方旗舰店</span><i class="chevron" data-lucide="chevron-down"></i>
+    </header>
+    <aside class="sidebar" aria-label="主导航">
+      <button class="side active" type="button" title="首页" data-page="home"><i data-lucide="house"></i><b>首页</b></button>
+      <button class="side open" title="工作台"><i data-lucide="monitor"></i><b>工作台</b><em><i data-lucide="chevron-up"></i></em></button>
+      <button class="sub" type="button">我的代办</button><button class="sub" type="button">我的已办</button>
+      <button class="side" title="瓷砖事业部"><i data-lucide="layout-dashboard"></i><b>瓷砖事业部</b><em><i data-lucide="chevron-down"></i></em></button><button class="side" title="卫浴事业部"><i data-lucide="monitor-cog"></i><b>卫浴事业部</b><em><i data-lucide="chevron-down"></i></em></button><button class="side" title="报表管理"><i data-lucide="chart-no-axes-combined"></i><b>报表管理</b><em><i data-lucide="chevron-down"></i></em></button><button class="side" title="政策管理"><i data-lucide="clipboard-list"></i><b>政策管理</b><em><i data-lucide="chevron-down"></i></em></button><button class="side" title="业务管理"><i data-lucide="handshake"></i><b>业务管理</b><em><i data-lucide="chevron-down"></i></em></button><button class="side" title="OMS鹤客APP"><i data-lucide="smartphone"></i><b>OMS鹤客APP</b><em><i data-lucide="chevron-down"></i></em></button>
+    </aside>
+    <section class="workspace">
+      <div class="tabs"><button class="active">首页</button><button>创建报价单　×</button></div>
+      <div class="canvas">
+        <section class="top-summary">
+        <section class="welcome"><div><h1>欢迎来到 东鹏RTM全渠道系统</h1><p>上海东鹏官方旗舰店</p></div><img class="welcome-eagle" src="../assets/welcome-eagle.svg" width="314" height="169" alt="" aria-hidden="true"></section>
+        <section class="summary-grid">
+          <article class="panel overview"><h2>本月概况 <i class="help-icon" data-lucide="circle-help"></i></h2><div class="metrics"><div><span>年业绩完成率</span><strong class="red">68<small>%</small></strong><p>同比 <b>+50% ↑</b>　环比 <i>-10% ↓</i></p></div><div><span>年业绩</span><strong>8,608<small>元</small></strong><p>同比 <b>+50% ↑</b>　环比 <i>-10% ↓</i></p></div><div><span>采购总额</span><strong>23,868<small>元</small></strong><p>同比 <b>+50% ↑</b>　环比 <i>-10% ↓</i></p></div><div><span>未提货</span><strong class="red">38<small>单</small></strong><p>同比 <b>+50% ↑</b>　环比 <i>-10% ↓</i></p></div></div></article>
+          <article class="panel funds"><div class="panel-head"><h2>账号资金 <i class="help-icon" data-lucide="circle-help"></i></h2><nav class="account-tabs" aria-label="账号选择"><button class="active" type="button">8A00</button><button type="button">7500</button><button type="button">7B30</button></nav></div><div class="fund-grid"><section class="fund-card"><span class="amount-label">可开单金额 <button class="visibility-toggle" type="button" data-visible="true" aria-label="隐藏可开单金额" aria-pressed="true"><img src="../assets/fund-eye-open.svg" width="16" height="16" alt=""></button></span><strong class="fund-value" data-value="682,038">682,038<small>元</small></strong><p>账号逾期，请打款10万元</p><img class="fund-watermark" src="../assets/fund-currency.svg" width="87" height="87" alt="" aria-hidden="true"></section><section class="fund-card"><span class="amount-label">可用现金 <button class="visibility-toggle" type="button" data-visible="false" aria-label="显示可用现金" aria-pressed="false"><img src="../assets/fund-eye-closed.svg" width="16" height="16" alt=""></button></span><strong class="fund-value" data-value="286,400">＊ ＊ ＊<small>元</small></strong><img class="fund-watermark" src="../assets/fund-currency.svg" width="87" height="87" alt="" aria-hidden="true"></section></div></article>
+        </section>
+        </section>
+        <section class="dashboard">
+          <article class="panel quick"><div class="panel-head"><h2>常用快捷操作</h2><a>自定义　›</a></div><div class="actions"><button><i data-lucide="clipboard-plus"></i>创建订单</button><button><i data-lucide="truck"></i>订单提货</button><button><i data-lucide="scroll-text"></i>开票申请</button><button><i data-lucide="square-plus"></i>创建订单</button><button><i data-lucide="chart-no-axes-combined"></i>经营信息</button><button class="add"><i data-lucide="plus"></i>添加常用</button></div></article>
+          <article class="panel alerts"><h2>仓储费预警 <small>2项</small></h2><div class="alert warning"><i data-lucide="siren"></i><p>有 <b>9</b> 件商品将在 <b>7</b> 天内逾期，已开始收取仓储费<small class="alert-meta"><span>橙色预警信号</span><i class="alert-separator">|</i><time>2026-06-11　09:00:45</time></small></p></div><div class="alert critical"><i data-lucide="siren"></i><p>有 <b>3</b> 件商品已逾期，已开始收取仓储费<small class="alert-meta"><span>红色预警信号</span><i class="alert-separator">|</i><time>2026-06-11　09:00:45</time></small></p></div></article>
+          <article class="panel list"><div class="panel-head"><h2>通知公告 <small>3项</small></h2><a>查看全部　›</a></div><ul><li>“鹏哥”APP操作指引&操作视频 <time>2026-06-11</time></li><li>东瓷销字〔2026〕22号 关于2026年零售渠道营销… <time>2026-06-11</time></li><li>东瓷销字〔2026〕19号 2026年上半年零售渠道“…” <time>2026-06-11</time></li><li>经销商信用评级结果公示 <time>2026-06-11</time></li><li>关于3月产品价格调整的通知 <time>2026-06-11</time></li></ul></article>
+          <article class="panel list"><div class="panel-head"><h2>待办事项 <small>3项</small></h2><a>查看全部　›</a></div><ul><li>订单 WO20260401023 金额变更待确认 <span class="new-badge" aria-label="新">NEW</span><time>2026-06-11</time></li><li>订单 WO20260401023 金额变更待确认 <time>2026-06-11</time></li><li>提货单 TH20260400857 收货地址变更待确认 <time>2026-06-11</time></li><li>LTC项目「龙湖天街」价审待确认 <time>2026-06-11</time></li><li>订单 WO20260401023 金额变更待确认 <time>2026-06-11</time></li></ul></article>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="东鹏 AI Planner - 企业级产品规划展示原型" />
+  <title>AI Planner · 东鹏 UI 视觉设计体系</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="./ai-planner.css?v=13d4661" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+</head>
+<body class="ai-planner-page">
+  <header class="planner-topbar">
+    <a class="planner-brand" href="../index.html" aria-label="返回东鹏 UI 视觉设计体系"><img src="assets/dongpeng-logo.svg" alt="东鹏" />东鹏 UI 视觉设计体系</a>
+    <a class="planner-back" href="../index.html"><i data-lucide="arrow-left"></i>返回设计系统</a>
+  </header>
+
+  <main class="planner-main">
+    <section class="planner-hero" aria-labelledby="planner-title">
+      <span class="section-index">DESIGN INTELLIGENCE</span>
+      <h1 id="planner-title">AI <span>Planner</span></h1>
+      <p>将业务需求转化为企业产品的信息架构、页面清单与设计任务，为页面生成提供清晰、可验证的规划基础。</p>
+      <div class="planner-foundations" aria-label="AI Planner 规划依据"><span>DESIGN.md v3.4.0</span><i>+</i><span>AI Skill</span><i>+</i><span>Component Library</span></div>
+    </section>
+
+    <section class="planner-prompt-card" aria-label="业务需求输入">
+      <label for="planner-prompt">描述你的业务需求</label>
+      <div class="planner-input-row"><textarea id="planner-prompt" rows="2">创建一个RTM订单管理系统</textarea><button class="planner-primary" id="plan-button" type="button"><i data-lucide="sparkles"></i>开始规划</button></div>
+      <p><i data-lucide="brain-circuit"></i>AI Planner 会分析业务对象、核心流程、页面结构与组件需求。</p>
+    </section>
+
+    <section class="planner-result" aria-labelledby="planner-result-title">
+      <div class="planner-section-head"><div><span class="section-index">01</span><h2 id="planner-result-title">AI 规划结果</h2></div><span>RTM ORDER MANAGEMENT</span></div>
+      <div class="planner-overview-grid">
+        <article class="planner-summary"><span>产品介绍</span><h3>RTM 订单管理系统</h3><p>面向企业订单运营人员，覆盖订单处理、库存协同、客户管理与经营分析，形成可持续扩展的 RTM 业务工作台。</p><dl><div><dt>核心业务</dt><dd>订单履约与库存协同</dd></div><div><dt>目标用户</dt><dd>订单运营与业务管理人员</dd></div></dl></article>
+        <article class="planner-delivery"><span>规划交付</span><div><i data-lucide="workflow"></i><strong>6 个核心页面</strong><small>信息架构、页面职责与设计任务已完成拆解</small></div><div class="planner-delivery-chain"><b>业务需求</b><i>→</i><b>AI Planner</b><i>→</i><b>页面生成</b><i>→</i><b>规范验证</b><i>→</i><b>企业应用交付</b></div></article>
+      </div>
+    </section>
+
+    <section class="planner-architecture" aria-labelledby="architecture-title">
+      <div class="planner-section-head"><div><span class="section-index">02</span><h2 id="architecture-title">页面架构树</h2></div><p>按业务对象与工作流组织页面层级。</p></div>
+      <div class="planner-tree">
+        <div class="tree-root"><i data-lucide="boxes"></i><strong>RTM 订单管理系统</strong></div>
+        <div class="tree-branches">
+          <div class="tree-branch"><i data-lucide="house"></i><span>首页</span></div>
+          <div class="tree-branch tree-branch--stack"><i data-lucide="receipt-text"></i><span>订单管理</span><small>订单列表 · 订单详情</small></div>
+          <div class="tree-branch"><i data-lucide="warehouse"></i><span>库存管理</span></div>
+          <div class="tree-branch"><i data-lucide="users-round"></i><span>客户管理</span></div>
+          <div class="tree-branch"><i data-lucide="chart-no-axes-combined"></i><span>数据分析</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="planner-pages" aria-labelledby="pages-title">
+      <div class="planner-section-head"><div><span class="section-index">03</span><h2 id="pages-title">页面清单</h2></div><p>每个页面将基于对应 Pattern 与组件资产生成。</p></div>
+      <div class="planner-page-list">
+        <article><span>01</span><div><strong>首页</strong><small>业务概览、待办与关键指标</small></div><em>Dashboard</em></article>
+        <article><span>02</span><div><strong>订单列表</strong><small>筛选、批量操作与订单状态管理</small></div><em>List Page</em></article>
+        <article><span>03</span><div><strong>订单详情</strong><small>订单信息、履约进度与操作记录</small></div><em>Detail Page</em></article>
+        <article><span>04</span><div><strong>库存管理</strong><small>库存查询、预警与出入库协同</small></div><em>List Page</em></article>
+        <article><span>05</span><div><strong>客户管理</strong><small>客户档案、标签与业务关联</small></div><em>List Page</em></article>
+        <article><span>06</span><div><strong>数据分析</strong><small>订单趋势、库存效率与经营洞察</small></div><em>Analytics</em></article>
+      </div>
+      <div class="planner-generate"><div><strong>规划完成，开始生成企业页面</strong><span>页面将引用 DESIGN.md v3.4.0、AI Skill 与 @dongpeng/design 组件资产。</span></div><a class="planner-primary" href="../ai-generator/index.html"><i data-lucide="sparkles"></i>一键生成页面</a></div>
+    </section>
+  </main>
+
+  <div class="planner-toast" id="planner-toast" role="status" aria-live="polite">已完成 RTM 订单管理系统规划</div>
+  <script>
+    const planButton = document.querySelector('#plan-button');
+    const plannerToast = document.querySelector('#planner-toast');
+    planButton.addEventListener('click', () => {
+      planButton.disabled = true;
+      planButton.innerHTML = '<i data-lucide="loader-circle"></i>规划中';
+      lucide.createIcons();
+      window.setTimeout(() => {
+        planButton.disabled = false;
+        planButton.innerHTML = '<i data-lucide="sparkles"></i>开始规划';
+        plannerToast.classList.add('is-visible');
+        lucide.createIcons();
+        window.setTimeout(() => plannerToast.classList.remove('is-visible'), 2600);
+      }, 700);
+    });
+    lucide.createIcons();
+  </script>
+</body>
+</html>

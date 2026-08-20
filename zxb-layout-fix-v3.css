@@ -1,0 +1,21 @@
+/* 助销宝：组件内容归位与客户摘要卡片对齐 */
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.zxb-summary-align-fixed .zxb-customer-card-top {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding-right: 56px !important;
+}
+
+.zxb-summary-align-fixed .zxb-pin-action {
+  position: absolute !important;
+  top: 50% !important;
+  right: 0 !important;
+  margin: 0 !important;
+  transform: translateY(-50%) !important;
+  text-align: right !important;
+}

@@ -8,6 +8,162 @@
   <link rel="stylesheet" href="./styles.css" />
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   <link rel="stylesheet" href="zxb-tabs.css">
+  <link rel="stylesheet" href="zxb-layout-fix-v2.css?v=20260727-1">
+  <link rel="stylesheet" href="zxb-layout-fix-v3.css?v=20260727-3">
+  <style id="zxb-layout-fix-v4">
+    /* 助销宝：将标签页规范归入业务组件，并统一摘要卡片操作对齐 */
+    #zxb-tab-style-spec.zxb-tab-style-in-components {
+      margin-top: 24px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-card-top {
+      position: relative !important;
+      display: flex !important;
+      align-items: center !important;
+      padding-right: 64px !important;
+    }
+
+    .zxb-customer-summary-card .zxb-pin-action {
+      position: absolute !important;
+      top: 50% !important;
+      right: 0 !important;
+      margin: 0 !important;
+      transform: translateY(-50%) !important;
+      text-align: right !important;
+    }
+  </style>
+  <link rel="stylesheet" href="./zxb-layout-fix-v5.css?v=20260727-1">
+  <link rel="stylesheet" href="./zxb-layout-fix-v6.css?v=20260727-2">
+  <link rel="stylesheet" href="./zxb-layout-fix-v7.css?v=20260727-1">
+  <link rel="stylesheet" href="./zxb-layout-fix-v8.css?v=20260727-2">
+  <style id="zxb-final-layout-fix-20260727">
+    /* 助销宝：标签页样式归入业务组件，并统一客户摘要卡片操作对齐 */
+    #zxb-tab-style-spec[data-moved-to-components="true"] {
+      width: 100% !important;
+      margin: 24px 0 0 !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-card-top {
+      display: grid !important;
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+      align-items: center !important;
+      column-gap: 8px !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-name {
+      grid-column: 2 !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+
+    .zxb-customer-summary-card .zxb-pin-action {
+      position: static !important;
+      grid-column: 3 !important;
+      justify-self: end !important;
+      margin: 0 !important;
+      transform: none !important;
+      white-space: nowrap !important;
+    }
+
+    @media (max-width: 720px) {
+      #zxb-tab-style-spec[data-moved-to-components="true"] {
+        margin-top: 16px !important;
+      }
+    }
+  </style>
+  <style id="zxb-layout-hotfix-20260727b">
+    /* 助销宝内容归类与客户卡片对齐（最终覆盖） */
+    #zxb-tab-style-spec[data-component-placement="business"] {
+      width: 100% !important;
+      margin: 24px 0 0 !important;
+      padding-top: 24px !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-card-top {
+      display: grid !important;
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-select {
+      grid-column: 1 !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-name {
+      grid-column: 2 !important;
+      min-width: 0 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+
+    .zxb-customer-summary-card .zxb-pin-action {
+      position: static !important;
+      grid-column: 3 !important;
+      justify-self: end !important;
+      align-self: center !important;
+      margin: 0 !important;
+      inset: auto !important;
+      transform: none !important;
+      white-space: nowrap !important;
+    }
+
+    @media (max-width: 720px) {
+      #zxb-tab-style-spec[data-component-placement="business"] {
+        margin-top: 16px !important;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="./zxb-hotfix-20260727c.css?v=20260727c">
+  <style id="zxb-content-realign-20260727">
+    /* 助销宝：把标签页规范归入业务组件，并统一客户摘要卡片操作区 */
+    #zxb-tab-style-spec.zxb-tab-style-in-components {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 24px 0 0 !important;
+      padding-top: 24px !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-card-top {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-name {
+      min-width: 0 !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      white-space: nowrap !important;
+    }
+
+    .zxb-customer-summary-card .zxb-pin-action {
+      position: static !important;
+      inset: auto !important;
+      transform: none !important;
+      flex: 0 0 auto !important;
+      margin-left: auto !important;
+      white-space: nowrap !important;
+      text-align: right !important;
+    }
+
+    .zxb-customer-summary-card .zxb-customer-card-actions,
+    .zxb-customer-summary-card .zxb-customer-card-footer {
+      justify-content: flex-end !important;
+    }
+
+    @media (max-width: 720px) {
+      #zxb-tab-style-spec.zxb-tab-style-in-components {
+        margin-top: 16px !important;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="dp-site-header">
@@ -62,7 +218,6 @@
           </button>
           <div class="nav-children">
             <a class="nav-item" href="#buttons">按钮</a>
-            <a class="nav-item" href="#design-md-components">DESIGN.md 示例 · 5项</a>
             <a class="nav-item" href="#inputs">输入框 / 选择器</a>
             <a class="nav-item" href="#cards">卡片</a>
             <a class="nav-item" href="#tabs">标签页</a>
@@ -90,7 +245,7 @@
           <div class="nav-children">
             <a class="nav-item" href="#zxb-foundation">色彩 / 图标</a>
             <a class="nav-item" href="#zxb-components">移动组件</a>
-            <a class="nav-item" href="#zxb-home">首页模板</a>
+            <a class="nav-item" href="#zxb-home">界面模板</a>
             <a class="nav-item" href="#zxb-form">表单页</a>
             <a class="nav-item" href="#zxb-states">弹窗 / 成功</a>
           </div>
@@ -155,26 +310,40 @@
             </div>
           </div>
 
-          <div class="dp-home-updates">
-            <a href="#colors"><span>基础视觉</span><strong>东鹏品牌色与视觉 Token</strong><small>红白品牌语言、字体、间距、圆角与阴影</small><time>FOUNDATION</time></a>
-            <a href="#buttons"><span>基础组件</span><strong>Web 组件规范</strong><small>按钮、表单、卡片、表格与分页实时预览</small><time>COMPONENTS</time></a>
-            <a href="#zxb-foundation"><span>移动端</span><strong>助销宝设计规范</strong><small>移动组件、首页、表单和业务状态页面</small><time>MOBILE</time></a>
-            <a href="#ppt-overview"><span>品牌资源</span><strong>东鹏汇报 PPT</strong><small>集团模板、标准版式与生成 Skill</small><time>RESOURCES</time></a>
-          </div>
-
         </section>
 
         <section id="colors" class="doc-section" data-search="颜色 色彩 token 主色 辅助色 中性色">
-          <div class="section-heading"><div><span class="section-index">01</span><h2>颜色</h2><p>以东鹏红建立品牌识别，用克制的辅助色传达业务状态。</p></div></div>
-          <div class="color-grid">
-            <article class="color-card large" style="--swatch:#E61817"><div class="swatch"></div><div><strong>品牌红</strong><code>#E61817</code></div></article>
-            <article class="color-card" style="--swatch:#C62828"><div class="swatch"></div><div><strong>深红</strong><code>#C62828</code></div></article>
-            <article class="color-card" style="--swatch:linear-gradient(135deg,#FC6F6F 0%,#FF0A12 100%)"><div class="swatch"></div><div><strong>渐变红</strong><code>#FC6F6F → #FF0A12</code></div></article>
-            <article class="color-card" style="--swatch:#FFF5F5"><div class="swatch bordered"></div><div><strong>背景红</strong><code>#FFF5F5</code></div></article>
-            <article class="color-card" style="--swatch:#4590E6"><div class="swatch"></div><div><strong>信息蓝</strong><code>#4590E6</code></div></article>
-            <article class="color-card" style="--swatch:#2E7D32"><div class="swatch"></div><div><strong>成功绿</strong><code>#2E7D32</code></div></article>
-            <article class="color-card" style="--swatch:#ED6C02"><div class="swatch"></div><div><strong>警示橙</strong><code>#ED6C02</code></div></article>
-            <article class="color-card" style="--swatch:#1A1A1A"><div class="swatch"></div><div><strong>文本主色</strong><code>#1A1A1A</code></div></article>
+          <div class="section-heading"><div><span class="section-index">01</span><h2>颜色</h2><p>使用品牌 Token 与语义状态 Token，建立清晰、克制的企业界面层级。</p></div></div>
+          <div class="color-system">
+            <section class="color-token-group color-token-group--brand" aria-labelledby="brand-token-title">
+              <header class="color-group-heading"><div><h3 id="brand-token-title">品牌色</h3></div><p>品牌识别与主要操作，仅在需要强调的场景使用。</p></header>
+              <div class="color-brand-layout">
+                <article class="color-token-feature" style="--token-color:#E21413"><div class="color-token-swatch"></div><div class="color-token-copy"><span>brand-red</span><strong>品牌红</strong><code>#E21413</code><small>Logo、当前选中与关键强调</small></div></article>
+                <div class="color-brand-support">
+                  <article class="color-token color-token--gradient" style="--token-color:linear-gradient(148.66deg,#F96766 0%,#E21413 100%)"><div class="color-token-swatch"></div><div><span>action-gradient</span><strong>主操作渐变</strong><code>#F96766 → #E21413</code></div></article>
+                  <article class="color-token color-token--subtle" style="--token-color:#FFF5F5"><div class="color-token-swatch"></div><div><span>brand-red-subtle</span><strong>品牌弱化背景</strong><code>#FFF5F5</code></div></article>
+                </div>
+              </div>
+            </section>
+
+            <section class="color-token-group" aria-labelledby="semantic-token-title">
+              <header class="color-group-heading"><div><h3 id="semantic-token-title">语义状态</h3></div><p>状态颜色只表达业务语义，不替代品牌强调。</p></header>
+              <div class="color-semantic-list">
+                <article class="color-semantic-token" style="--token-color:#16A34A"><div><span>success</span><strong>成功</strong><code>#16A34A</code></div></article>
+                <article class="color-semantic-token" style="--token-color:#ED6C02"><div><span>warning</span><strong>警示</strong><code>#ED6C02</code></div></article>
+                <article class="color-semantic-token" style="--token-color:#4590E6"><div><span>processing</span><strong>处理中</strong><code>#4590E6</code></div></article>
+              </div>
+            </section>
+
+            <section class="color-token-group" aria-labelledby="foundation-token-title">
+              <header class="color-group-heading"><div><h3 id="foundation-token-title">基础中性色</h3></div><p>用于页面、容器、边界与文本层级。</p></header>
+              <div class="color-foundation-list">
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#F5F6F8"><div><span>canvas</span><strong>页面底色</strong><code>#F5F6F8</code></div></article>
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#FFFFFF"><div><span>surface</span><strong>容器底色</strong><code>#FFFFFF</code></div></article>
+                <article class="color-foundation-token color-foundation-token--light" style="--token-color:#EBEEF5"><div><span>border</span><strong>默认边框</strong><code>#EBEEF5</code></div></article>
+                <article class="color-foundation-token" style="--token-color:#303133"><div><span>text-primary</span><strong>文本主色</strong><code>#303133</code></div></article>
+              </div>
+            </section>
           </div>
         </section>
 
@@ -223,37 +392,6 @@
               <div><i data-lucide="search"></i><span>search</span></div>
               <div><i data-lucide="settings-2"></i><span>settings-2</span></div>
             </div>
-          </div>
-        </section>
-
-        <section id="design-md-components" class="doc-section component-section design-md-showcase" data-search="DESIGN.md 设计规范 token 主按钮 输入框 状态标签 警告提示 数据卡片">
-          <div class="section-heading"><div><span class="section-index">06</span><h2>DESIGN.md 应用示例</h2><p>以下 5 个组件仅使用 DESIGN.md 中定义的颜色、字体、间距和圆角 token，作为前端扩展组件的起点。</p></div><a class="design-md-link" href="https://github.com/fan604925-dev/dongpeng-ui-design-system-web/blob/main/DESIGN.md" target="_blank" rel="noreferrer">查看 DESIGN.md <i data-lucide="arrow-up-right"></i></a></div>
-          <div class="design-component-grid">
-            <article class="design-component-card">
-              <div class="design-component-head"><span>01 / BUTTON</span><code>components.button-primary</code></div>
-              <h3>主按钮</h3><p>每个操作区域只突出一个最重要的行动。</p>
-              <div class="design-component-preview"><button class="design-button" type="button" data-design-action><i data-lucide="plus"></i>创建订单</button><button class="design-button secondary" type="button">取消</button></div>
-            </article>
-            <article class="design-component-card">
-              <div class="design-component-head"><span>02 / INPUT</span><code>components.input-default</code></div>
-              <h3>输入框</h3><p>36px 高度、4px 圆角，聚焦时使用品牌红提示。</p>
-              <label class="design-field"><span>订单编号</span><div><i data-lucide="search"></i><input type="text" placeholder="请输入订单编号" aria-label="订单编号" /></div></label>
-            </article>
-            <article class="design-component-card">
-              <div class="design-component-head"><span>03 / TAG</span><code>components.tag-success</code></div>
-              <h3>状态标签</h3><p>颜色搭配文字语义，避免只靠颜色区分状态。</p>
-              <div class="design-tag-list"><span class="design-tag success"><i data-lucide="check"></i>已完成</span><span class="design-tag warning"><i data-lucide="clock-3"></i>待处理</span><span class="design-tag error"><i data-lucide="circle-alert"></i>已逾期</span></div>
-            </article>
-            <article class="design-component-card design-alert-card">
-              <div class="design-component-head"><span>04 / ALERT</span><code>components.alert-warning</code></div>
-              <h3>警告提示</h3><p>在不阻塞操作的前提下，说明原因和下一步。</p>
-              <div class="design-alert" data-design-alert><i data-lucide="triangle-alert"></i><div><strong>有 3 笔订单待处理</strong><span>请在今天 18:00 前完成确认。</span></div><button type="button" aria-label="关闭提示" data-close-design-alert><i data-lucide="x"></i></button></div>
-            </article>
-            <article class="design-component-card design-metric-card">
-              <div class="design-component-head"><span>05 / METRIC CARD</span><code>components.metric-card</code></div>
-              <h3>数据卡片</h3><p>大号数字突出业务结果，辅助文字保持克制。</p>
-              <div class="design-metric"><span>本月订单完成率</span><strong>68<small>%</small></strong><p><b>+8.6%</b> 较上月</p></div>
-            </article>
           </div>
         </section>
 
@@ -556,18 +694,18 @@
             <article class="zxb-comp-card"><h3>按钮</h3><button class="zxb-btn">保存</button><button class="zxb-btn ghost">取消</button><button class="zxb-btn soft">去添加跟进</button><code>.zxb-btn / 56px 高 / 999px 胶囊</code></article>
             <article class="zxb-comp-card"><h3>输入框</h3><div class="zxb-field"><span>账号</span><input value="xls" /></div><div class="zxb-field"><span>密码</span><input value="********" /><i data-lucide="eye-off"></i></div><code>左标签 + 右内容，底部分割线</code></article>
             <article class="zxb-comp-card"><h3>卡片</h3><div class="zxb-card-sample"><b>员工 | 12.15-1.15目标</b><div><span>报备数（个）<em>42609</em></span><span>转化率（%）<em>42%</em></span></div></div><code>白底 20–24px 圆角，轻阴影</code></article>
-            <article class="zxb-comp-card"><h3>标签页 / 状态</h3><div class="zxb-tabs"><span class="active">已收款 12</span><span>未收款 56</span></div><p><mark>紧急</mark><mark class="purple">新零售</mark><mark class="outline">自然到店</mark></p><code>红色下划线或浅色胶囊表示选中</code></article>
+            <article class="zxb-comp-card"><h3>状态</h3><p><mark>紧急</mark><mark class="purple">新零售</mark><mark class="outline">自然到店</mark></p><code>使用颜色区分状态优先级</code></article>
             <article class="zxb-comp-card"><h3>弹窗</h3><div class="zxb-dialog-demo"><strong>确认提示</strong><span>请确认是否提现</span><div><button>取消</button><button>确认</button></div></div><code>居中弹窗，按钮左右等分</code></article>
             <article class="zxb-comp-card"><h3>图表 / 进度</h3><div class="zxb-progress"><span><i style="width:68%"></i></span><b>达成 32026</b></div><div class="zxb-progress orange"><span><i style="width:54%"></i></span><b>转化率 32%</b></div><code>小尺寸条形进度，红橙渐变</code></article>
           </div>
           <div class="zxb-business-heading">
-            <div><span>BUSINESS COMPONENTS</span><h3>客户经营业务组件</h3></div>
+            <div><h3>客户经营业务组件</h3></div>
             <p>保留助销宝移动端的信息密度、选中反馈与底部主操作，支持直接点击体验组件状态。</p>
           </div>
           <div class="zxb-business-components zxb-business-specimens">
             <article class="zxb-business-card">
               <div class="zxb-business-card-head">
-                <div><span>01 / CUSTOMER FOLLOW-UP</span><h3>客户跟进信息卡</h3></div>
+                <div><h3>客户跟进信息卡</h3></div>
                 <p>用于客户详情与回访表单，以清晰的左标签、右侧胶囊值承载关键跟进信息。</p>
               </div>
               <div class="zxb-component-stage">
@@ -589,7 +727,7 @@
             </article>
             <article class="zxb-business-card">
               <div class="zxb-business-card-head">
-                <div><span>02 / SELECTION GROUP</span><h3>原因选择标签组</h3></div>
+                <div><h3>原因选择标签组</h3></div>
                 <p>用于流失原因、客户标签与多条件选择，以浅灰默认态和红色描边强化当前选择。</p>
               </div>
               <div class="zxb-component-stage">
@@ -607,16 +745,14 @@
             </article>
             <article class="zxb-business-card">
               <div class="zxb-business-card-head">
-                <div><span>03 / CUSTOMER SUMMARY</span><h3>客户列表信息卡</h3></div>
+                <div><h3>客户列表信息卡</h3></div>
                 <p>聚合客户来源、派单状态、地址标签与常用操作，适用于跟进列表和客户池。</p>
               </div>
               <div class="zxb-component-stage">
                 <article class="zxb-customer-card zxb-customer-summary-card">
                   <div class="zxb-customer-card-top">
                     <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择客户"><i data-lucide="check"></i></button>
-                    <span class="zxb-source-badge jd">京东</span>
                     <button type="button" class="zxb-customer-name"><b>黄先生&nbsp;&nbsp;18967589868</b><i data-lucide="chevron-right"></i></button>
-                    <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
                   </div>
                   <div class="zxb-customer-meta">
                     <p><span>派单时间：</span>2022-10-08&nbsp;&nbsp;15:55:11 <small>1分钟未跟进</small></p>
@@ -636,11 +772,10 @@
           <div class="zxb-business-components zxb-business-pages-legacy" hidden>
             <article class="zxb-business-card">
               <div class="zxb-business-card-head">
-                <div><span>01 / CUSTOMER LIST</span><h3>客户列表信息</h3></div>
+                <div><h3>客户列表信息</h3></div>
                 <p>适用于待跟进、已完成等客户池，组合状态切换、筛选、客户摘要和快捷操作。</p>
               </div>
               <div class="zxb-phone zxb-customer-list">
-                <div class="zxb-status"><b>9:41</b><span></span></div>
                 <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>客户列表</b><span>•••　◎</span></div>
                 <div class="zxb-customer-tabs" role="tablist" aria-label="客户状态">
                   <button type="button" data-zxb-tab><span>未接单</span><b>622</b></button>
@@ -658,7 +793,6 @@
                   <article class="zxb-customer-card is-selected">
                     <div class="zxb-customer-card-top">
                       <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="选择黄先生"><i data-lucide="check"></i></button>
-                      <span class="zxb-source-badge tmall">天猫</span>
                       <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
                       <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true"><i data-lucide="pin-off"></i><span>取消置顶</span></button>
                     </div>
@@ -678,7 +812,6 @@
                   <article class="zxb-customer-card">
                     <div class="zxb-customer-card-top">
                       <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="选择黄先生"><i data-lucide="check"></i></button>
-                      <span class="zxb-source-badge guobu">国补</span>
                       <button type="button" class="zxb-customer-name">黄先生 <b>18967589868</b><i data-lucide="chevron-right"></i></button>
                       <button type="button" class="zxb-pin-action" aria-pressed="false"><i data-lucide="pin"></i><span>置顶</span></button>
                     </div>
@@ -699,11 +832,10 @@
             </article>
             <article class="zxb-business-card">
               <div class="zxb-business-card-head">
-                <div><span>02 / SELECTION PAGE</span><h3>流失原因选择页</h3></div>
+                <div><h3>流失原因选择页</h3></div>
                 <p>适用于分组多选、补充说明和语音输入场景，选中态以红色描边和浅红底强调。</p>
               </div>
               <div class="zxb-phone zxb-loss-selector">
-                <div class="zxb-status"><b>9:41</b><span></span></div>
                 <div class="zxb-page-title"><b><i data-lucide="chevron-left"></i>选择流失原因</b><span>•••　◎</span></div>
                 <div class="zxb-reason-groups">
                   <section>
@@ -746,7 +878,6 @@
                     <textarea maxlength="300" placeholder="请输入原因（限制300字）"></textarea>
                   </section>
                 </div>
-                <button type="button" class="zxb-record-button" aria-pressed="false"><i data-lucide="audio-lines"></i><span>点击录音</span></button>
                 <div class="zxb-selector-summary" aria-live="polite"></div>
                 <div class="zxb-selector-actions">
                   <button type="button" data-zxb-cancel>取消</button>
@@ -757,16 +888,15 @@
           </div>
         </section>
 
-        <section id="zxb-home" class="doc-section zxb-section" data-search="助销宝 首页 页面模板 手机 首页">
-          <div class="section-heading"><div><span class="section-index">24</span><h2>助销宝 · 首页模板</h2><p>还原店长首页的头部经营概览、目标卡片、常用工具、设计师雷达与底部导航。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
+        <section id="zxb-home" class="doc-section zxb-section" data-search="助销宝 界面模板 首页 客户列表 流失原因 手机">
+          <div class="section-heading"><div><span class="section-index">24</span><h2>助销宝 · 界面模板</h2><p>集中展示首页、客户列表与流失原因选择等核心业务界面，统一移动端的信息层级与交互样式。</p></div><span class="template-badge">PAGE TEMPLATE</span></div>
           <div class="zxb-showcase">
             <div class="zxb-phone home">
               <div class="zxb-status"><b>9:41</b><span></span></div>
               <div class="zxb-home-hero">
-                <div class="zxb-home-top"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
+                <div class="zxb-home-top"><div class="zxb-mini-logo"><img src="file:///C:/Users/10002094/Downloads/东鹏logo.svg" alt="东鹏" /></div><strong>东鹏七星岩旗舰店 ›</strong><small>••• ◎</small></div>
                 <div class="zxb-date">2022.10.19–2022.10.19</div>
-                <em class="zxb-internal">仅供东鹏内部人员使用</em>
-                <h4>客户</h4>
+                <div class="zxb-home-kpi-heading"><h4>客户</h4><em class="zxb-internal">仅供东鹏内部人员使用</em></div>
                 <div class="zxb-home-kpis"><span><b>145</b>未接单</span><span><b>38</b>未反馈</span><span><b>7879</b>跟进中</span><span><b>87</b>已交定</span><span><b>38</b>已超时</span><span><b>68</b>已完成</span></div>
                 <button>添加客户 <i data-lucide="circle-plus"></i></button>
               </div>
@@ -776,13 +906,13 @@
               </div>
               <div class="zxb-mobile-card">
                 <div class="zxb-card-title">常用工具 <span>更多 ›</span></div>
-                <div class="zxb-tool-row"><span><i data-lucide="graduation-cap"></i>学院</span><span><i data-lucide="stamp"></i>同城审核</span><span><i data-lucide="share-2"></i>分享名片</span><span><i data-lucide="messages-square"></i>群发助手</span><span><i data-lucide="package-open"></i>预约表单</span></div>
+                <div class="zxb-tool-row"><span><img class="zxb-tool-svg" data-zxb-custom-tool-icon src="assets/zxb-icons/academy.svg" alt="" />学院</span><span><img class="zxb-tool-svg" data-zxb-custom-tool-icon src="assets/zxb-icons/customer-report.svg" alt="" />报备查询</span><span><img class="zxb-tool-svg" data-zxb-custom-tool-icon src="assets/zxb-icons/special-address.svg" alt="" />特殊地址</span><span><img class="zxb-tool-svg" data-zxb-custom-tool-icon src="assets/zxb-icons/city-review.svg" alt="" />同城审核</span><span><img class="zxb-tool-svg" data-zxb-custom-tool-icon src="assets/zxb-icons/public-pool.svg" alt="" />公共池</span></div>
               </div>
               <div class="zxb-mobile-card radar">
                 <div class="zxb-card-title">设计师雷达 <span>全部 ›</span></div>
                 <p><b>郑在</b><small>10月20日 09:36　归属导购：张涛</small></p><strong>该用户正在浏览<span>设计师案例</span>，请注意跟进！</strong><button>查看详情</button>
               </div>
-              <div class="zxb-bottom-nav"><span class="ai">AI</span><span><i data-lucide="house"></i>首页</span><span><i data-lucide="chart-column"></i>统计</span><span><i data-lucide="user-round"></i>我的</span></div>
+              <div class="zxb-bottom-nav"><span class="ai"><img src="file:///C:/Users/10002094/Downloads/鹏鹏Ai智能助手.svg" alt="鹏鹏 AI 智能助手" /></span><span><i data-lucide="house"></i>首页</span><span><i data-lucide="chart-column"></i>统计</span><span><i data-lucide="user-round"></i>我的</span></div>
             </div>
             <div class="zxb-template-notes">
               <h3>页面结构</h3>
@@ -804,7 +934,7 @@
               </div>
               <div class="zxb-login-panel"><div class="zxb-login-tabs"><b>账户密码登录</b><span>短信登录</span></div><div class="zxb-field"><span>账号</span><input value="xls" /><i data-lucide="chevron-down"></i></div><div class="zxb-field"><span>密码</span><input value="********" /><i data-lucide="eye-off"></i></div><label><input type="checkbox" checked />记住密码</label></div>
               <button class="zxb-btn">登录</button><p class="zxb-agree"><input type="checkbox" checked />我已阅读并同意《东鹏助销宝隐私政策》</p>
-              <div class="zxb-login-footer"><div class="zxb-mini-logo">东鹏 <em>DONG<br>PENG</em></div><p>东鹏瓷砖门店助销平台<br>仅供东鹏内部人员使用</p></div>
+              <div class="zxb-login-footer"><div class="zxb-mini-logo"><img src="file:///C:/Users/10002094/Downloads/东鹏logo.svg" alt="东鹏" /></div><p>东鹏瓷砖门店助销平台<br>仅供东鹏内部人员使用</p></div>
             </div>
             <div class="zxb-phone form">
               <div class="zxb-status"><b>9:41</b><span></span></div><h3>‹ 新增客户</h3>
@@ -946,5 +1076,174 @@
   <script src="zxb-tabs.js"></script>
   <script src="zxb-home-fixes.js"></script>
   <script src="zxb-layout-fix.js"></script>
+  <script src="zxb-layout-fix-v2.js?v=20260727-1"></script>
+  <script src="zxb-layout-fix-v3.js?v=20260727-3"></script>
+  <script id="zxb-layout-fix-v4-script">
+    (() => {
+      const compactText = (value) => (value || "").replace(/\s+/g, "");
+
+      const findSectionByHeading = (text) => {
+        const expected = compactText(text);
+        const heading = [...document.querySelectorAll("h1,h2,h3,h4")].find(
+          (item) => compactText(item.textContent).includes(expected)
+        );
+        return heading ? (heading.closest("section") || heading.parentElement) : null;
+      };
+
+      const applyZxbLayoutFix = () => {
+        const tabSpec = document.getElementById("zxb-tab-style-spec");
+        const businessSection = findSectionByHeading("客户经营业务组件");
+
+        if (tabSpec && businessSection && tabSpec.parentElement !== businessSection) {
+          businessSection.appendChild(tabSpec);
+        }
+
+        if (tabSpec) {
+          tabSpec.classList.add("zxb-tab-style-in-components");
+        }
+
+        document.documentElement.dataset.zxbLayoutFix = "20260727-4";
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", applyZxbLayoutFix, { once: true });
+      } else {
+        applyZxbLayoutFix();
+      }
+
+      window.addEventListener("load", applyZxbLayoutFix);
+      window.addEventListener("hashchange", () => requestAnimationFrame(applyZxbLayoutFix));
+      setTimeout(applyZxbLayoutFix, 100);
+      setTimeout(applyZxbLayoutFix, 600);
+
+      const observer = new MutationObserver(applyZxbLayoutFix);
+      const startObserver = () => {
+        if (!document.body) return;
+        observer.observe(document.body, { childList: true, subtree: true });
+        setTimeout(() => observer.disconnect(), 5000);
+      };
+
+      if (document.body) startObserver();
+      else document.addEventListener("DOMContentLoaded", startObserver, { once: true });
+    })();
+  </script>
+  <script src="./zxb-layout-fix-v5.js?v=20260727-1"></script>
+  <script src="./zxb-layout-fix-v6.js?v=20260727-2"></script>
+  <script src="./zxb-layout-fix-v7.js?v=20260727-1"></script>
+  <script src="./zxb-layout-fix-v8.js?v=20260727-2"></script>
+  <script id="zxb-final-layout-fix-script-20260727">
+    (() => {
+      const cleanText = (text) => (text || "").replace(/\s+/g, "");
+
+      const applyZxbLayoutFix = () => {
+        const businessSection = [...document.querySelectorAll("section")].find((section) => {
+          const heading = section.querySelector("h1, h2, h3, h4, h5");
+          return heading && cleanText(heading.textContent).includes("客户经营业务组件");
+        });
+        const tabSection = document.getElementById("zxb-tab-style-spec");
+
+        if (businessSection && tabSection) {
+          businessSection.appendChild(tabSection);
+          tabSection.dataset.movedToComponents = "true";
+        }
+
+        document.documentElement.dataset.zxbLayoutFix = "20260727-final";
+      };
+
+      const startFix = () => {
+        applyZxbLayoutFix();
+        requestAnimationFrame(applyZxbLayoutFix);
+        setTimeout(applyZxbLayoutFix, 300);
+        setTimeout(applyZxbLayoutFix, 1200);
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", startFix, { once: true });
+      } else {
+        startFix();
+      }
+
+      window.addEventListener("hashchange", startFix);
+    })();
+  </script>
+  <script id="zxb-layout-hotfix-script-20260727b">
+    (() => {
+      const compact = (value) => (value || "").replace(/\s+/g, "");
+
+      function placeZxbContent() {
+        const tabSection = document.getElementById("zxb-tab-style-spec");
+        const businessHeading = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")]
+          .find((node) => compact(node.textContent).includes("客户经营业务组件"));
+        const businessSection = businessHeading && businessHeading.closest("section");
+
+        if (tabSection && businessSection && tabSection.parentElement !== businessSection) {
+          businessSection.appendChild(tabSection);
+        }
+        if (tabSection && businessSection) {
+          tabSection.dataset.componentPlacement = "business";
+        }
+
+        document.documentElement.dataset.zxbHotfix = "20260727b";
+      }
+
+      function runZxbHotfix() {
+        placeZxbContent();
+        requestAnimationFrame(placeZxbContent);
+        setTimeout(placeZxbContent, 250);
+        setTimeout(placeZxbContent, 900);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runZxbHotfix, { once: true });
+      } else {
+        runZxbHotfix();
+      }
+      window.addEventListener("hashchange", runZxbHotfix);
+    })();
+  </script>
+  <script src="./zxb-hotfix-20260727c.js?v=20260727c"></script>
+  <script id="zxb-content-realign-script-20260727">
+    (() => {
+      const compact = (value) => (value || "").replace(/\s+/g, "");
+
+      function realignZxbContent() {
+        const tabSection = document.getElementById("zxb-tab-style-spec");
+        const businessHeading = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")]
+          .find((node) => compact(node.textContent).includes("客户经营业务组件"));
+        const businessSection = businessHeading && businessHeading.closest("section");
+
+        if (tabSection && businessSection) {
+          if (tabSection.parentElement !== businessSection) {
+            businessSection.appendChild(tabSection);
+          }
+          tabSection.classList.add("zxb-tab-style-in-components");
+        }
+
+        document.documentElement.dataset.zxbContentRealigned = "true";
+      }
+
+      function runZxbRealign() {
+        realignZxbContent();
+        requestAnimationFrame(realignZxbContent);
+        setTimeout(realignZxbContent, 200);
+        setTimeout(realignZxbContent, 800);
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", runZxbRealign, { once: true });
+      } else {
+        runZxbRealign();
+      }
+
+      window.addEventListener("hashchange", runZxbRealign);
+
+      const observer = new MutationObserver(() => {
+        if (!document.documentElement.dataset.zxbContentRealigned) {
+          runZxbRealign();
+        }
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+    })();
+  </script>
 </body>
 </html>

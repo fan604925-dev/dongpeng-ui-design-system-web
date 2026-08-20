@@ -1,31 +1,23 @@
 # 东鹏 UI 视觉设计体系
 
-## Dongpeng Design Intelligence Platform
+一个可直接打开的静态组件库文档网站，内容包含品牌基础视觉、通用组件、RTM 首页/列表页/表单页模板。
 
-```text
-AI Design Engine
-|
-├── Design System (DESIGN.md)
-├── Design Skill (skill/)
-└── AI Generator
-```
+现已接入东鹏企业汇报 PPT：
 
-`DESIGN.md` is the single Design System source. The [Design Skill](./skill/SKILL.md) provides reusable generation and UI review workflows without duplicating design rules.
+- 集团标准 `.pptx` 模板下载
+- DP01–DP12 标准版式说明
+- 可横向翻页的网页版 PPT 示例
+- `dongpeng-ppt-editor` 生成流程与仓库入口
 
-## 发布目录
+## 使用
 
-- `public/`：Cloudflare Workers 静态资源
-- `docs/`：GitHub Pages 静态资源（手机网络备用地址）
+直接打开 `index.html`，或在本目录启动任意静态文件服务。
 
-这是用于 GitHub 与 Cloudflare 部署的干净版本。
+## 设计底座
 
-## 设计规范
-
-前端、设计师与 AI 在新增页面或组件前，应先阅读 [DESIGN.md](./DESIGN.md)。
-
-其中定义了东鹏通用的品牌色、语义色、字体、间距、圆角、图标和组件延伸原则，是本仓库的设计事实源。
-
-- 网站文件位于 `public/`
-- 不包含 ZIP、BAT、课程文件
-- 不包含超过 Cloudflare 单文件限制的集团 PPTX 模板
-- Cloudflare 部署命令：`npx wrangler deploy`
+- 品牌主色：`#E61817`
+- 中文字体：HarmonyOS Sans SC（系统无此字体时回退到微软雅黑 / 苹方）
+- 图标：Lucide，固定 `stroke-width: 2`
+- 图标尺寸：行内 `16px`，快捷入口 / 标题旁 `24px`
+- 间距网格：`4px`
+- 控件高度：`36px`

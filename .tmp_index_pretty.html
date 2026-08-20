@@ -1,0 +1,2535 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="涓滈箯 UI 瑙嗚瑙勮寖浣撶郴锛氬搧鐗岃鑼冦€丷TM 鍚庡彴銆佸姪閿€瀹濈Щ鍔ㄧ涓庢眹鎶?PPT 瑙嗚缁勪欢搴撱€? />
+  <title>涓滈箯 UI 瑙嗚璁捐浣撶郴</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js">
+</script>
+</head>
+<body>
+  <header class="dp-site-header">
+    <a class="dp-site-brand" href="#overview" aria-label="涓滈箯 UI 瑙嗚璁捐浣撶郴棣栭〉">
+      <img src="./assets/dongpeng-ui-logo.png" alt="涓滈箯 UI 瑙嗚璁捐浣撶郴" />
+    </a>
+    <div class="search-box dp-site-search">
+      <i data-lucide="search">
+</i>
+      <input id="doc-search" type="search" placeholder="鎼滅储缁勪欢銆佽鑼冩垨椤甸潰鈥? aria-label="鎼滅储鏂囨。" />
+      <kbd>
+<span>Ctrl</span>
+<span>K</span>
+</kbd>
+      <div id="search-results" class="search-results" role="listbox" aria-label="鎼滅储缁撴灉" hidden>
+</div>
+    </div>
+    <nav class="dp-site-nav" aria-label="椤堕儴瀵艰埅">
+      <a href="#overview">璁捐</a>
+      <a href="#buttons">鍩虹缁勪欢</a>
+      <a href="#rtm-home">椤甸潰妯℃澘</a>
+      <a href="#ppt-overview">璧勬簮</a>
+      <a href="#systems">鍏充簬</a>
+    </nav>
+    <div class="dp-site-tools">
+      <span class="version">v1.0.0</span>
+      <a href="https://lucide.dev/icons/" target="_blank" rel="noreferrer" aria-label="Lucide 鍥炬爣搴?>
+<i data-lucide="feather">
+</i>
+</a>
+      <a href="https://github.com/fan604925-dev/dongpeng-ppt-editor" target="_blank" rel="noreferrer" aria-label="GitHub">
+<i data-lucide="github">
+</i>
+</a>
+    </div>
+  </header>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="涓滈箯 UI 瑙嗚璁捐浣撶郴棣栭〉">
+        <img src="./assets/dongpeng-ui-logo.png" alt="涓滈箯 UI 瑙嗚璁捐浣撶郴" />
+      </a>
+
+      <nav id="sidebar-nav" aria-label="璁捐浣撶郴瀵艰埅">
+        <div class="nav-section">
+          <p class="nav-title">寮€濮?/p>
+          <a class="nav-item active" href="#overview">
+<i data-lucide="house">
+</i>姒傝</a>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>鍝佺墝鍩虹瑙嗚</span>
+<i data-lucide="chevron-down">
+</i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#colors">棰滆壊</a>
+            <a class="nav-item" href="#typography">瀛椾綋</a>
+            <a class="nav-item" href="#radius">闂磋窛涓庡渾瑙?/a>
+            <a class="nav-item" href="#shadow">闃村奖涓庡姩鏁?/a>
+            <a class="nav-item" href="#icons">鍥炬爣</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>鍩虹缁勪欢</span>
+<i data-lucide="chevron-down">
+</i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#buttons">鎸夐挳</a>
+            <a class="nav-item" href="#inputs">杈撳叆妗?/ 閫夋嫨鍣?/a>
+            <a class="nav-item" href="#cards">鍗＄墖</a>
+            <a class="nav-item" href="#tabs">鏍囩椤?/a>
+            <a class="nav-item" href="#status">鐘舵€佹寚绀?/a>
+            <a class="nav-item" href="#quick-actions">蹇嵎鍏ュ彛</a>
+            <a class="nav-item" href="#table">鏍囧噯琛ㄦ牸</a>
+            <a class="nav-item" href="#pagination">鍒嗛〉</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>RTM 鍚庡彴绯荤粺瑙嗚</span>
+<i data-lucide="chevron-down">
+</i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#rtm-home">棣栭〉</a>
+            <a class="nav-item" href="#rtm-list">鍒楄〃椤?/a>
+            <a class="nav-item" href="#rtm-form">琛ㄥ崟椤?/a>
+            <a class="nav-item" href="#empty">绌虹姸鎬?/a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>鍔╅攢瀹濈郴缁熻瑙?/span>
+<i data-lucide="chevron-down">
+</i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#zxb-foundation">鑹插僵 / 鍥炬爣</a>
+            <a class="nav-item" href="#zxb-components">绉诲姩缁勪欢</a>
+            <a class="nav-item" href="#zxb-home">棣栭〉妯℃澘</a>
+            <a class="nav-item" href="#zxb-form">琛ㄥ崟椤?/a>
+            <a class="nav-item" href="#zxb-states">寮圭獥 / 鎴愬姛</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="true">
+            <span>姹囨姤 PPT 瑙嗚</span>
+<i data-lucide="chevron-down">
+</i>
+          </button>
+          <div class="nav-children">
+            <a class="nav-item" href="#ppt-overview">PPT 姒傝</a>
+            <a class="nav-item" href="#ppt-foundation">瑙嗚瑙勮寖</a>
+            <a class="nav-item" href="#ppt-layouts">椤甸潰鐗堝紡</a>
+            <a class="nav-item" href="#ppt-skill">PPT Skill</a>
+          </div>
+        </div>
+        <div class="nav-section">
+          <button class="nav-group" type="button" aria-expanded="false">
+            <span>鍏朵粬绯荤粺瑙嗚</span>
+<i data-lucide="chevron-right">
+</i>
+          </button>
+          <div class="nav-children collapsed">
+            <a class="nav-item" href="#systems">璁捐瀹剁郴缁?/a>
+            <a class="nav-item" href="#systems">IW 绯荤粺</a>
+            <a class="nav-item" href="#systems">ROP 鍚庡彴</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <div class="main-shell">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" type="button" aria-label="鎵撳紑瀵艰埅">
+<i data-lucide="menu">
+</i>
+</button>
+      </header>
+
+      <main id="content">
+        <section id="overview" class="doc-section hero-section dp-home" data-search="姒傝 涓滈箯 璁捐浣撶郴">
+          <div class="dp-hero-stage">
+            <video class="dp-hero-video dp-hero-video-forward" autoplay loop muted playsinline preload="auto" poster="./assets/hero-glass-cube.png" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+              <source src="./assets/hero-background.mp4" type="video/mp4" />
+            </video>
+            <video class="dp-hero-video dp-hero-video-reverse" loop muted playsinline preload="auto" poster="./assets/hero-glass-cube.png" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+              <source src="./assets/hero-background-reverse.mp4" type="video/mp4" />
+            </video>
+            <span class="dp-hero-video-hint" aria-hidden="true">
+<i data-lucide="mouse-pointer-2">
+</i>宸︿晶鍊掓斁 路 鍙充晶鎾斁</span>
+            <div class="dp-hero-copy">
+              <div class="eyebrow">DONGPENG UI DESIGN SYSTEM</div>
+              <h1>涓滈箯 UI<br />
+<span>瑙嗚璁捐浣撶郴</span>
+</h1>
+              <p>鍩轰簬涓滈箯鍝佺墝瑙嗚鎻愮偧鐨勭綉椤电増缁勪欢搴?br />璁╂瘡涓€涓笟鍔＄晫闈?娓呮櫚銆佷竴鑷淬€佹湁绔犲彲寰?/p>
+              <div class="hero-actions">
+                <a class="dp-button primary" href="#buttons">娴忚鍩虹缁勪欢 <i data-lucide="arrow-right">
+</i>
+</a>
+                <a class="dp-button secondary" href="#rtm-home">鏌ョ湅椤甸潰妯℃澘</a>
+              </div>
+            </div>
+            <div class="dp-hero-art" aria-hidden="true">
+              <span class="dp-art-ring ring-a">
+</span>
+              <span class="dp-art-ring ring-b">
+</span>
+              <span class="dp-art-core">DP</span>
+              <span class="dp-art-tile tile-a">
+<i data-lucide="layout-dashboard">
+</i>
+</span>
+              <span class="dp-art-tile tile-b">
+<i data-lucide="panels-top-left">
+</i>
+</span>
+              <span class="dp-art-tile tile-c">
+<i data-lucide="smartphone">
+</i>
+</span>
+              <span class="dp-art-dot dot-a">
+</span>
+              <span class="dp-art-dot dot-b">
+</span>
+            </div>
+          </div>
+
+          <div class="dp-home-updates">
+            <a href="#colors">
+<span>鍩虹瑙嗚</span>
+<strong>涓滈箯鍝佺墝鑹蹭笌瑙嗚 Token</strong>
+<small>绾㈢櫧鍝佺墝璇█銆佸瓧浣撱€侀棿璺濄€佸渾瑙掍笌闃村奖</small>
+<time>FOUNDATION</time>
+</a>
+            <a href="#buttons">
+<span>鍩虹缁勪欢</span>
+<strong>Web 缁勪欢瑙勮寖</strong>
+<small>鎸夐挳銆佽〃鍗曘€佸崱鐗囥€佽〃鏍间笌鍒嗛〉瀹炴椂棰勮</small>
+<time>COMPONENTS</time>
+</a>
+            <a href="#zxb-foundation">
+<span>绉诲姩绔?/span>
+<strong>鍔╅攢瀹濊璁¤鑼?/strong>
+<small>绉诲姩缁勪欢銆侀椤点€佽〃鍗曞拰涓氬姟鐘舵€侀〉闈?/small>
+<time>MOBILE</time>
+</a>
+            <a href="#ppt-overview">
+<span>鍝佺墝璧勬簮</span>
+<strong>涓滈箯姹囨姤 PPT</strong>
+<small>闆嗗洟妯℃澘銆佹爣鍑嗙増寮忎笌鐢熸垚 Skill</small>
+<time>RESOURCES</time>
+</a>
+          </div>
+
+        </section>
+
+        <section id="colors" class="doc-section" data-search="棰滆壊 鑹插僵 token 涓昏壊 杈呭姪鑹?涓€ц壊">
+          <div class="section-heading">
+<div>
+<span class="section-index">01</span>
+<h2>棰滆壊</h2>
+<p>浠ヤ笢楣忕孩寤虹珛鍝佺墝璇嗗埆锛岀敤鍏嬪埗鐨勮緟鍔╄壊浼犺揪涓氬姟鐘舵€併€?/p>
+</div>
+</div>
+          <div class="color-grid">
+            <article class="color-card large" style="--swatch:#E61817">
+<div class="swatch">
+</div>
+<div>
+<strong>鍝佺墝绾?/strong>
+<code>#E61817</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#C62828">
+<div class="swatch">
+</div>
+<div>
+<strong>娣辩孩</strong>
+<code>#C62828</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:linear-gradient(135deg,#FC6F6F 0%,#FF0A12 100%)">
+<div class="swatch">
+</div>
+<div>
+<strong>娓愬彉绾?/strong>
+<code>#FC6F6F 鈫?#FF0A12</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#FFF5F5">
+<div class="swatch bordered">
+</div>
+<div>
+<strong>鑳屾櫙绾?/strong>
+<code>#FFF5F5</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#4590E6">
+<div class="swatch">
+</div>
+<div>
+<strong>淇℃伅钃?/strong>
+<code>#4590E6</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#2E7D32">
+<div class="swatch">
+</div>
+<div>
+<strong>鎴愬姛缁?/strong>
+<code>#2E7D32</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#ED6C02">
+<div class="swatch">
+</div>
+<div>
+<strong>璀︾ず姗?/strong>
+<code>#ED6C02</code>
+</div>
+</article>
+            <article class="color-card" style="--swatch:#1A1A1A">
+<div class="swatch">
+</div>
+<div>
+<strong>鏂囨湰涓昏壊</strong>
+<code>#1A1A1A</code>
+</div>
+</article>
+          </div>
+        </section>
+
+        <section id="typography" class="doc-section" data-search="瀛椾綋 鏂囧瓧 HarmonyOS Sans MiSans">
+          <div class="section-heading">
+<div>
+<span class="section-index">02</span>
+<h2>瀛椾綋</h2>
+<p>涓枃鐣岄潰浼樺厛 HarmonyOS Sans SC锛屾暟瀛椾笌鐗规畩瑗挎枃浣跨敤 MiSans銆?/p>
+</div>
+</div>
+          <div class="type-specimen">
+            <div class="type-row title-xl">
+<span>澶ф爣棰?/span>
+<strong>涓滈箯鍏ㄦ笭閬撶郴缁?20</strong>
+<code>20 / Bold</code>
+</div>
+            <div class="type-row title-md">
+<span>涓爣棰?/span>
+<strong>涓氬姟姒傝涓庡緟鍔炰簨椤?/strong>
+<code>16 / Bold</code>
+</div>
+            <div class="type-row title-sm">
+<span>灏忔爣棰?/span>
+<strong>璁㈠崟鏌ヨ缁撴灉</strong>
+<code>14 / Bold</code>
+</div>
+            <div class="type-row body-md">
+<span>姝ｆ枃 路 涓?/span>
+<p>鐢ㄤ簬琛ㄥ崟銆佽〃鏍煎拰涓昏璇存槑鏂囧瓧銆?/p>
+<code>14 / Regular</code>
+</div>
+            <div class="type-row caption">
+<span>娉ㄩ噴 路 涓?/span>
+<p>鐢ㄤ簬杈呭姪璇存槑銆佹棩鏈熷拰寮卞寲淇℃伅銆?/p>
+<code>12 / Regular</code>
+</div>
+          </div>
+        </section>
+
+        <section id="radius" class="doc-section" data-search="闂磋窛 鍦嗚 radius spacing">
+          <div class="section-heading">
+<div>
+<span class="section-index">03</span>
+<h2>闂磋窛涓庡渾瑙?/h2>
+<p>閲囩敤 4px 鍩虹缃戞牸銆傜揣鍑戜絾涓嶆嫢鎸わ紝閫傚簲楂樹俊鎭瘑搴︾殑 B 绔晫闈€?/p>
+</div>
+</div>
+          <div class="token-grid">
+            <div class="token-card">
+<div class="space-demo s4">
+</div>
+<strong>4px</strong>
+<span>鍥炬爣涓庢枃瀛?/span>
+</div>
+            <div class="token-card">
+<div class="space-demo s8">
+</div>
+<strong>8px</strong>
+<span>鎺т欢鍐呴儴</span>
+</div>
+            <div class="token-card">
+<div class="space-demo s16">
+</div>
+<strong>16px</strong>
+<span>缁勪欢闂磋窛</span>
+</div>
+            <div class="token-card">
+<div class="space-demo s24">
+</div>
+<strong>24px</strong>
+<span>鍖哄潡闂磋窛</span>
+</div>
+            <div class="token-card">
+<div class="radius-demo r2">
+</div>
+<strong>2px</strong>
+<span>鏍囩 / 琛ㄦ牸</span>
+</div>
+            <div class="token-card">
+<div class="radius-demo r4">
+</div>
+<strong>4px</strong>
+<span>鎸夐挳 / 杈撳叆妗?/span>
+</div>
+            <div class="token-card">
+<div class="radius-demo r8">
+</div>
+<strong>8px</strong>
+<span>鍗＄墖</span>
+</div>
+          </div>
+        </section>
+
+        <section id="shadow" class="doc-section" data-search="闃村奖 鍔ㄦ晥 motion shadow">
+          <div class="section-heading">
+<div>
+<span class="section-index">04</span>
+<h2>闃村奖涓庡姩鏁?/h2>
+<p>灞傜骇渚濋潬杈圭晫涓庤交闃村奖琛ㄨ揪锛涗氦浜掑姩鏁堝揩閫熴€佸厠鍒躲€佸彲棰勬祴銆?/p>
+</div>
+</div>
+          <div class="shadow-grid">
+            <div class="shadow-card level-1">
+<strong>Level 1</strong>
+<span>鎮诞鎸夐挳銆佷笅鎷夎彍鍗?/span>
+<code>0 2px 8px rgba(0,0,0,.08)</code>
+</div>
+            <div class="shadow-card level-2">
+<strong>Level 2</strong>
+<span>寮圭獥銆佹娊灞?/span>
+<code>0 8px 24px rgba(0,0,0,.12)</code>
+</div>
+            <div class="motion-card">
+<span class="motion-dot">
+</span>
+<strong>160鈥?40ms</strong>
+<span>鏍囧噯杩囨浮鏃堕暱</span>
+</div>
+          </div>
+        </section>
+
+        <section id="icons" class="doc-section" data-search="鍥炬爣 Lucide 16 24 2px">
+          <div class="section-heading">
+<div>
+<span class="section-index">05</span>
+<h2>鍥炬爣</h2>
+<p>缁熶竴浣跨敤 Lucide锛岀嚎瀹藉浐瀹?2px锛?6px 鐢ㄤ簬琛屽唴锛?4px 鐢ㄤ簬閲戝垰鍖烘垨鏍囬鏃併€?/p>
+</div>
+</div>
+          <div class="icon-board">
+            <div class="icon-size">
+<i data-lucide="chart-no-axes-combined">
+</i>
+<strong>24px</strong>
+<span>鏍囬 / 蹇嵎鍏ュ彛</span>
+</div>
+            <div class="icon-list">
+              <div>
+<i data-lucide="house">
+</i>
+<span>house</span>
+</div>
+              <div>
+<i data-lucide="clipboard-list">
+</i>
+<span>clipboard-list</span>
+</div>
+              <div>
+<i data-lucide="truck">
+</i>
+<span>truck</span>
+</div>
+              <div>
+<i data-lucide="file-text">
+</i>
+<span>file-text</span>
+</div>
+              <div>
+<i data-lucide="search">
+</i>
+<span>search</span>
+</div>
+              <div>
+<i data-lucide="settings-2">
+</i>
+<span>settings-2</span>
+</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="buttons" class="doc-section component-section" data-search="鎸夐挳 button primary secondary danger">
+          <div class="section-heading">
+<div>
+<span class="section-index">06</span>
+<h2>鎸夐挳</h2>
+<p>涓昏鎿嶄綔浣跨敤鍝佺墝绾紱涓€涓搷浣滃尯鍩熼€氬父鍙繚鐣欎竴涓富鎸夐挳銆?/p>
+</div>
+</div>
+          <div class="demo-card">
+            <div class="demo-toolbar">
+<div class="segmented">
+<button class="active">棰勮</button>
+<button>浠ｇ爜</button>
+</div>
+<button class="copy-button" type="button">
+<i data-lucide="copy">
+</i>澶嶅埗浠ｇ爜</button>
+</div>
+            <div class="demo-preview button-demo">
+              <button class="dp-button primary">
+<i data-lucide="plus">
+</i>鍒涘缓璁㈠崟</button>
+              <button class="dp-button secondary">瀵煎叆</button>
+              <button class="dp-button text">閲嶇疆</button>
+              <button class="dp-button primary" disabled>涓嶅彲鐢?/button>
+            </div>
+            <pre class="code-panel">
+<code>&lt;button class="dp-button primary"&gt;
+  &lt;i data-lucide="plus"&gt;&lt;/i&gt;鍒涘缓璁㈠崟
+&lt;/button&gt;
+&lt;button class="dp-button secondary"&gt;瀵煎叆&lt;/button&gt;</code>
+</pre>
+          </div>
+        </section>
+
+        <section id="inputs" class="doc-section component-section" data-search="杈撳叆妗?閫夋嫨鍣?绛涢€?鏃ユ湡">
+          <div class="section-heading">
+<div>
+<span class="section-index">07</span>
+<h2>杈撳叆妗?/ 閫夋嫨鍣?/h2>
+<p>琛ㄥ崟鎺т欢楂樺害缁熶竴涓?36px锛屾爣绛句笌鎺т欢淇濇寔 8px 闂磋窛銆?/p>
+</div>
+</div>
+          <div class="demo-card">
+            <div class="demo-toolbar">
+<div class="segmented">
+<button class="active">棰勮</button>
+<button>浠ｇ爜</button>
+</div>
+<button class="copy-button" type="button">
+<i data-lucide="copy">
+</i>澶嶅埗浠ｇ爜</button>
+</div>
+            <div class="demo-preview form-demo">
+              <label>
+<span>璁㈠崟缂栧彿</span>
+<div class="dp-input">
+<i data-lucide="search">
+</i>
+<input placeholder="璇疯緭鍏ヨ鍗曠紪鍙? />
+</div>
+</label>
+              <label>
+<span>涓氬姟鐘舵€?/span>
+<select class="dp-select">
+<option>鍏ㄩ儴鐘舵€?/option>
+<option>寰呯‘璁?/option>
+<option>宸插畬鎴?/option>
+</select>
+</label>
+              <label>
+<span>鍒涘缓鏃堕棿</span>
+<div class="dp-input">
+<i data-lucide="calendar">
+</i>
+<input value="2026-05-13" />
+</div>
+</label>
+            </div>
+            <pre class="code-panel">
+<code>&lt;label&gt;
+  &lt;span&gt;璁㈠崟缂栧彿&lt;/span&gt;
+  &lt;div class="dp-input"&gt;
+    &lt;i data-lucide="search"&gt;&lt;/i&gt;
+    &lt;input placeholder="璇疯緭鍏ヨ鍗曠紪鍙? /&gt;
+  &lt;/div&gt;
+&lt;/label&gt;</code>
+</pre>
+          </div>
+        </section>
+
+        <section id="cards" class="doc-section component-section" data-search="鍗＄墖 鏁版嵁鍗＄墖">
+          <div class="section-heading">
+<div>
+<span class="section-index">08</span>
+<h2>鏁版嵁鍗＄墖</h2>
+<p>鍏抽敭鎸囨爣浣跨敤澶у彿鏁板瓧锛岃秼鍔夸俊鎭敤璇箟鑹茶緟鍔╁垽鏂€?/p>
+</div>
+</div>
+          <div class="metric-grid">
+            <article class="metric-card">
+<span>骞翠笟缁╁畬鎴愮巼</span>
+<strong>
+<em>68</em>%</strong>
+<small>鍚屾瘮 <b class="up">+50% 鈫?/b>銆€鐜瘮 <b class="down">-10% 鈫?/b>
+</small>
+</article>
+            <article class="metric-card">
+<span>骞翠笟缁?/span>
+<strong>8,608<small>鍏?/small>
+</strong>
+<small>鍚屾瘮 <b class="up">+50% 鈫?/b>銆€鐜瘮 <b class="down">-10% 鈫?/b>
+</small>
+</article>
+            <article class="metric-card">
+<span>閲囪喘鎬婚</span>
+<strong>23,868<small>鍏?/small>
+</strong>
+<small>鍚屾瘮 <b class="up">+50% 鈫?/b>銆€鐜瘮 <b class="down">-10% 鈫?/b>
+</small>
+</article>
+            <article class="metric-card">
+<span>鏈彁璐?/span>
+<strong>
+<em>38</em>
+<small>鍗?/small>
+</strong>
+<small>鍚屾瘮 <b class="up">+50% 鈫?/b>銆€鐜瘮 <b class="down">-10% 鈫?/b>
+</small>
+</article>
+          </div>
+        </section>
+
+        <section id="tabs" class="doc-section component-section" data-search="鏍囩椤?tabs">
+          <div class="section-heading">
+<div>
+<span class="section-index">09</span>
+<h2>鏍囩椤?/h2>
+<p>鐢ㄤ簬鍚岀骇椤甸潰鍒囨崲锛涘綋鍓嶉」閫氳繃鍝佺墝绾笌搴曡竟寮鸿皟銆?/p>
+</div>
+</div>
+          <div class="page-tabs">
+<button class="active">棣栭〉</button>
+<button>鍒涘缓鎶ヤ环鍗?<i data-lucide="x">
+</i>
+</button>
+<button>鎻愯揣璁㈠崟 <i data-lucide="x">
+</i>
+</button>
+</div>
+        </section>
+
+        <section id="status" class="doc-section component-section" data-search="鐘舵€?鎸囩ず 鏍囩 鎴愬姛 璀﹀憡">
+          <div class="section-heading">
+<div>
+<span class="section-index">10</span>
+<h2>鐘舵€佹寚绀?/h2>
+<p>鐘舵€佷笉浠呬緷璧栭鑹诧紝鍚屾椂淇濈暀鏂囧瓧璇箟浠ユ彁楂樺彲璁块棶鎬с€?/p>
+</div>
+</div>
+          <div class="status-row">
+<span class="status success">宸插畬鎴?/span>
+<span class="status warning">寰呭鐞?/span>
+<span class="status danger">宸查€炬湡</span>
+<span class="status info">杩涜涓?/span>
+<span class="status neutral">鑽夌</span>
+</div>
+        </section>
+
+        <section id="quick-actions" class="doc-section component-section" data-search="蹇嵎鍏ュ彛 閲戝垰鍖?>
+          <div class="section-heading">
+<div>
+<span class="section-index">11</span>
+<h2>蹇嵎鍏ュ彛</h2>
+<p>24px 鍥炬爣鎼厤绠€鐭姩瀹剧粨鏋勫悕绉帮紝寤鸿姣忕粍涓嶈秴杩?6 椤广€?/p>
+</div>
+</div>
+          <div class="quick-grid">
+            <button>
+<span>
+<i data-lucide="clipboard-plus">
+</i>
+</span>鍒涘缓璁㈠崟</button>
+            <button>
+<span>
+<i data-lucide="truck">
+</i>
+</span>璁㈠崟鎻愯揣</button>
+            <button>
+<span>
+<i data-lucide="scroll-text">
+</i>
+</span>寮€绁ㄧ敵璇?/button>
+            <button>
+<span>
+<i data-lucide="chart-no-axes-combined">
+</i>
+</span>缁忚惀淇℃伅</button>
+            <button class="add">
+<span>
+<i data-lucide="plus">
+</i>
+</span>娣诲姞甯哥敤</button>
+          </div>
+        </section>
+
+        <section id="table" class="doc-section component-section" data-search="鏍囧噯琛ㄦ牸 table">
+          <div class="section-heading">
+<div>
+<span class="section-index">12</span>
+<h2>鏍囧噯琛ㄦ牸</h2>
+<p>琛ㄥご 44px銆佹暟鎹 48px锛涙偓鍋滀笌閫変腑鐘舵€佷繚鎸佹槑纭尯鍒嗐€?/p>
+</div>
+</div>
+          <div class="table-card">
+            <div class="table-actions">
+<span>鎻愯揣璁㈠崟</span>
+<div>
+<button class="dp-button secondary small">
+<i data-lucide="download">
+</i>瀵煎嚭</button>
+<button class="dp-button secondary small">
+<i data-lucide="settings-2">
+</i>鑷畾涔?/button>
+</div>
+</div>
+            <div class="table-scroll">
+              <table>
+                <thead>
+<tr>
+<th>
+<input type="checkbox" />
+</th>
+<th>搴忓彿</th>
+<th>鏃堕棿 <i data-lucide="chevrons-up-down">
+</i>
+</th>
+<th>璐熻矗涓氬姟鍛?/th>
+<th>鎵€灞為樁娈?/th>
+<th>鍗曞彿</th>
+<th>鍙樻洿椤?/th>
+<th>閲戦</th>
+</tr>
+</thead>
+                <tbody>
+                  <tr>
+<td>
+<input type="checkbox" />
+</td>
+<td>1</td>
+<td>2026-06-11 13:00</td>
+<td>鏉庡啲</td>
+<td>
+<span class="status info">鏂板</span>
+</td>
+<td>320322198612134225</td>
+<td>鐢宠鏂板闂ㄥ簵</td>
+<td>58</td>
+</tr>
+                  <tr class="selected">
+<td>
+<input type="checkbox" checked />
+</td>
+<td>2</td>
+<td>2026-06-11 13:00</td>
+<td>寰愭檽浜?/td>
+<td>
+<span class="status warning">閲嶈</span>
+</td>
+<td>320322198612134226</td>
+<td>鐢宠瑁呬慨</td>
+<td>985</td>
+</tr>
+                  <tr>
+<td>
+<input type="checkbox" />
+</td>
+<td>3</td>
+<td>2026-06-11 13:00</td>
+<td>榛勯噾姊?/td>
+<td>
+<span class="status neutral">灞€鏀?/span>
+</td>
+<td>320322198612134227</td>
+<td>闂ㄥ簵鍗囩骇</td>
+<td>776</td>
+</tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section id="pagination" class="doc-section component-section" data-search="鍒嗛〉 pagination">
+          <div class="section-heading">
+<div>
+<span class="section-index">13</span>
+<h2>鍒嗛〉</h2>
+<p>榛樿姣忛〉 10 鏉★紝鍚屾椂灞曠ず鎬绘暟涓庡綋鍓嶈寖鍥淬€?/p>
+</div>
+</div>
+          <div class="pagination">
+<span>鍏?366 鏉?/span>
+<button disabled>
+<i data-lucide="chevron-left">
+</i>
+</button>
+<button class="active">1</button>
+<button>2</button>
+<button>3</button>
+<span>鈥?/span>
+<button>37</button>
+<button>
+<i data-lucide="chevron-right">
+</i>
+</button>
+<select>
+<option>10 鏉?/ 椤?/option>
+<option>20 鏉?/ 椤?/option>
+</select>
+</div>
+        </section>
+
+        <section id="rtm-home" class="doc-section page-section" data-search="RTM 棣栭〉 椤甸潰妯℃澘">
+          <div class="section-heading">
+<div>
+<span class="section-index">14</span>
+<h2>RTM 棣栭〉妯℃澘</h2>
+<p>鎸夌収 RTM 楂樹繚鐪熷師鍨嬮噸寤洪《閮ㄥ钩鍙板鑸€佷晶杈规爮涓庡畬鏁村伐浣滃彴淇℃伅缁撴瀯銆?/p>
+</div>
+<span class="template-badge">PAGE TEMPLATE</span>
+</div>
+          <div class="rtm-frame rtm-frame-hi">
+            <div class="rtm-header">
+              <div class="rtm-brand">
+<img src="./assets/rtm-logo.png" alt="涓滈箯 RTM 鍏ㄦ笭閬撶郴缁? />
+</div>
+              <button class="rtm-collapse" aria-label="鏀惰捣渚ц竟鏍?>
+<i data-lucide="panel-left-close">
+</i>
+</button>
+              <div class="rtm-platform active">
+<i data-lucide="clipboard-check">
+</i>
+<span>璁㈠崟 / 鎻愯揣 / 寮€绁?OMS</span>
+</div>
+              <div class="rtm-platform">
+<i data-lucide="layers-3">
+</i>
+<span>鍟嗘満 / 鍚堝悓 LTC</span>
+</div>
+              <div class="rtm-platform">
+<i data-lucide="user-round">
+</i>
+<span>BASE 瀹㈡埛</span>
+</div>
+              <div class="rtm-platform">
+<i data-lucide="plus">
+</i>
+<span>鏇村骞冲彴</span>
+</div>
+              <div class="rtm-search">
+<i data-lucide="search">
+</i>
+<span>杈撳叆鎼滅储鍐呭</span>
+</div>
+              <span class="avatar">妯?/span>
+<span class="rtm-user">妯婃€併€€涓婃捣涓滈箯瀹樻柟鏃楄埌搴?/span>
+<i class="rtm-chevron" data-lucide="chevron-down">
+</i>
+            </div>
+            <div class="rtm-body">
+              <aside class="rtm-side">
+                <a class="active">
+<i data-lucide="house">
+</i>
+<span>棣栭〉</span>
+</a>
+                <a>
+<i data-lucide="monitor">
+</i>
+<span>宸ヤ綔鍙?/span>
+<i data-lucide="chevron-up">
+</i>
+</a>
+                <a class="sub">
+<span>鎴戠殑浠ｅ姙</span>
+</a>
+<a class="sub">
+<span>鎴戠殑宸插姙</span>
+</a>
+                <a>
+<i data-lucide="layout-dashboard">
+</i>
+<span>鐡风爾浜嬩笟閮?/span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+                <a>
+<i data-lucide="monitor-cog">
+</i>
+<span>鍗荡浜嬩笟閮?/span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+                <a>
+<i data-lucide="chart-no-axes-combined">
+</i>
+<span>鎶ヨ〃绠＄悊</span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+                <a>
+<i data-lucide="clipboard-list">
+</i>
+<span>鏀跨瓥绠＄悊</span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+                <a>
+<i data-lucide="handshake">
+</i>
+<span>涓氬姟绠＄悊</span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+                <a>
+<i data-lucide="smartphone">
+</i>
+<span>OMS 楣忓 APP</span>
+<i data-lucide="chevron-down">
+</i>
+</a>
+              </aside>
+              <div class="rtm-main">
+                <div class="rtm-tabs">
+<span class="active">棣栭〉</span>
+<span>鍒涘缓鎶ヤ环鍗?<i data-lucide="x">
+</i>
+</span>
+</div>
+                <div class="rtm-content">
+                  <div class="welcome">
+<div>
+<strong>娆㈣繋鏉ュ埌 涓滈箯RTM鍏ㄦ笭閬撶郴缁?/strong>
+<span>涓婃捣涓滈箯瀹樻柟鏃楄埌搴?/span>
+</div>
+</div>
+                  <div class="rtm-dashboard-grid">
+                    <div class="rtm-panel overview-panel">
+                      <h4>鏈湀姒傚喌 <i data-lucide="circle-help">
+</i>
+</h4>
+                      <div class="mini-metrics">
+                        <div>
+<span>骞翠笟缁╁畬鎴愮巼</span>
+<b class="red">68<small>%</small>
+</b>
+<em>鍚屾瘮 <i>+50% 鈫?/i>銆€鐜瘮 <u>-10% 鈫?/u>
+</em>
+</div>
+                        <div>
+<span>骞翠笟缁?/span>
+<b>8,608<small>鍏?/small>
+</b>
+<em>鍚屾瘮 <i>+50% 鈫?/i>銆€鐜瘮 <u>-10% 鈫?/u>
+</em>
+</div>
+                        <div>
+<span>閲囪喘鎬婚</span>
+<b>23,868<small>鍏?/small>
+</b>
+<em>鍚屾瘮 <i>+50% 鈫?/i>銆€鐜瘮 <u>-10% 鈫?/u>
+</em>
+</div>
+                        <div>
+<span>鏈彁璐?/span>
+<b class="red">38<small>鍗?/small>
+</b>
+<em>鍚屾瘮 <i>+50% 鈫?/i>銆€鐜瘮 <u>-10% 鈫?/u>
+</em>
+</div>
+                      </div>
+                    </div>
+                    <div class="rtm-panel account">
+                      <div class="rtm-panel-head">
+<h4>璐﹀彿璧勯噾 <i data-lucide="circle-help">
+</i>
+</h4>
+<span>
+<b>8A00</b>銆€7500銆€7B30</span>
+</div>
+                      <div class="account-grid">
+<div>
+<span>鍙紑鍗曢噾棰?<i data-lucide="eye">
+</i>
+</span>
+<b>682,038<small>鍏?/small>
+</b>
+<em>璐﹀彿閫炬湡锛岃鎵撴10涓囧厓</em>
+</div>
+<div>
+<span>鍙敤鐜伴噾 <i data-lucide="eye-off">
+</i>
+</span>
+<b>锛婏紛锛?small>鍏?/small>
+</b>
+</div>
+</div>
+                    </div>
+                    <div class="rtm-panel quick-panel">
+                      <div class="rtm-panel-head">
+<h4>甯哥敤蹇嵎鎿嶄綔</h4>
+<span>鑷畾涔?<i data-lucide="chevron-right">
+</i>
+</span>
+</div>
+                      <div class="mini-actions">
+<span>
+<i data-lucide="clipboard-plus">
+</i>鍒涘缓璁㈠崟</span>
+<span>
+<i data-lucide="truck">
+</i>璁㈠崟鎻愯揣</span>
+<span>
+<i data-lucide="scroll-text">
+</i>寮€绁ㄧ敵璇?/span>
+<span>
+<i data-lucide="square-plus">
+</i>鍒涘缓璁㈠崟</span>
+<span>
+<i data-lucide="chart-no-axes-combined">
+</i>缁忚惀淇℃伅</span>
+<span class="add">
+<i data-lucide="plus">
+</i>娣诲姞甯哥敤</span>
+</div>
+                    </div>
+                    <div class="rtm-panel alerts">
+                      <h4>浠撳偍璐归璀?<small>2椤?/small>
+</h4>
+                      <p>
+<i data-lucide="siren">
+</i>
+<span>鏈?<b>9</b> 浠跺晢鍝佸皢鍦?<b>7</b> 澶╁唴閫炬湡锛屽凡寮€濮嬫敹鍙栦粨鍌ㄨ垂<em>姗欒壊棰勮淇″彿銆€2026-06-11銆€09:00:45</em>
+</span>
+</p>
+                      <p>
+<i data-lucide="siren">
+</i>
+<span>鏈?<b>3</b> 浠跺晢鍝佸凡閫炬湡锛屽凡寮€濮嬫敹鍙栦粨鍌ㄨ垂<em>绾㈣壊棰勮淇″彿銆€2026-06-11銆€09:00:45</em>
+</span>
+</p>
+                    </div>
+                    <div class="rtm-panel list-panel">
+                      <div class="rtm-panel-head">
+<h4>閫氱煡鍏憡 <small>3椤?/small>
+</h4>
+<span>鏌ョ湅鍏ㄩ儴 <i data-lucide="chevron-right">
+</i>
+</span>
+</div>
+                      <ul>
+<li>鈥滈箯鍝モ€滱PP鎿嶄綔鎸囧紩&鎿嶄綔瑙嗛 <time>2026-06-11</time>
+</li>
+<li>涓滅摲閿€瀛椼€?026銆?2鍙?鍏充簬2026骞撮浂鍞笭閬撹惀閿€鈥?<time>2026-06-11</time>
+</li>
+<li>涓滅摲閿€瀛椼€?026銆?9鍙?2026骞翠笂鍗婂勾闆跺敭娓犻亾鈥?<time>2026-06-11</time>
+</li>
+<li>缁忛攢鍟嗕俊鐢ㄨ瘎绾х粨鏋滃叕绀?<time>2026-06-11</time>
+</li>
+<li>鍏充簬3鏈堜骇鍝佷环鏍艰皟鏁寸殑閫氱煡 <time>2026-06-11</time>
+</li>
+</ul>
+                    </div>
+                    <div class="rtm-panel list-panel">
+                      <div class="rtm-panel-head">
+<h4>寰呭姙浜嬮」 <small>3椤?/small>
+</h4>
+<span>鏌ョ湅鍏ㄩ儴 <i data-lucide="chevron-right">
+</i>
+</span>
+</div>
+                      <ul>
+<li>璁㈠崟 WO20260401023 閲戦鍙樻洿寰呯‘璁?<time>2026-06-11</time>
+</li>
+<li>璁㈠崟 WO20260401023 閲戦鍙樻洿寰呯‘璁?<time>2026-06-11</time>
+</li>
+<li>鎻愯揣鍗?TH20260400857 鏀惰揣鍦板潃鍙樻洿寰呯‘璁?<time>2026-06-11</time>
+</li>
+<li>LTC椤圭洰銆岄緳婀栧ぉ琛椼€嶄环瀹″緟纭 <time>2026-06-11</time>
+</li>
+<li>鎻愯揣鍗?TH20260400857 鏀惰揣鍦板潃鍙樻洿寰呯‘璁?<time>2026-06-11</time>
+</li>
+</ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rtm-list" class="doc-section page-section" data-search="RTM 鍒楄〃椤?绛涢€?琛ㄦ牸">
+          <div class="section-heading">
+<div>
+<span class="section-index">15</span>
+<h2>RTM 鍒楄〃椤垫ā鏉?/h2>
+<p>灏嗙瓫閫夈€佷富鎿嶄綔銆佹壒閲忔搷浣溿€佹暟鎹〃鏍间笌鍒嗛〉缁勭粐涓虹ǔ瀹氶鏋躲€?/p>
+</div>
+<span class="template-badge">PAGE TEMPLATE</span>
+</div>
+          <div class="list-template">
+            <div class="list-title">
+<strong>鎻愯揣璁㈠崟</strong>
+<button class="dp-button primary">
+<i data-lucide="plus">
+</i>鍒涘缓璁㈠崟</button>
+</div>
+            <div class="filter-bar">
+              <label>鍙傝€冨崟鍙?select class="dp-select">
+<option>=</option>
+</select>
+<input placeholder="璇疯緭鍏ュ唴瀹? />
+</label>
+              <label>璁㈠崟缂栧彿<select class="dp-select">
+<option>涓嶇瓑浜?/option>
+</select>
+<input value="SAP20260415" />
+</label>
+              <label>鍒涘缓鏃堕棿<input value="2026-05-13" />
+<span>鑷?/span>
+<input value="2026-06-13" />
+</label>
+              <button class="dp-button primary">鏌ヨ</button>
+<button class="dp-button text">閲嶇疆</button>
+            </div>
+            <div class="template-table">
+              <div class="template-th">
+<span>搴忓彿</span>
+<span>鏃堕棿</span>
+<span>璐熻矗涓氬姟鍛?/span>
+<span>鎵€灞為樁娈?/span>
+<span>鍗曞彿</span>
+<span>鍙樻洿椤?/span>
+<span>閲戦</span>
+</div>
+              <div class="template-tr">
+<span>1</span>
+<span>2026-06-11 13:00</span>
+<span>鏉庡啲</span>
+<span>鏂板</span>
+<span>320322198612134225</span>
+<span>鐢宠鏂板闂ㄥ簵</span>
+<span>58</span>
+</div>
+              <div class="template-tr active">
+<span>2</span>
+<span>2026-06-11 13:00</span>
+<span>寰愭檽浜?/span>
+<span>閲嶈</span>
+<span>320322198612134226</span>
+<span>鐢宠瑁呬慨</span>
+<span>985</span>
+</div>
+              <div class="template-tr">
+<span>3</span>
+<span>2026-06-11 13:00</span>
+<span>榛勯噾姊?/span>
+<span>灞€鏀?/span>
+<span>320322198612134227</span>
+<span>闂ㄥ簵鍗囩骇</span>
+<span>776</span>
+</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="rtm-form" class="doc-section page-section" data-search="RTM 琛ㄥ崟椤?form">
+          <div class="section-heading">
+<div>
+<span class="section-index">16</span>
+<h2>RTM 琛ㄥ崟椤垫ā鏉?/h2>
+<p>鎸夌収涓氬姟璇箟鍒嗙粍瀛楁锛屽簳閮ㄦ搷浣滃尯淇濇寔鍥哄畾椤哄簭銆?/p>
+</div>
+<span class="template-badge">PAGE TEMPLATE</span>
+</div>
+          <div class="form-template">
+            <div class="form-title">
+<strong>鍒涘缓鎻愯揣璁㈠崟</strong>
+<span>甯?<em>*</em> 涓哄繀濉」</span>
+</div>
+            <fieldset>
+<legend>鍩虹淇℃伅</legend>
+<div class="form-grid">
+              <label>
+<span>
+<em>*</em> 瀹㈡埛鍚嶇О</span>
+<input placeholder="璇烽€夋嫨瀹㈡埛" />
+</label>
+              <label>
+<span>
+<em>*</em> 鎻愯揣鏂瑰紡</span>
+<select>
+<option>鐗╂祦閰嶉€?/option>
+</select>
+</label>
+              <label>
+<span>鍙傝€冨崟鍙?/span>
+<input placeholder="璇疯緭鍏? />
+</label>
+              <label>
+<span>
+<em>*</em> 鏈熸湜鏃ユ湡</span>
+<input value="2026-06-18" />
+</label>
+            </div>
+</fieldset>
+            <fieldset>
+<legend>鏀惰揣淇℃伅</legend>
+<div class="form-grid">
+              <label>
+<span>
+<em>*</em> 鑱旂郴浜?/span>
+<input placeholder="璇疯緭鍏ヨ仈绯讳汉" />
+</label>
+              <label>
+<span>
+<em>*</em> 鑱旂郴鐢佃瘽</span>
+<input placeholder="璇疯緭鍏ユ墜鏈哄彿" />
+</label>
+              <label class="full">
+<span>
+<em>*</em> 鏀惰揣鍦板潃</span>
+<input placeholder="鐪?/ 甯?/ 鍖?/ 璇︾粏鍦板潃" />
+</label>
+            </div>
+</fieldset>
+            <div class="form-footer">
+<button class="dp-button secondary">鍙栨秷</button>
+<button class="dp-button primary">鎻愪氦璁㈠崟</button>
+</div>
+          </div>
+        </section>
+
+        <section id="empty" class="doc-section" data-search="绌虹姸鎬?empty">
+          <div class="section-heading">
+<div>
+<span class="section-index">17</span>
+<h2>绌虹姸鎬?/h2>
+<p>瑙ｉ噴鈥滀负浠€涔堜负绌衡€濓紝骞跺湪鍙仮澶嶆椂鎻愪緵鏄庣‘涓嬩竴姝ャ€?/p>
+</div>
+</div>
+          <div class="empty-state">
+<div class="empty-illustration">
+<i data-lucide="inbox">
+</i>
+</div>
+<strong>鏆傛棤璁㈠崟鏁版嵁</strong>
+<p>褰撳墠绛涢€夋潯浠朵笅娌℃湁缁撴灉锛岃璋冩暣绛涢€夋潯浠跺悗閲嶈瘯銆?/p>
+<button class="dp-button primary">娓呯┖绛涢€?/button>
+</div>
+        </section>
+
+        <section id="systems" class="doc-section roadmap" data-search="绯荤粺 璁捐瀹?鍔╅攢瀹?IW ROP PPT">
+          <div class="section-heading">
+<div>
+<span class="section-index">18</span>
+<h2>绯荤粺瑙嗚璺嚎鍥?/h2>
+<p>褰撳墠鐗堟湰宸插畬鎴?RTM 鍚庡彴銆佸姪閿€瀹濈Щ鍔ㄧ涓庢眹鎶?PPT锛屽叾浠栦笟鍔＄郴缁熸寜缁熶竴妗嗘灦閫愭鎺ュ叆銆?/p>
+</div>
+</div>
+          <div class="roadmap-grid">
+<div class="done">RTM 鍚庡彴绯荤粺<strong>宸插缓绔?/strong>
+</div>
+<div>璁捐瀹剁郴缁?strong>寰呮帴鍏?/strong>
+</div>
+<div class="done">鍔╅攢瀹濈郴缁?strong>宸叉帴鍏?/strong>
+</div>
+<div>IW 绯荤粺<strong>寰呮帴鍏?/strong>
+</div>
+<div>ROP 鍚庡彴<strong>寰呮帴鍏?/strong>
+</div>
+<div class="done">姹囨姤 PPT<strong>宸叉帴鍏?/strong>
+</div>
+</div>
+        </section>
+
+        <section id="zxb-foundation" class="doc-section zxb-section" data-search="鍔╅攢瀹?鑹插僵 鍥炬爣 绉诲姩绔?灏忕▼搴?>
+          <div class="section-heading">
+<div>
+<span class="section-index">22</span>
+<h2>鍔╅攢瀹?路 鑹插僵 / 鍥炬爣</h2>
+<p>鍔╅攢瀹濇槸鍋忕Щ鍔ㄧ銆佸皬绋嬪簭鍦烘櫙鐨勯攢鍞伐鍏凤紝瑙嗚鏇村己璋冪孩鑹叉笎鍙樸€佸渾瑙掑崱鐗囥€佸簳閮ㄨ兌鍥婂鑸笌楂樿瘑鍒害涓氬姟鍥炬爣銆?/p>
+</div>
+<span class="template-badge">MOBILE SYSTEM</span>
+</div>
+          <div class="zxb-foundation-grid">
+            <div class="zxb-phone mini zxb-customer-list zxb-foundation-preview" aria-label="鍔╅攢瀹濇柊闆跺敭璺熻繘涓粍浠剁ず渚?>
+              <div class="zxb-page-title">
+<b>瀹㈡埛鍒楄〃</b>
+</div>
+              <div class="zxb-customer-tabs" role="tablist" aria-label="瀹㈡埛鐘舵€?>
+                <button type="button" data-zxb-tab>
+<span>鏈帴鍗?/span>
+<b>622</b>
+</button>
+                <button type="button" class="is-active" data-zxb-tab aria-selected="true">
+<span>璺熻繘涓?/span>
+<b>56</b>
+</button>
+                <button type="button" data-zxb-tab>
+<span>宸插畬鎴?/span>
+<b>28</b>
+</button>
+                <button type="button" data-zxb-tab>
+<span>宸叉祦澶?/span>
+<b>28</b>
+</button>
+              </div>
+              <div class="zxb-customer-filters" aria-label="鍒楄〃绛涢€?>
+                <button type="button" class="is-active" data-zxb-filter>鍛樺伐<i data-lucide="chevron-down">
+</i>
+</button>
+                <button type="button" data-zxb-filter>璺熻繘<i data-lucide="chevron-down">
+</i>
+</button>
+                <button type="button" data-zxb-filter>鏇村<i data-lucide="chevron-down">
+</i>
+</button>
+                <button type="button" data-zxb-filter>鎺掑簭<i data-lucide="chevron-down">
+</i>
+</button>
+              </div>
+              <div class="zxb-customer-cards">
+                <article class="zxb-customer-card is-selected">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="閫夋嫨榛勫厛鐢?>
+<i data-lucide="check">
+</i>
+</button>
+                    <button type="button" class="zxb-customer-name">榛勫厛鐢?<b>18967589868</b>
+<i data-lucide="chevron-right">
+</i>
+</button>
+                    <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true">
+<i data-lucide="pin-off">
+</i>
+<span>鍙栨秷缃《</span>
+</button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p>
+<span>娲惧崟鏃堕棿锛?/span>2022-10-08&nbsp; 15:55:11 <small>1鍒嗛挓鏈窡杩?/small>
+</p>
+                    <p>
+<span>鐘舵€侊細</span>
+<b>宸插埌搴?/b>
+</p>
+                    <p>
+<span>鍦板潃锛?/span>鍥涘窛鐪佸崡鍏呭競鍗楅儴鍘夸含涓滃皬鍖?6鍙?/p>
+                    <p>
+<span>瀹㈡埛鏍囩锛?/span>璞埥銆佸ぇ姘斿閲?/p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">鐢佃瘽<i data-lucide="phone">
+</i>
+</button>
+                    <button type="button">鍔犲井<i data-lucide="message-circle">
+</i>
+</button>
+                    <button type="button">鐭俊<i data-lucide="mail">
+</i>
+</button>
+                    <button type="button" class="primary">淇敼璺熻繘鐘舵€?/button>
+                  </div>
+                </article>
+                <article class="zxb-customer-card">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="閫夋嫨榛勫厛鐢?>
+<i data-lucide="check">
+</i>
+</button>
+                    <button type="button" class="zxb-customer-name">榛勫厛鐢?<b>18967589868</b>
+<i data-lucide="chevron-right">
+</i>
+</button>
+                    <button type="button" class="zxb-pin-action" aria-pressed="false">
+<i data-lucide="pin">
+</i>
+<span>缃《</span>
+</button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p>
+<span>娲惧崟鏃堕棿锛?/span>2022-10-08&nbsp; 15:55:11 <small>1鍒嗛挓鏈窡杩?/small>
+</p>
+                    <p>
+<span>鐘舵€侊細</span>
+<b>宸插埌搴?/b>
+</p>
+                    <p>
+<span>鍦板潃锛?/span>鍥涘窛鐪佸崡鍏呭競鍗楅儴鍘夸含涓滃皬鍖?6鍙?/p>
+                    <p>
+<span>瀹㈡埛鏍囩锛?/span>璞埥銆佸ぇ姘斿閲?/p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">鏇村</button>
+                    <button type="button" class="outline">杞浗琛?/button>
+                    <button type="button" class="primary">淇敼璺熻繘鐘舵€?/button>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="zxb-token-panel">
+              <h3>绉诲姩绔富鑹?/h3>
+              <div class="zxb-color-row">
+<span style="--c:#FF161F">
+</span>
+<div>
+<b>鍔╅攢瀹濈孩</b>
+<code>#FF161F</code>
+<small>涓绘寜閽€侀€変腑銆佸己璋冩枃瀛?/small>
+</div>
+</div>
+              <div class="zxb-color-row">
+<span style="--c:#FF6B71">
+</span>
+<div>
+<b>娓愬彉璧疯壊</b>
+<code>#FF6B71</code>
+<small>棣栭〉澶村浘銆佺櫥褰曢〉鑳屾櫙</small>
+</div>
+</div>
+              <div class="zxb-color-row">
+<span style="--c:#FFF1F2">
+</span>
+<div>
+<b>娴呯孩搴?/b>
+<code>#FFF1F2</code>
+<small>鍥炬爣搴曘€佸急鎸夐挳銆佺┖鐘舵€佹寜閽?/small>
+</div>
+</div>
+              <div class="zxb-color-row">
+<span style="--c:#2B2C31">
+</span>
+<div>
+<b>搴曢儴瀵艰埅榛?/b>
+<code>#2B2C31</code>
+<small>搴曟爮銆佹诞灞傛繁鑹插鍣?/small>
+</div>
+</div>
+              <div class="zxb-color-row">
+<span style="--c:#F7F7F7">
+</span>
+<div>
+<b>椤甸潰搴曡壊</b>
+<code>#F7F7F7</code>
+<small>绉诲姩绔〉闈㈣儗鏅?/small>
+</div>
+</div>
+            </div>
+            <div class="zxb-token-panel">
+              <h3>鍥炬爣瑙勫垯</h3>
+              <div class="zxb-icon-rules">
+                <div class="tone-red row-red">
+<img src="assets/zxb-icons/academy.svg" alt="" />
+<span>瀛﹂櫌</span>
+</div>
+                <div class="tone-red row-red">
+<img src="assets/zxb-icons/customer-report.svg" alt="" />
+<span>瀹㈡埛鎶ュ鏌ヨ</span>
+</div>
+                <div class="tone-red row-red">
+<img src="assets/zxb-icons/special-address.svg" alt="" />
+<span>鐗规畩鍦板潃</span>
+</div>
+                <div class="tone-red row-red">
+<img src="assets/zxb-icons/city-review.svg" alt="" />
+<span>鍚屽煄瀹℃牳</span>
+</div>
+                <div class="tone-red row-red">
+<img src="assets/zxb-icons/public-pool.svg" alt="" />
+<span>鎶ュ鍏叡姹?/span>
+</div>
+                <div class="tone-yellow row-yellow">
+<img src="assets/zxb-icons/materials.svg" alt="" />
+<span>绱犳潗搴?/span>
+</div>
+                <div class="tone-yellow row-yellow">
+<img src="assets/zxb-icons/promotion-image.svg" alt="" />
+<span>瀹ｄ紶鍥?/span>
+</div>
+                <div class="tone-yellow row-yellow">
+<img src="assets/zxb-icons/share-case.svg" alt="" />
+<span>鍒嗕韩妗堜緥</span>
+</div>
+                <div class="tone-yellow row-yellow">
+<img src="assets/zxb-icons/share-product.svg" alt="" />
+<span>鍒嗕韩鍟嗗搧</span>
+</div>
+                <div class="tone-yellow row-yellow">
+<img src="assets/zxb-icons/qrcode.svg" alt="" />
+<span>浜岀淮鐮?/span>
+</div>
+                <div class="tone-green row-green">
+<img src="assets/zxb-icons/campaign.svg" alt="" />
+<span>娓犻亾娲诲姩</span>
+</div>
+                <div class="tone-green row-green">
+<img src="assets/zxb-icons/order-management.svg" alt="" />
+<span>甯﹀崟绠＄悊</span>
+</div>
+                <div class="tone-green row-green">
+<img src="assets/zxb-icons/target.svg" alt="" />
+<span>鎴戠殑鐩爣</span>
+</div>
+                <div class="tone-green row-green">
+<img src="assets/zxb-icons/payment.svg" alt="" />
+<span>鏀舵绠＄悊</span>
+</div>
+                <div class="tone-green row-green">
+<img src="assets/zxb-icons/refund.svg" alt="" />
+<span>閫€娆剧鐞?/span>
+</div>
+              </div>
+              <p>鍔╅攢瀹濅笟鍔″浘鏍囩粺涓€浣跨敤 50脳50 SVG 鐢诲竷锛屾寜绾€侀粍銆佺豢涓夌涓氬姟鑹插垎琛屾帓鍒椼€傚浘褰繚鎸佸師濮嬫瘮渚嬪眳涓睍绀猴紝涓嶉澶栧彔鍔犲崱鐗囧簳鑹诧紱閫氱敤鎿嶄綔鍥炬爣浠嶄娇鐢?Lucide 2px 绾挎€ч鏍笺€?/p>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-components" class="doc-section zxb-section" data-search="鍔╅攢瀹?缁勪欢 鎸夐挳 寮圭獥 杈撳叆妗?鍗＄墖 鏍囩椤?鐘舵€?琛ㄦ牸 鍥捐〃 瀹㈡埛鍒楄〃 瀹㈡埛淇℃伅 閫夋嫨椤?娴佸け鍘熷洜">
+          <div class="section-heading">
+<div>
+<span class="section-index">23</span>
+<h2>鍔╅攢瀹?路 绉诲姩缁勪欢</h2>
+<p>浠庣櫥褰曘€佸鎴锋柊澧炪€佹帴寰呯瓫閫夈€佹彁鐜扮‘璁ょ瓑鐣岄潰鎻愮偧绉诲姩绔爣鍑嗙粍浠躲€?/p>
+</div>
+</div>
+          <div class="zxb-component-grid">
+            <article class="zxb-comp-card">
+<h3>鎸夐挳</h3>
+<button class="zxb-btn">淇濆瓨</button>
+<button class="zxb-btn ghost">鍙栨秷</button>
+<button class="zxb-btn soft">鍘绘坊鍔犺窡杩?/button>
+<code>.zxb-btn / 56px 楂?/ 999px 鑳跺泭</code>
+</article>
+            <article class="zxb-comp-card">
+<h3>杈撳叆妗?/h3>
+<div class="zxb-field">
+<span>璐﹀彿</span>
+<input value="xls" />
+</div>
+<div class="zxb-field">
+<span>瀵嗙爜</span>
+<input value="********" />
+<i data-lucide="eye-off">
+</i>
+</div>
+<code>宸︽爣绛?+ 鍙冲唴瀹癸紝搴曢儴鍒嗗壊绾?/code>
+</article>
+            <article class="zxb-comp-card">
+<h3>鍗＄墖</h3>
+<div class="zxb-card-sample">
+<b>鍛樺伐 | 12.15-1.15鐩爣</b>
+<div>
+<span>鎶ュ鏁帮紙涓級<em>42609</em>
+</span>
+<span>杞寲鐜囷紙%锛?em>42%</em>
+</span>
+</div>
+</div>
+<code>鐧藉簳 20鈥?4px 鍦嗚锛岃交闃村奖</code>
+</article>
+            <article class="zxb-comp-card">
+<h3>鏍囩椤?/ 鐘舵€?/h3>
+<div class="zxb-tabs">
+<span class="active">宸叉敹娆?12</span>
+<span>鏈敹娆?56</span>
+</div>
+<p>
+<mark>绱ф€?/mark>
+<mark class="purple">鏂伴浂鍞?/mark>
+<mark class="outline">鑷劧鍒板簵</mark>
+</p>
+<code>绾㈣壊涓嬪垝绾挎垨娴呰壊鑳跺泭琛ㄧず閫変腑</code>
+</article>
+            <article class="zxb-comp-card">
+<h3>寮圭獥</h3>
+<div class="zxb-dialog-demo">
+<strong>纭鎻愮ず</strong>
+<span>璇风‘璁ゆ槸鍚︽彁鐜?/span>
+<div>
+<button>鍙栨秷</button>
+<button>纭</button>
+</div>
+</div>
+<code>灞呬腑寮圭獥锛屾寜閽乏鍙崇瓑鍒?/code>
+</article>
+            <article class="zxb-comp-card">
+<h3>鍥捐〃 / 杩涘害</h3>
+<div class="zxb-progress">
+<span>
+<i style="width:68%">
+</i>
+</span>
+<b>杈炬垚 32026</b>
+</div>
+<div class="zxb-progress orange">
+<span>
+<i style="width:54%">
+</i>
+</span>
+<b>杞寲鐜?32%</b>
+</div>
+<code>灏忓昂瀵告潯褰㈣繘搴︼紝绾㈡娓愬彉</code>
+</article>
+          </div>
+          <div class="zxb-business-heading">
+            <div>
+<span>BUSINESS COMPONENTS</span>
+<h3>瀹㈡埛缁忚惀涓氬姟缁勪欢</h3>
+</div>
+            <p>淇濈暀鍔╅攢瀹濈Щ鍔ㄧ鐨勪俊鎭瘑搴︺€侀€変腑鍙嶉涓庡簳閮ㄤ富鎿嶄綔锛屾敮鎸佺洿鎺ョ偣鍑讳綋楠岀粍浠剁姸鎬併€?/p>
+          </div>
+          <div class="zxb-business-components zxb-business-specimens">
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div>
+<span>01 / CUSTOMER FOLLOW-UP</span>
+<h3>瀹㈡埛璺熻繘淇℃伅鍗?/h3>
+</div>
+                <p>鐢ㄤ簬瀹㈡埛璇︽儏涓庡洖璁胯〃鍗曪紝浠ユ竻鏅扮殑宸︽爣绛俱€佸彸渚ц兌鍥婂€兼壙杞藉叧閿窡杩涗俊鎭€?/p>
+              </div>
+              <div class="zxb-component-stage">
+                <article class="zxb-followup-card">
+                  <h4>瀹㈡埛锛氬紶鍏堢敓</h4>
+                  <div class="zxb-followup-divider">
+</div>
+                  <div class="zxb-followup-row">
+                    <span>璺熻繘鐘舵€?/span>
+                    <button type="button" class="zxb-followup-value" data-zxb-follow-status>宸插姞寰?/button>
+                  </div>
+                  <div class="zxb-followup-row">
+                    <span>娣诲姞鍥炶鏃堕棿</span>
+                    <button type="button" class="zxb-followup-value zxb-followup-time" data-zxb-follow-time>
+                      <b>2022.10.16&nbsp;&nbsp;12:00</b>
+<i data-lucide="chevron-right">
+</i>
+                    </button>
+                  </div>
+                </article>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div>
+<span>02 / SELECTION GROUP</span>
+<h3>鍘熷洜閫夋嫨鏍囩缁?/h3>
+</div>
+                <p>鐢ㄤ簬娴佸け鍘熷洜銆佸鎴锋爣绛句笌澶氭潯浠堕€夋嫨锛屼互娴呯伆榛樿鎬佸拰绾㈣壊鎻忚竟寮哄寲褰撳墠閫夋嫨銆?/p>
+              </div>
+              <div class="zxb-component-stage">
+                <section class="zxb-selection-specimen">
+                  <h4>浜у搧鍘熷洜</h4>
+                  <div class="zxb-reason-chips zxb-reason-chips-large" aria-label="浜у搧鍘熷洜">
+                    <button type="button" class="is-selected" aria-pressed="true">鑺辫壊椋庢牸</button>
+                    <button type="button" aria-pressed="false">瑙勬牸</button>
+                    <button type="button" aria-pressed="false">鎷呭績瀹為檯鏁堟灉</button>
+                    <button type="button" aria-pressed="false">浜у搧鍔熻兘鐤戣檻</button>
+                  </div>
+                  <div class="zxb-component-divider">
+</div>
+                </section>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div>
+<span>03 / CUSTOMER SUMMARY</span>
+<h3>瀹㈡埛鍒楄〃淇℃伅鍗?/h3>
+</div>
+                <p>鑱氬悎瀹㈡埛鏉ユ簮銆佹淳鍗曠姸鎬併€佸湴鍧€鏍囩涓庡父鐢ㄦ搷浣滐紝閫傜敤浜庤窡杩涘垪琛ㄥ拰瀹㈡埛姹犮€?/p>
+              </div>
+              <div class="zxb-component-stage">
+                <article class="zxb-customer-card zxb-customer-summary-card">
+                  <div class="zxb-customer-card-top">
+                    <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="閫夋嫨瀹㈡埛">
+<i data-lucide="check">
+</i>
+</button>
+                    <span class="zxb-source-badge jd">浜笢</span>
+                    <button type="button" class="zxb-customer-name">
+<b>榛勫厛鐢?nbsp;&nbsp;18967589868</b>
+<i data-lucide="chevron-right">
+</i>
+</button>
+                    <button type="button" class="zxb-pin-action" aria-pressed="false">
+<i data-lucide="pin">
+</i>
+<span>缃《</span>
+</button>
+                  </div>
+                  <div class="zxb-customer-meta">
+                    <p>
+<span>娲惧崟鏃堕棿锛?/span>2022-10-08&nbsp;&nbsp;15:55:11 <small>1鍒嗛挓鏈窡杩?/small>
+</p>
+                    <p>
+<span>鐘舵€侊細</span>
+<b>宸插埌搴?/b>
+</p>
+                    <p>
+<span>鍦板潃锛?/span>鍥涘窛鐪佸崡鍏呭競鍗楅儴鍘夸含涓滃皬鍖?6鍙?/p>
+                    <p>
+<span>瀹㈡埛鏍囩锛?/span>璞埥銆佸ぇ姘斿閲?/p>
+                  </div>
+                  <div class="zxb-customer-actions">
+                    <button type="button">鏇村</button>
+                    <button type="button" class="outline">杞浗琛?/button>
+                    <button type="button" class="primary">淇敼璺熻繘鐘舵€?/button>
+                  </div>
+                </article>
+              </div>
+            </article>
+          </div>
+          <div class="zxb-business-components zxb-business-pages-legacy" hidden>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div>
+<span>01 / CUSTOMER LIST</span>
+<h3>瀹㈡埛鍒楄〃淇℃伅</h3>
+</div>
+                <p>閫傜敤浜庡緟璺熻繘銆佸凡瀹屾垚绛夊鎴锋睜锛岀粍鍚堢姸鎬佸垏鎹€佺瓫閫夈€佸鎴锋憳瑕佸拰蹇嵎鎿嶄綔銆?/p>
+              </div>
+              <div class="zxb-phone zxb-customer-list">
+                <div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+                <div class="zxb-page-title">
+<b>
+<i data-lucide="chevron-left">
+</i>瀹㈡埛鍒楄〃</b>
+<span>鈥⑩€⑩€€€鈼?/span>
+</div>
+                <div class="zxb-customer-tabs" role="tablist" aria-label="瀹㈡埛鐘舵€?>
+                  <button type="button" data-zxb-tab>
+<span>鏈帴鍗?/span>
+<b>622</b>
+</button>
+                  <button type="button" class="is-active" data-zxb-tab aria-selected="true">
+<span>璺熻繘涓?/span>
+<b>56</b>
+</button>
+                  <button type="button" data-zxb-tab>
+<span>宸插畬鎴?/span>
+<b>28</b>
+</button>
+                  <button type="button" data-zxb-tab>
+<span>宸叉祦澶?/span>
+<b>28</b>
+</button>
+                </div>
+                <div class="zxb-customer-filters" aria-label="鍒楄〃绛涢€?>
+                  <button type="button" class="is-active" data-zxb-filter>鍛樺伐<i data-lucide="chevron-down">
+</i>
+</button>
+                  <button type="button" data-zxb-filter>璺熻繘<i data-lucide="chevron-down">
+</i>
+</button>
+                  <button type="button" data-zxb-filter>鏇村<i data-lucide="chevron-down">
+</i>
+</button>
+                  <button type="button" data-zxb-filter>鎺掑簭<i data-lucide="chevron-down">
+</i>
+</button>
+                </div>
+                <div class="zxb-customer-cards">
+                  <article class="zxb-customer-card is-selected">
+                    <div class="zxb-customer-card-top">
+                      <button type="button" class="zxb-customer-select" aria-pressed="true" aria-label="閫夋嫨榛勫厛鐢?>
+<i data-lucide="check">
+</i>
+</button>
+                      <span class="zxb-source-badge tmall">澶╃尗</span>
+                      <button type="button" class="zxb-customer-name">榛勫厛鐢?<b>18967589868</b>
+<i data-lucide="chevron-right">
+</i>
+</button>
+                      <button type="button" class="zxb-pin-action is-pinned" aria-pressed="true">
+<i data-lucide="pin-off">
+</i>
+<span>鍙栨秷缃《</span>
+</button>
+                    </div>
+                    <div class="zxb-customer-meta">
+                      <p>
+<span>娲惧崟鏃堕棿锛?/span>2022-10-08&nbsp; 15:55:11 <small>1鍒嗛挓鏈窡杩?/small>
+</p>
+                      <p>
+<span>鐘舵€侊細</span>
+<b>宸插埌搴?/b>
+</p>
+                      <p>
+<span>鍦板潃锛?/span>鍥涘窛鐪佸崡鍏呭競鍗楅儴鍘夸含涓滃皬鍖?6鍙?/p>
+                      <p>
+<span>瀹㈡埛鏍囩锛?/span>璞埥銆佸ぇ姘斿閲?/p>
+                    </div>
+                    <div class="zxb-customer-actions">
+                      <button type="button">鐢佃瘽<i data-lucide="phone">
+</i>
+</button>
+                      <button type="button">鍔犲井<i data-lucide="message-circle">
+</i>
+</button>
+                      <button type="button">鐭俊<i data-lucide="mail">
+</i>
+</button>
+                      <button type="button" class="primary">淇敼璺熻繘鐘舵€?/button>
+                    </div>
+                  </article>
+                  <article class="zxb-customer-card">
+                    <div class="zxb-customer-card-top">
+                      <button type="button" class="zxb-customer-select" aria-pressed="false" aria-label="閫夋嫨榛勫厛鐢?>
+<i data-lucide="check">
+</i>
+</button>
+                      <span class="zxb-source-badge guobu">鍥借ˉ</span>
+                      <button type="button" class="zxb-customer-name">榛勫厛鐢?<b>18967589868</b>
+<i data-lucide="chevron-right">
+</i>
+</button>
+                      <button type="button" class="zxb-pin-action" aria-pressed="false">
+<i data-lucide="pin">
+</i>
+<span>缃《</span>
+</button>
+                    </div>
+                    <div class="zxb-customer-meta">
+                      <p>
+<span>娲惧崟鏃堕棿锛?/span>2022-10-08&nbsp; 15:55:11 <small>1鍒嗛挓鏈窡杩?/small>
+</p>
+                      <p>
+<span>鐘舵€侊細</span>
+<b>宸插埌搴?/b>
+</p>
+                      <p>
+<span>鍦板潃锛?/span>鍥涘窛鐪佸崡鍏呭競鍗楅儴鍘夸含涓滃皬鍖?6鍙?/p>
+                      <p>
+<span>瀹㈡埛鏍囩锛?/span>璞埥銆佸ぇ姘斿閲?/p>
+                    </div>
+                    <div class="zxb-customer-actions">
+                      <button type="button">鏇村</button>
+                      <button type="button" class="outline">杞浗琛?/button>
+                      <button type="button" class="primary">淇敼璺熻繘鐘舵€?/button>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </article>
+            <article class="zxb-business-card">
+              <div class="zxb-business-card-head">
+                <div>
+<span>02 / SELECTION PAGE</span>
+<h3>娴佸け鍘熷洜閫夋嫨椤?/h3>
+</div>
+                <p>閫傜敤浜庡垎缁勫閫夈€佽ˉ鍏呰鏄庡拰璇煶杈撳叆鍦烘櫙锛岄€変腑鎬佷互绾㈣壊鎻忚竟鍜屾祬绾㈠簳寮鸿皟銆?/p>
+              </div>
+              <div class="zxb-phone zxb-loss-selector">
+                <div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+                <div class="zxb-page-title">
+<b>
+<i data-lucide="chevron-left">
+</i>閫夋嫨娴佸け鍘熷洜</b>
+<span>鈥⑩€⑩€€€鈼?/span>
+</div>
+                <div class="zxb-reason-groups">
+                  <section>
+                    <h4>浠锋牸鍘熷洜</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" class="is-selected" aria-pressed="true">浠锋牸瓒呭嚭瀹㈡埛棰勭畻</button>
+                      <button type="button" class="is-selected" aria-pressed="true">瀹㈡埛瑕佹眰鎶樻墸鏈弧瓒?/button>
+                      <button type="button" aria-pressed="false">绔炲搧浠锋洿浼?/button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>浜у搧鍘熷洜</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" class="is-selected" aria-pressed="true">鑺辫壊椋庢牸</button>
+                      <button type="button" aria-pressed="false">瑙勬牸</button>
+                      <button type="button" aria-pressed="false">鎷呭績瀹為檯鏁堟灉</button>
+                      <button type="button" aria-pressed="false">浜у搧鍔熻兘鐤戣檻</button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>瀹㈡埛鍘熷洜</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" aria-pressed="false">瀹㈡埛澶辫仈</button>
+                      <button type="button" aria-pressed="false">鐢佃瘽涓嶆帴</button>
+                      <button type="button" aria-pressed="false">浼佸井鏃犲洖澶嶈秴60澶?/button>
+                      <button type="button" aria-pressed="false">瑁呬慨璁″垝鏈夊彉鏆傜紦</button>
+                      <button type="button" aria-pressed="false">琚璁″笀/宸ラ暱/濂藉弸杞帹鑽?/button>
+                    </div>
+                  </section>
+                  <section>
+                    <h4>鏈嶅姟鍘熷洜</h4>
+                    <div class="zxb-reason-chips">
+                      <button type="button" aria-pressed="false">娌熼€氫笉鎰夊揩浣撻獙宸?/button>
+                      <button type="button" class="is-selected" aria-pressed="true">鏈嶅姟鍝嶅簲涓嶅強鏃?/button>
+                      <button type="button" aria-pressed="false">涓撲笟搴︿俊浠讳笉瓒?/button>
+                    </div>
+                  </section>
+                  <section class="zxb-other-reason">
+                    <h4>鍏朵粬鍘熷洜</h4>
+                    <textarea maxlength="300" placeholder="璇疯緭鍏ュ師鍥狅紙闄愬埗300瀛楋級">
+</textarea>
+                  </section>
+                </div>
+                <button type="button" class="zxb-record-button" aria-pressed="false">
+<i data-lucide="audio-lines">
+</i>
+<span>鐐瑰嚮褰曢煶</span>
+</button>
+                <div class="zxb-selector-summary" aria-live="polite">
+</div>
+                <div class="zxb-selector-actions">
+                  <button type="button" data-zxb-cancel>鍙栨秷</button>
+                  <button type="button" data-zxb-confirm>纭畾</button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="zxb-home" class="doc-section zxb-section" data-search="鍔╅攢瀹?棣栭〉 椤甸潰妯℃澘 鎵嬫満 棣栭〉">
+          <div class="section-heading">
+<div>
+<span class="section-index">24</span>
+<h2>鍔╅攢瀹?路 棣栭〉妯℃澘</h2>
+<p>杩樺師搴楅暱棣栭〉鐨勫ご閮ㄧ粡钀ユ瑙堛€佺洰鏍囧崱鐗囥€佸父鐢ㄥ伐鍏枫€佽璁″笀闆疯揪涓庡簳閮ㄥ鑸€?/p>
+</div>
+<span class="template-badge">PAGE TEMPLATE</span>
+</div>
+          <div class="zxb-showcase">
+            <div class="zxb-phone home">
+              <div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+              <div class="zxb-home-hero">
+                <div class="zxb-home-top">
+<div class="zxb-mini-logo">涓滈箯 <em>DONG<br>PENG</em>
+</div>
+<strong>涓滈箯涓冩槦宀╂棗鑸板簵 鈥?/strong>
+<small>鈥⑩€⑩€?鈼?/small>
+</div>
+                <div class="zxb-date">2022.10.19鈥?022.10.19</div>
+                <em class="zxb-internal">浠呬緵涓滈箯鍐呴儴浜哄憳浣跨敤</em>
+                <h4>瀹㈡埛</h4>
+                <div class="zxb-home-kpis">
+<span>
+<b>145</b>鏈帴鍗?/span>
+<span>
+<b>38</b>鏈弽棣?/span>
+<span>
+<b>7879</b>璺熻繘涓?/span>
+<span>
+<b>87</b>宸蹭氦瀹?/span>
+<span>
+<b>38</b>宸茶秴鏃?/span>
+<span>
+<b>68</b>宸插畬鎴?/span>
+</div>
+                <button>娣诲姞瀹㈡埛 <i data-lucide="circle-plus">
+</i>
+</button>
+              </div>
+              <div class="zxb-mobile-card">
+                <div class="zxb-card-title">鍛樺伐 | 12.15-1.15鐩爣 <span>鏇村鐩爣 鈥?/span>
+</div>
+                <div class="zxb-target-grid">
+<div>
+<b>鎶ュ鏁帮紙涓級</b>
+<p>鐩爣 42609 <em>杈炬垚 32026</em>
+</p>
+<span>
+<i style="width:62%">
+</i>
+</span>
+</div>
+<div>
+<b>杞寲鐜囷紙%锛?/b>
+<p>鐩爣 42% <em>杈炬垚 32%</em>
+</p>
+<span>
+<i style="width:70%">
+</i>
+</span>
+</div>
+</div>
+              </div>
+              <div class="zxb-mobile-card">
+                <div class="zxb-card-title">甯哥敤宸ュ叿 <span>鏇村 鈥?/span>
+</div>
+                <div class="zxb-tool-row">
+<span>
+<i data-lucide="graduation-cap">
+</i>瀛﹂櫌</span>
+<span>
+<i data-lucide="stamp">
+</i>鍚屽煄瀹℃牳</span>
+<span>
+<i data-lucide="share-2">
+</i>鍒嗕韩鍚嶇墖</span>
+<span>
+<i data-lucide="messages-square">
+</i>缇ゅ彂鍔╂墜</span>
+<span>
+<i data-lucide="package-open">
+</i>棰勭害琛ㄥ崟</span>
+</div>
+              </div>
+              <div class="zxb-mobile-card radar">
+                <div class="zxb-card-title">璁捐甯堥浄杈?<span>鍏ㄩ儴 鈥?/span>
+</div>
+                <p>
+<b>閮戝湪</b>
+<small>10鏈?0鏃?09:36銆€褰掑睘瀵艰喘锛氬紶娑?/small>
+</p>
+<strong>璇ョ敤鎴锋鍦ㄦ祻瑙?span>璁捐甯堟渚?/span>锛岃娉ㄦ剰璺熻繘锛?/strong>
+<button>鏌ョ湅璇︽儏</button>
+              </div>
+              <div class="zxb-bottom-nav">
+<span class="ai">AI</span>
+<span>
+<i data-lucide="house">
+</i>棣栭〉</span>
+<span>
+<i data-lucide="chart-column">
+</i>缁熻</span>
+<span>
+<i data-lucide="user-round">
+</i>鎴戠殑</span>
+</div>
+            </div>
+            <div class="zxb-template-notes">
+              <h3>椤甸潰缁撴瀯</h3>
+              <ol>
+<li>椤堕儴绾㈣壊娓愬彉缁忚惀鍗℃壙杞芥渶閲嶈 KPI 涓庝富 CTA銆?/li>
+<li>鐧借壊鍦嗚鍗＄墖鎸夆€滅洰鏍?鈫?宸ュ叿 鈫?绾跨储鎻愰啋鈥濇帓鍒椼€?/li>
+<li>搴曢儴娣辫壊鑳跺泭瀵艰埅寮鸿皟灏忕▼搴忓伐鍏峰睘鎬э紝AI 鍏ュ彛浣滀负楂樹紭鍏堢骇鍔熻兘銆?/li>
+</ol>
+              <h3>鍙鐢ㄧ粍浠?/h3>
+              <p>Header KPI Card銆乀arget Card銆乀ool Grid銆丷adar Feed銆丆apsule Tabbar銆?/p>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-form" class="doc-section zxb-section" data-search="鍔╅攢瀹?琛ㄥ崟椤?鏂板瀹㈡埛 鐧诲綍 杈撳叆 淇濆瓨">
+          <div class="section-heading">
+<div>
+<span class="section-index">25</span>
+<h2>鍔╅攢瀹?路 琛ㄥ崟椤?/ 鐧诲綍椤?/h2>
+<p>琛ㄥ崟浠ュ垎缁勫崱鐗囨壙杞介暱娴佺▼锛屽簳閮ㄥ浐瀹氫富鎿嶄綔锛涚櫥褰曢〉浣跨敤绾㈣壊鍝佺墝澶村浘涓庣櫧鑹叉诞灞傝〃鍗曘€?/p>
+</div>
+<span class="template-badge">PAGE TEMPLATE</span>
+</div>
+          <div class="zxb-two-phones">
+            <div class="zxb-phone login">
+              <div class="zxb-login-hero">
+                <div class="zxb-status white">
+<b>9:41</b>
+<span>
+</span>
+</div>
+                <div class="zxb-page-title white">鈥?鐧诲綍 <span>鈥⑩€⑩€?鈼?/span>
+</div>
+                <strong>娆㈣繋鐧诲綍涓滈箯鍔╅攢瀹?/strong>
+<em>DONGPENG</em>
+              </div>
+              <div class="zxb-login-panel">
+<div class="zxb-login-tabs">
+<b>璐︽埛瀵嗙爜鐧诲綍</b>
+<span>鐭俊鐧诲綍</span>
+</div>
+<div class="zxb-field">
+<span>璐﹀彿</span>
+<input value="xls" />
+<i data-lucide="chevron-down">
+</i>
+</div>
+<div class="zxb-field">
+<span>瀵嗙爜</span>
+<input value="********" />
+<i data-lucide="eye-off">
+</i>
+</div>
+<label>
+<input type="checkbox" checked />璁颁綇瀵嗙爜</label>
+</div>
+              <button class="zxb-btn">鐧诲綍</button>
+<p class="zxb-agree">
+<input type="checkbox" checked />鎴戝凡闃呰骞跺悓鎰忋€婁笢楣忓姪閿€瀹濋殣绉佹斂绛栥€?/p>
+              <div class="zxb-login-footer">
+<div class="zxb-mini-logo">涓滈箯 <em>DONG<br>PENG</em>
+</div>
+<p>涓滈箯鐡风爾闂ㄥ簵鍔╅攢骞冲彴<br>浠呬緵涓滈箯鍐呴儴浜哄憳浣跨敤</p>
+</div>
+            </div>
+            <div class="zxb-phone form">
+              <div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+<h3>鈥?鏂板瀹㈡埛</h3>
+              <div class="zxb-form-card">
+<div class="zxb-form-row required">
+<span>瀹㈡埛绫诲瀷</span>
+<b>鎰忓悜</b>
+<b class="selected">鎶ュ</b>
+</div>
+<div class="zxb-form-row">
+<span>甯﹀崟浜?/span>
+<em>璇烽€夋嫨</em>
+<i data-lucide="chevron-right">
+</i>
+</div>
+<div class="zxb-form-row">
+<span>瀹㈡埛闃舵</span>
+<b>宸叉祴閲?/b>
+<i data-lucide="chevron-right">
+</i>
+</div>
+<div class="zxb-form-row">
+<span>瀹㈡埛鏉ユ簮</span>
+<b>鑷劧杩涘簵</b>
+<i data-lucide="chevron-right">
+</i>
+</div>
+</div>
+              <h4>銆愬鎴峰熀纭€淇℃伅銆?/h4>
+              <div class="zxb-form-card">
+<div class="zxb-form-row">
+<span>濮撳悕</span>
+<b>鏂规ⅵ闆?/b>
+</div>
+<div class="zxb-form-row">
+<span>鎬у埆</span>
+<b>濂?/b>
+</div>
+<div class="zxb-form-row">
+<span>鎵嬫満鍙?/span>
+<b>14688909906</b>
+</div>
+<div class="zxb-form-row">
+<span>鐪佸競鍖?/span>
+<b>骞夸笢鐪?浣涘北甯?绂呭煄鍖?/b>
+<i data-lucide="chevron-right">
+</i>
+</div>
+</div>
+              <h4>銆愬鎴烽渶姹備俊鎭€?/h4>
+              <div class="zxb-form-card">
+<div class="zxb-form-row required">
+<span>瑁呬慨椋庢牸</span>
+<b>濂舵补椋?/b>
+<i data-lucide="chevron-right">
+</i>
+</div>
+<div class="zxb-form-row required">
+<span>鐢ㄧ爾鏃堕棿</span>
+<em>璇烽€夋嫨</em>
+<i data-lucide="chevron-right">
+</i>
+</div>
+<div class="zxb-form-row required">
+<span>濂楀唴闈㈢Н</span>
+<em>璇疯緭鍏?/em>
+<small>銕?/small>
+</div>
+</div>
+              <div class="zxb-form-actions">
+<button>鍙栨秷</button>
+<button>淇濆瓨</button>
+</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="zxb-states" class="doc-section zxb-section" data-search="鍔╅攢瀹?鎴愬姛椤?寮圭獥 缁撴灉椤?>
+          <div class="section-heading">
+<div>
+<span class="section-index">26</span>
+<h2>鍔╅攢瀹?路 寮圭獥 / 鎴愬姛</h2>
+<p>缁撴灉椤电‘璁ゅ叧閿搷浣滅粨鏋滐紱寮圭獥鍙敤浜庡繀瑕佺殑浜屾纭锛岄伩鍏嶆斁鍏ュ鏉備俊鎭€?/p>
+</div>
+</div>
+          <div class="zxb-state-grid">
+            <div class="zxb-phone state">
+<div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+<h3>鈥?缁撴灉</h3>
+<div class="zxb-success">
+<span class="zxb-success-icon">
+<i data-lucide="check">
+</i>
+</span>
+<strong>鐢宠鎴愬姛</strong>
+<p>瀹℃牳閫氳繃鍚庤嚜鍔ㄥ彂鏀捐嚦寰俊闆堕挶<br>璇锋敞鎰忔煡鏀讹紒</p>
+<button class="zxb-btn">杩斿洖</button>
+</div>
+</div>
+            <div class="zxb-phone state">
+<div class="zxb-status">
+<b>9:41</b>
+<span>
+</span>
+</div>
+<h3>鈥?绉垎鍏戞崲</h3>
+<div class="zxb-dim">
+</div>
+<div class="zxb-dialog-demo floating">
+<strong>纭鎻愮ず</strong>
+<span>璇风‘璁ゆ槸鍚︽彁鐜?/span>
+<div>
+<button>鍙栨秷</button>
+<button>纭</button>
+</div>
+</div>
+</div>
+          </div>
+        </section>
+
+        <section id="ppt-overview" class="doc-section ppt-hero" data-search="姹囨姤 PPT 涓滈箯 浼佷笟姹囨姤 姒傝">
+          <div class="ppt-hero-copy">
+            <div class="eyebrow">DONGPENG CORPORATE REPORT</div>
+            <h2>涓滈箯姹囨姤 PPT<br>
+<span>瑙嗚涓庣敓鎴愪綋绯?/span>
+</h2>
+            <p>浠ラ泦鍥?PPT 鏍囧噯妯℃澘涓鸿瑙夐敋鐐癸紝灏嗙孩鐧藉搧鐗岃瑷€銆?2 绉?DP 鏍囧噯鐗堝紡鍜?dongpeng-ppt-editor 鎺ュ叆璁捐浣撶郴銆?/p>
+            <div class="hero-actions">
+              <a class="dp-button primary" href="./ppt/index.html">鎵撳紑缃戦〉鐗?PPT <i data-lucide="presentation">
+</i>
+</a>
+              <a class="dp-button secondary" href="./assets/downloads/涓滈箯闆嗗洟PPT鏍囧噯妯℃澘.pptx">涓嬭浇闆嗗洟妯℃澘 <i data-lucide="download">
+</i>
+</a>
+            </div>
+          </div>
+          <a class="ppt-preview-card" href="./ppt/index.html" aria-label="鎵撳紑涓滈箯浼佷笟姹囨姤缃戦〉鐗?PPT">
+            <div class="ppt-preview-top">
+<span>DONGPENG</span>
+<small>16 : 9</small>
+</div>
+            <strong>涓滈箯浼佷笟姹囨姤<br>瑙嗚妯℃澘</strong>
+            <span class="ppt-preview-en">CORPORATE REPORT SYSTEM</span>
+            <span class="ppt-preview-open">鐐瑰嚮杩涘叆妯悜缈婚〉婕旂ず <i data-lucide="arrow-up-right">
+</i>
+</span>
+          </a>
+        </section>
+
+        <section id="ppt-foundation" class="doc-section" data-search="PPT 棰滆壊 瀛椾綋 鍝佺墝 瑙嗚瑙勮寖">
+          <div class="section-heading">
+<div>
+<span class="section-index">28</span>
+<h2>PPT 瑙嗚瑙勮寖</h2>
+<p>绾㈣壊浠紡椤垫壙杞界珷鑺備笌鍏抽敭鑺傜偣锛岀櫧搴曠孩鏅曢〉璐熻矗淇℃伅琛ㄨ揪銆?/p>
+</div>
+</div>
+          <div class="ppt-foundation-grid">
+            <article class="ppt-rule-card red">
+<span>鍝佺墝涓昏壊</span>
+<strong>#E60012</strong>
+<small>灏侀潰銆佺珷鑺傘€侀噸鐐规暟瀛?/small>
+</article>
+            <article class="ppt-rule-card">
+<span>涓枃瀛椾綋</span>
+<strong>寰蒋闆呴粦</strong>
+<small>鏍囬绋抽噸锛屾鏂囨竻鏅?/small>
+</article>
+            <article class="ppt-rule-card">
+<span>鏍囧噯鐢诲竷</span>
+<strong>16 : 9</strong>
+<small>閫傚悎浼氳瀹や笌澶у睆鎶曞奖</small>
+</article>
+            <article class="ppt-rule-card">
+<span>鍝佺墝椤佃剼</span>
+<strong>浠ユ涓轰富</strong>
+<small>绮句簬姝ら亾</small>
+</article>
+          </div>
+          <div class="ppt-principles">
+            <div>
+<i data-lucide="circle-check">
+</i>
+<span>
+<strong>淇濇寔绾㈢櫧涓诲彊浜?/strong>涓嶅紩鍏ヨ摑绱€侀湏铏规垨鏆楅粦绉戞妧娓愬彉銆?/span>
+</div>
+            <div>
+<i data-lucide="circle-check">
+</i>
+<span>
+<strong>鍥剧墖鐩磋鍛堢幇</strong>浜у搧涓庣┖闂村浘鐗囦笉娣诲姞鍦嗚鍜屽崱鐗囬槾褰便€?/span>
+</div>
+            <div>
+<i data-lucide="circle-check">
+</i>
+<span>
+<strong>鏁版嵁绐佸嚭缁撹</strong>鍥捐〃浣跨敤涓滈箯绾㈢郴锛屼笉鍋氬鑹?dashboard銆?/span>
+</div>
+          </div>
+        </section>
+
+        <section id="ppt-layouts" class="doc-section" data-search="PPT 椤甸潰 鐗堝紡 DP01 DP12">
+          <div class="section-heading">
+<div>
+<span class="section-index">29</span>
+<h2>12 绉嶆爣鍑嗙増寮?/h2>
+<p>鎸夐泦鍥?PPT 绾㈢櫧瑙嗚閲嶇粯缂╃暐椤碉紝骞舵妸鍥剧墖銆佸浘鏍囥€佸浘琛ㄣ€佽〃鏍肩瓑鍏抽敭鐣岄潰鏍峰紡瀵瑰簲鍒?DP 鐗堝紡銆?/p>
+</div>
+</div>
+          <div class="ppt-layout-grid">
+            <article class="ppt-layout red cover">
+              <div class="ppt-page-head">
+<span>DP01</span>
+<small>DONGPENG</small>
+</div>
+              <strong>灏侀潰</strong>
+<small>绾㈣壊娓愬彉浠紡椤?/small>
+              <em>椤圭洰姹囨姤 / 骞翠細寮€鍦?/em>
+            </article>
+            <article class="ppt-layout toc">
+              <div class="ppt-page-head">
+<span>DP02</span>
+<small>鐩綍</small>
+</div>
+              <strong>鐩綍</strong>
+<small>绔犺妭鎬昏</small>
+              <ol>
+<li>椤圭洰鑳屾櫙</li>
+<li>鍏抽敭鏁版嵁</li>
+<li>钀藉湴璁″垝</li>
+</ol>
+            </article>
+            <article class="ppt-layout red chapter">
+              <div class="ppt-page-head">
+<span>DP03</span>
+<small>01</small>
+</div>
+              <strong>绔犺妭椤?/strong>
+<small>鑺傚鍒囨崲</small>
+              <em>闃舵鏍囬 / 閲嶇偣杞満</em>
+            </article>
+            <article class="ppt-layout quote">
+              <div class="ppt-page-head">
+<span>DP04</span>
+<small>瑙傜偣</small>
+</div>
+              <strong>鏍囪瑙傜偣</strong>
+<small>缁撹鍏堣 路 璇佹嵁灞曞紑</small>
+            </article>
+            <article class="ppt-layout image-text">
+              <div class="ppt-page-head">
+<span>DP05</span>
+<small>鍥炬枃</small>
+</div>
+              <strong>宸︽枃鍙冲浘</strong>
+<small>妗堜緥涓庤瘉鎹?/small>
+              <div class="ppt-image-block">
+<i data-lucide="image">
+</i>
+</div>
+            </article>
+            <article class="ppt-layout icon-cols">
+              <div class="ppt-page-head">
+<span>DP06</span>
+<small>鍥炬爣</small>
+</div>
+              <strong>鏂囧瓧閲嶇偣</strong>
+<small>涓夊垪鍐呭 / 鑳藉姏鎷嗚В</small>
+              <div class="ppt-icons-row">
+<i data-lucide="layers-3">
+</i>
+<i data-lucide="chart-no-axes-combined">
+</i>
+<i data-lucide="shield-check">
+</i>
+</div>
+            </article>
+            <article class="ppt-layout kpi">
+              <div class="ppt-page-head">
+<span>DP07</span>
+<small>鏁版嵁</small>
+</div>
+              <strong>鏁版嵁澶у瓧鎶?/strong>
+<small>KPI 姹囨姤</small>
+              <div class="ppt-kpi-row">
+<b>68%</b>
+<b>8,608</b>
+<b>23,868</b>
+</div>
+            </article>
+            <article class="ppt-layout relation">
+              <div class="ppt-page-head">
+<span>DP08</span>
+<small>鍏崇郴</small>
+</div>
+              <strong>鍏抽敭璇嶅叧绯?/strong>
+<small>鍦嗗舰鑺傜偣 / 閫昏緫閾捐矾</small>
+              <div class="ppt-node-map">
+<b>鍝佺墝</b>
+<span>绯荤粺</span>
+<span>缁勪欢</span>
+<span>椤甸潰</span>
+</div>
+            </article>
+            <article class="ppt-layout product">
+              <div class="ppt-page-head">
+<span>DP09</span>
+<small>鍥剧墖</small>
+</div>
+              <strong>浜у搧鐭╅樀</strong>
+<small>绯诲垪灞曠ず / 鍥剧墖澧?/small>
+              <div class="ppt-product-grid">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</div>
+            </article>
+            <article class="ppt-layout chart">
+              <div class="ppt-page-head">
+<span>DP10</span>
+<small>鍥捐〃</small>
+</div>
+              <strong>鍥捐〃</strong>
+<small>瓒嬪娍鍒嗘瀽</small>
+              <div class="ppt-chart-mini">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<svg viewBox="0 0 120 42">
+<polyline points="0,32 30,24 58,28 86,12 120,6"/>
+</svg>
+</div>
+            </article>
+            <article class="ppt-layout table">
+              <div class="ppt-page-head">
+<span>DP11</span>
+<small>琛ㄦ牸</small>
+</div>
+              <strong>琛ㄦ牸</strong>
+<small>缁撴瀯鍖栨暟鎹?/small>
+              <div class="ppt-table-mini">
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+<i>
+</i>
+</div>
+            </article>
+            <article class="ppt-layout red closing">
+              <div class="ppt-page-head">
+<span>DP12</span>
+<small>END</small>
+</div>
+              <strong>鏀跺熬</strong>
+<small>鍝佺墝缁撴潫椤?/small>
+              <em>绮句簬姝ら亾 路 浠ユ涓轰富</em>
+            </article>
+          </div>
+        </section>
+
+        <section id="ppt-skill" class="doc-section" data-search="PPT Skill 缃戦〉 PPT GitHub 鐢熸垚">
+          <div class="section-heading">
+<div>
+<span class="section-index">30</span>
+<h2>PPT Skill</h2>
+<p>鎺ュ叆鍩轰簬涓滈箯闆嗗洟 PPT 鏍囧噯妯℃澘鍒朵綔鐨?dongpeng-ppt-editor锛岀敤缁熶竴娴佺▼鐢熸垚鍙í鍚戠炕椤电殑浼佷笟姹囨姤缃戦〉銆?/p>
+</div>
+<span class="status success">宸叉帴鍏?/span>
+</div>
+          <div class="skill-panel">
+            <div class="skill-main">
+<span class="skill-icon">
+<i data-lucide="presentation">
+</i>
+</span>
+<div>
+<strong>dongpeng-ppt-editor</strong>
+<p>鏍规嵁涓滈箯闆嗗洟 PPT 鏍囧噯妯℃澘娌夋穩 DP01鈥揇P12 鐗堝紡锛屾敮鎸佹妸澶х翰銆佹暟鎹€佸浘鐗囥€佸浘鏍囥€佸浘琛ㄤ笌琛ㄦ牸鐢熸垚绾㈢櫧鍝佺墝椋庢牸鐨勭綉椤电増姹囨姤銆?/p>
+</div>
+</div>
+            <div class="skill-flow">
+              <span>
+<b>01</b>瀵煎叆闆嗗洟妯℃澘</span>
+<i data-lucide="arrow-right">
+</i>
+<span>
+<b>02</b>鏁寸悊澶х翰涓庣礌鏉?/span>
+<i data-lucide="arrow-right">
+</i>
+              <span>
+<b>03</b>鍖归厤 DP 鐗堝紡</span>
+<i data-lucide="arrow-right">
+</i>
+<span>
+<b>04</b>鐢熸垚缃戦〉姹囨姤</span>
+            </div>
+            <div class="skill-actions">
+              <a class="dp-button primary" href="./ppt/index.html">鏌ョ湅绀轰緥</a>
+              <a class="dp-button secondary" href="https://github.com/fan604925-dev/dongpeng-ppt-editor" rel="noreferrer">鎵撳紑 Skill 浠撳簱 <i data-lucide="github">
+</i>
+</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div id="toast" role="status" aria-live="polite">浠ｇ爜宸插鍒?/div>
+  <script src="./app.js">
+</script>
+</body>
+</html>

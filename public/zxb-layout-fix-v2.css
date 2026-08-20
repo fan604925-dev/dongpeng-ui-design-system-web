@@ -1,0 +1,29 @@
+/* 助销宝内容归位与客户卡片对齐修正 */
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+}
+
+.zxb-summary-align-fixed .zxb-customer-card-top {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  column-gap: 10px !important;
+}
+
+.zxb-summary-align-fixed .zxb-customer-card-top > :not(.zxb-pin-action) {
+  min-width: 0;
+}
+
+.zxb-summary-align-fixed .zxb-pin-action {
+  grid-column: 3 !important;
+  justify-self: end !important;
+  align-self: center !important;
+  margin: 0 !important;
+  text-align: right !important;
+}
+
+.zxb-summary-align-fixed .zxb-customer-card-bottom,
+.zxb-summary-align-fixed .zxb-customer-actions {
+  justify-content: flex-end;
+}

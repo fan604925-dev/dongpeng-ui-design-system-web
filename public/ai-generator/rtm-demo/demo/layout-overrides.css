@@ -1,0 +1,80 @@
+/* The active tab is the visual start of its page surface. */
+.app { --redwash: #fff5f5; }
+.tabs { padding-left: 12px; }
+.canvas { padding: 0 12px 12px; }
+.top-summary { padding: 12px; background: #fff; border-radius: 4px; }
+.top-summary .welcome { margin: 0; }
+.welcome { height: 79px; padding: 14px 12px; border-radius: 2px; background: linear-gradient(96deg, #fffcfc 0%, rgba(255, 207, 207, .2) 100%); }
+.welcome h1 { font-size: 20px; line-height: 28px; font-weight: 600; }
+.welcome p { margin-top: 0; font-size: 16px; line-height: 22px; }
+.welcome::after { display: none; }
+.welcome-eagle { position: absolute; top: -51px; right: 69px; width: 314px; height: 169px; pointer-events: none; }
+.summary-grid { display: grid; grid-template-columns: 1.36fr .98fr; grid-auto-rows: 163px; gap: 12px; margin-top: 12px; }
+.summary-grid .overview { display: flex; flex-direction: column; height: 163px; min-height: 0; padding: 12px; background: #fafafa; }
+.summary-grid .overview .metrics { flex: 0 0 106px; height: 106px; min-height: 0; margin-top: 11px; }
+.summary-grid .overview .metrics > div { background: #fff; }
+.overview h2 { display: flex; align-items: center; gap: 6px; }
+.overview h2 > svg { width: 14px; height: 14px; color: #c7cbd1; }
+.dashboard { margin-top: 12px; }
+.side:not(.active):hover { background: #f8f9fa; }
+.sub { cursor: pointer; }
+.sub:hover { background: #f8f9fa; }
+.sub.active { background: #fff5f5; color: #e60012; }
+.sub.active:before { color: #e60012; }
+
+/* Platform navigation uses neutral selected and hover states. */
+.platforms button { cursor: pointer; transition: background-color .16s ease; }
+.platforms button:hover { background: #f8f9fa; }
+.platforms button.active,
+.platforms button.active:hover { background: #f4f5f7; }
+
+/* Quick actions mirror the dense, six-column RTM workbench pattern. */
+.quick { min-height: 186px; padding: 16px; }
+.quick .panel-head { min-height: 24px; }
+.quick .actions {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(56px, 1fr));
+  gap: 24px;
+  margin-top: 22px;
+  padding: 0 12px;
+}
+.quick .actions button { gap: 10px; color: #666; font-size: 14px; line-height: 20px; }
+.quick .actions button > svg {
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.quick .actions .add > svg { border-color: #ccc; }
+
+/* Five-row announcement and task cards should not carry excess bottom space. */
+.list { min-height: 212px; }
+
+/* Account funds: built from editable HTML, not a reference image. */
+.funds { align-self: stretch; height: 163px; min-height: 0; padding: 12px; background: #fafafa; }
+.funds .panel-head { min-height: 23px; }
+.funds .panel-head h2 { display: flex; align-items: center; gap: 6px; }
+.funds .panel-head h2 > svg { width: 14px; height: 14px; color: #c7cbd1; }
+.funds .account-tabs { display: flex; align-items: center; gap: 10px; }
+.funds .account-tabs button { padding: 2px 8px; border: 0; border-radius: 2px; background: transparent; color: #909399; font: inherit; font-size: 12px; line-height: 20px; cursor: pointer; }
+.funds .account-tabs button.active { background: #fff5f5; color: #e61817; }
+.funds .fund-grid { min-height: 106px; margin-top: 10px; gap: 12px; background: transparent; }
+.funds .fund-card { position: relative; min-height: 106px; padding: 16px; overflow: hidden; background: #fff; }
+.funds .amount-label { position: relative; z-index: 1; display: flex; align-items: center; gap: 6px; color: #606266; font-size: 12px; line-height: 18px; }
+.funds .amount-label svg { width: 14px; height: 14px; color: #8f959e; }
+.funds .visibility-toggle { display: grid; place-items: center; width: 16px; height: 16px; padding: 0; border: 0; background: transparent; cursor: pointer; }
+.funds .visibility-toggle img { display: block; width: 16px; height: 16px; }
+.funds .visibility-toggle:focus-visible { outline: 2px solid #e60012; outline-offset: 2px; border-radius: 2px; }
+.funds .fund-card strong { position: relative; z-index: 1; display: block; margin: 4px 0 3px; color: #303133; font-size: 24px; line-height: 32px; letter-spacing: .02em; }
+.funds .fund-card strong small { margin-left: 2px; font-size: 12px; font-weight: 600; }
+.funds .fund-card p { position: relative; z-index: 1; margin: 0; color: #f04444; font-size: 12px; line-height: 18px; }
+.funds .fund-watermark { position: absolute; right: -20px; bottom: -20px; width: 87px; height: 87px; pointer-events: none; }
+
+/* Compact new-item marker for announcements and tasks. */
+.list .new-badge { display: inline-grid; flex: 0 0 auto; place-items: center; width: 22px; height: 10px; margin-left: 2px; border-radius: 1px; background: linear-gradient(110deg, #ff454b, #ea352a); color: #fff; font-family: Arial, sans-serif; font-size: 6px; font-weight: 700; line-height: 10px; letter-spacing: -.15px; vertical-align: middle; }
+
+/* Keep alert signal, separator, and timestamp independently controllable. */
+.alert .alert-meta { display: flex; align-items: center; gap: 7px; }
+.alert .alert-separator { color: #e6e6e6; font-style: normal; }
+.alert .alert-meta time { color: #999; }

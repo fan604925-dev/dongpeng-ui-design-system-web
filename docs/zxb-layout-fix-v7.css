@@ -1,0 +1,37 @@
+/* 助销宝模块归位与客户卡片操作对齐 */
+#zxb-tab-style-spec.zxb-tab-style-in-components {
+  width: 100% !important;
+  margin: 24px 0 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-card-top,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-card-top {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  min-width: 0 !important;
+}
+
+.zxb-customer-summary-card .zxb-pin-action,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-pin-action {
+  position: static !important;
+  flex: 0 0 auto !important;
+  margin: 0 0 0 auto !important;
+  transform: none !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+}
+
+.zxb-customer-summary-card .zxb-customer-name,
+.zxb-customer-card.zxb-summary-layout-fix .zxb-customer-name {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 720px) {
+  #zxb-tab-style-spec.zxb-tab-style-in-components {
+    margin-top: 16px !important;
+  }
+}
